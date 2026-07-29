@@ -1,11 +1,11 @@
 {
- "generated_at_utc": "2026-07-29T11:30:27.023141+00:00",
+ "generated_at_utc": "2026-07-29T14:06:27.636049+00:00",
  "metrics": [
   {
    "id": 2,
    "journey": "B2I",
-   "name": "Booking provisioning (payment -> booking)",
-   "description": "For every successful booking-fee payment, did we create a booking record against that same transaction?",
+   "name": "Booking Payment -> Booking Created",
+   "description": "Of customers who paid the booking fee, what share had a booking successfully recorded against that payment?",
    "tbd": false,
    "values": [
     100.0,
@@ -23,8 +23,8 @@
   {
    "id": 3,
    "journey": "B2I",
-   "name": "BFP not-installed-14D -> refunded-by-16D (CSP OR legacy OTP)",
-   "description": "Replacement for the old 7-day BFP auto-refund SLA metric. Of booking-fee-paid customers who did NOT get installed within 14 days (checked against both CSP install-complete and legacy technician-OTP-verified signals), what share got their booking fee refunded by day 16? Bucketed by maturity date (bfp_time + 16d) so only fully-mature bookings are counted per window.",
+   "name": "Booking Fee Refunded When Not Installed",
+   "description": "Of customers who paid but weren't installed within 14 days, what share got their booking fee refunded within 16 days?",
    "tbd": false,
    "values": [
     64.1221,
@@ -42,8 +42,8 @@
   {
    "id": 11,
    "journey": "B2I",
-   "name": "Address Submitted -> Booking Confirmed (24h) %",
-   "description": "For every customer who submits their address, do they go on to confirm the booking within 24 hours (either direction, session-deduped)? Values are a 0-1 fraction.",
+   "name": "Address Submitted -> Booking Confirmed",
+   "description": "Of customers who submitted their installation address, what share went on to confirm their booking within 24 hours?",
    "tbd": false,
    "values": [
     0.926,
@@ -61,8 +61,8 @@
   {
    "id": 12,
    "journey": "B2I",
-   "name": "Install TRUM plan creation within 30 mins",
-   "description": "For every install reaching the awaiting-customer-OTP step, was the TRUM plan created within 30 minutes of it?",
+   "name": "Installation Setup Completed On Time",
+   "description": "Of installs where the customer verified their OTP, what share had their connection plan set up within 30 minutes?",
    "tbd": false,
    "values": [
     100.0,
@@ -80,8 +80,8 @@
   {
    "id": 13,
    "journey": "B2I",
-   "name": "Device live at install (ping within 30 min)",
-   "description": "For every install reaching the awaiting-customer-OTP step, did the device show any ping activity within 30 minutes of it?",
+   "name": "Device Online Right After Install",
+   "description": "Of installs where the customer verified their OTP, what share had their device come online within 30 minutes?",
    "tbd": false,
    "values": [
     87.8788,
@@ -99,8 +99,8 @@
   {
    "id": 14,
    "journey": "B2I",
-   "name": "Rating done to happy code delivered on chat",
-   "description": "For every install rating submitted, was the happy-code confirmation delivered via chat around the same time?",
+   "name": "Install Confirmation Sent After Rating",
+   "description": "Of installs where the customer submitted a rating, what share received their install-confirmation message around the same time?",
    "tbd": false,
    "values": [
     95.5882,
@@ -118,8 +118,8 @@
   {
    "id": 15,
    "journey": "B2I",
-   "name": "Technician assigned msg to customer",
-   "description": "For every technician assignment, was the customer notified via chat within 10 minutes?",
+   "name": "Technician Assignment Notification Sent",
+   "description": "Of technician assignments, what share notified the customer within 10 minutes?",
    "tbd": false,
    "values": [
     100.0,
@@ -137,8 +137,8 @@
   {
    "id": 4,
    "journey": "R2E",
-   "name": "Renewal Reminder - R0 (sent within 24h before expiry)",
-   "description": "For every plan expiry, was the R0 reminder sent within 24 hours before it?",
+   "name": "Renewal Reminder Sent On Time",
+   "description": "Of plans nearing expiry, what share received a renewal reminder within 24 hours before expiry?",
    "tbd": false,
    "values": [
     88.7798,
@@ -156,8 +156,8 @@
   {
    "id": 5,
    "journey": "R2E",
-   "name": "Recharge to device live within 2h",
-   "description": "For every recharge, did the device come back online within 2 hours of the plan start?",
+   "name": "Device Back Online After Recharge",
+   "description": "Of recharges, what share had the device back online within 2 hours of the new plan starting?",
    "tbd": false,
    "values": [
     95.1149,
@@ -175,8 +175,8 @@
   {
    "id": 6,
    "journey": "R2E",
-   "name": "Renewal provisioning (payment -> plan & entitlement)",
-   "description": "For every successful renewal payment, did we create the plan and the entitlement?",
+   "name": "Renewal Payment -> Plan Activated",
+   "description": "Of successful renewal payments, what share had the new plan and entitlement activated?",
    "tbd": false,
    "values": [
     "99.96",
@@ -194,8 +194,8 @@
   {
    "id": 7,
    "journey": "R2E",
-   "name": "No free usage after Wiom expiry (ISP active)",
-   "description": "Of customers whose Wiom plan expired while the ISP is still live, the share showing ~zero data usage that day.",
+   "name": "No Free Usage After Plan Expiry",
+   "description": "Of customers whose plan expired while their connection was still live, what share used close to zero data that day?",
    "tbd": true,
    "values": null,
    "error": null
@@ -203,14 +203,14 @@
   {
    "id": 8,
    "journey": "R2E",
-   "name": "Customer plan ISP coverage (paid-hour level)",
-   "description": "Of every hour a customer paid for, what share actually had the ISP gate open?",
+   "name": "Plan Hours Actually Delivered",
+   "description": "Of the hours a customer paid for, what share were actually delivered with an active connection?",
    "tbd": false,
    "values": [
-    95.8629,
-    95.9594,
-    95.8127,
-    94.5669,
+    95.8683,
+    95.9632,
+    95.8159,
+    94.5676,
     96.3098,
     95.838,
     null,
@@ -222,14 +222,14 @@
   {
    "id": 9,
    "journey": "R2E",
-   "name": "Customers NOT affected rate (100 - % customers affected)",
+   "name": "Customers With No Service Interruption",
    "description": "Of paying customers, what share had zero blocked hours in the period?",
    "tbd": false,
    "values": [
-    92.8991,
-    93.0852,
-    93.115,
-    91.1568,
+    92.9027,
+    93.0889,
+    93.1174,
+    91.1573,
     93.5843,
     92.7668,
     null,
@@ -241,14 +241,14 @@
   {
    "id": 10,
    "journey": "R2E",
-   "name": "Captive Portal triggered -> Captive portal open",
-   "description": "For every captive portal trigger, did the portal actually open on the customer device?",
+   "name": "Wi-Fi Login Screen Opens Successfully",
+   "description": "Of times a customer is prompted to sign in to Wi-Fi, what share actually saw the sign-in screen open on their device?",
    "tbd": false,
    "values": [
-    95.6414,
-    96.0289,
-    96.1953,
-    95.0017,
+    95.6423,
+    96.0296,
+    96.196,
+    95.0019,
     94.3741,
     95.2678,
     95.5997,
@@ -260,17 +260,17 @@
   {
    "id": 16,
    "journey": "Closure",
-   "name": "% Refund Requested (PAYG)",
-   "description": "Of all PUT tickets created for PAYG customers, what share have a security-deposit refund order created?",
+   "name": "Refund Requested After Pickup",
+   "description": "Of pickup tickets raised, what share had a refund request created?",
    "tbd": false,
    "values": [
     94.4615,
     95.3488,
     94.3522,
-    94.5293,
-    93.5792,
+    94.4492,
+    93.4941,
     90.514,
-    84.5149,
+    84.497,
     84.8639,
     66.6667
    ],
@@ -279,8 +279,8 @@
   {
    "id": 17,
    "journey": "Closure",
-   "name": "% Refund Processed (PAYG)",
-   "description": "Of completed pickup tickets, excluding cases stuck at netbox-returned-no-UPI, what share have the refund actually in PROCESSING or SUCCESSFUL?",
+   "name": "Refund Processed After Pickup",
+   "description": "Of completed pickups where the customer submitted their payment details, what share had their refund actually processed or completed?",
    "tbd": false,
    "values": [
     100.0,
@@ -298,8 +298,8 @@
   {
    "id": 18,
    "journey": "Closure",
-   "name": "Refund Orders stuck 5+ days in Processing (PAYG)",
-   "description": "Snapshot count (not a %): of PAYG refund orders currently sitting in PROCESSING status, how many have already been there 5+ days? Reconstructed as-of D-1/D-2/D-3 from status history; not defined for W-1..M-3 (this is a live backlog count, not a period rate). Target is 0.",
+   "name": "Refunds Stuck 5+ Days In Processing",
+   "description": "How many refunds are currently stuck in processing for 5 or more days? Shown as a count, not a percentage -- target is zero.",
    "tbd": false,
    "values": [
     31,
@@ -310,6 +310,63 @@
     null,
     null,
     null,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 19,
+   "journey": "Chat",
+   "name": "Chat Reply Sent Within 1 Minute",
+   "description": "Of customer messages that are expected to get a reply, what share received one within 60 seconds?",
+   "tbd": false,
+   "values": [
+    81.7496,
+    85.453,
+    83.2627,
+    84.1012,
+    83.0595,
+    82.6233,
+    85.6007,
+    92.611,
+    89.3585
+   ],
+   "error": null
+  },
+  {
+   "id": 20,
+   "journey": "Chat",
+   "name": "New Complaint Ticket Created On Time",
+   "description": "Of new complaint tickets confirmed to the customer over chat, what share were actually created in the ticketing system within 5 minutes?",
+   "tbd": false,
+   "values": [
+    99.7199,
+    99.3151,
+    98.4085,
+    98.6596,
+    98.3021,
+    96.8265,
+    98.9563,
+    97.235,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 21,
+   "journey": "Chat",
+   "name": "Reopened Ticket Reflected On Time",
+   "description": "Of reopened tickets confirmed to the customer over chat, what share actually showed as reopened in the ticketing system within 5 minutes?",
+   "tbd": false,
+   "values": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    99.3976,
+    94.6136,
+    80.0,
     null
    ],
    "error": null

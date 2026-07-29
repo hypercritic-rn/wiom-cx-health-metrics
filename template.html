@@ -155,16 +155,17 @@
     {{PANELS}}
 
     <div class="legend">
-      <div class="legend-item"><span class="legend-dot" style="background:#0ca30c"></span>Good</div>
-      <div class="legend-item"><span class="legend-dot" style="background:#fab219"></span>Warning</div>
-      <div class="legend-item"><span class="legend-dot" style="background:#ec835a"></span>Serious</div>
-      <div class="legend-item"><span class="legend-dot" style="background:#d03b3b"></span>Critical</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#0ca30c"></span>100%</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#7cb342"></span>99.5-99.9%</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#fab219"></span>95-99.4%</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#ec835a"></span>90-94.9%</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#d03b3b"></span>&lt;90%</div>
       <div class="legend-item">&mdash; No data for this window</div>
     </div>
 
     <footer>
-      Thresholds: Good &ge;95%, Warning &ge;85%, Serious &ge;70%, Critical &lt;70% (inverted for "stuck" % metrics, where a high % is bad).
-      Count-based metrics (e.g. Refund Orders stuck 5+ days) show a raw backlog count, not a %: Good = 0, Warning 1-10, Serious 11-25, Critical &gt;25 &mdash; target is zero.
+      Thresholds: 100% / 99.5-99.9% / 95-99.4% / 90-94.9% / &lt;90%, coloured green to red.
+      Count-based metrics (e.g. Refunds Stuck 5+ Days) show a raw backlog count, not a %: green = 0, and the count colours toward red as it grows &mdash; target is zero.
     </footer>
   </div>
 

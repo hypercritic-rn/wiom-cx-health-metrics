@@ -5,13 +5,14 @@ import json
 import os
 import html
 
-JOURNEYS = ["B2I", "R2E", "Closure"]
-JOURNEY_LABELS = {"B2I": "B2I (Booking to Install)", "R2E": "R2E (Recharge to Exit)", "Closure": "Closure"}
+JOURNEYS = ["B2I", "R2E", "Closure", "Chat"]
+JOURNEY_LABELS = {"B2I": "B2I (Booking to Install)", "R2E": "R2E (Recharge to Exit)", "Closure": "Closure", "Chat": "Chat"}
 WINDOW_LABELS = ["D-1", "D-2", "D-3", "W-1", "W-2", "W-3", "M-1", "M-2", "M-3"]
 
 # status palette (fixed, from the dataviz skill reference palette)
 STATUS = {
     "good": "#0ca30c",
+    "mild_good": "#7cb342",
     "warning": "#fab219",
     "serious": "#ec835a",
     "critical": "#d03b3b",
@@ -23,20 +24,24 @@ def status_for(value, inverted=False):
         return None
     v = value
     if inverted:
-        # high value = bad (e.g. % stuck)
-        if v <= 10:
+        # high value = bad (e.g. % stuck) -- mirrored version of the 5-tier scale below
+        if v <= 0:
             return "good"
-        if v <= 25:
+        if v <= 0.5:
+            return "mild_good"
+        if v <= 5:
             return "warning"
-        if v <= 45:
+        if v <= 10:
             return "serious"
         return "critical"
     else:
-        if v >= 95:
+        if v >= 100:
             return "good"
-        if v >= 85:
+        if v >= 99.5:
+            return "mild_good"
+        if v >= 95:
             return "warning"
-        if v >= 70:
+        if v >= 90:
             return "serious"
         return "critical"
 
