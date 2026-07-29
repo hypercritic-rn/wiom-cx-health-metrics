@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product Health &mdash; CX Metrics</title>
+<style>
+  :root {
+    color-scheme: light;
+    --page-plane:     #f9f9f7;
+    --surface-1:      #fcfcfb;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --gridline:       #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --accent:         #2a78d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page-plane:     #0d0d0d;
+      --surface-1:      #1a1a19;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --gridline:       #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --accent:         #3987e5;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page-plane:     #0d0d0d;
+    --surface-1:      #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --gridline:       #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --accent:         #3987e5;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page-plane);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
+  h1 { font-size: 22px; font-weight: 700; margin: 0 0 4px; }
+  .subtitle { color: var(--text-secondary); font-size: 14px; margin: 0 0 24px; }
+  .refreshed { color: var(--text-muted); font-size: 12px; margin-bottom: 24px; }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid var(--gridline);
+    margin-bottom: 20px;
+  }
+  .tab {
+    appearance: none;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 16px;
+    cursor: pointer;
+  }
+  .tab:hover { color: var(--text-primary); }
+  .tab[aria-selected="true"] {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .journey-panel { display: none; }
+  .journey-panel.active { display: block; }
+
+  .table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+  .metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface-1);
+    font-size: 13px;
+  }
+  .metrics-table th, .metrics-table td {
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid var(--gridline);
+    white-space: nowrap;
+  }
+  .metric-name-header { text-align: left !important; min-width: 260px; }
+  .metrics-table thead th {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .metric-name {
+    text-align: left !important;
+    white-space: normal !important;
+    font-weight: 600;
+    max-width: 320px;
+  }
+  .metric-desc {
+    font-weight: 400;
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-top: 3px;
+    white-space: normal;
+  }
+  .frac-note { font-weight: 400; color: var(--text-muted); font-size: 11px; }
+  .metric-cell { font-variant-numeric: tabular-nums; font-weight: 500; }
+  .metric-cell.empty { color: var(--text-muted); font-weight: 400; }
+  .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  .tbd-row { opacity: 0.55; }
+  .tbd-cell { text-align: left !important; color: var(--text-muted); font-style: italic; }
+
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 16px;
+    margin: 20px 0 4px;
+    font-size: 12px; color: var(--text-secondary);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  footer { color: var(--text-muted); font-size: 11px; margin-top: 32px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Product Health &mdash; CX Metrics</h1>
+    <p class="subtitle">L0 health metrics across the B2I, Recharge-to-Exit, and Closure journeys. Refreshed daily.</p>
+    <p class="refreshed">Last refreshed: <span id="refreshed-at">{{GENERATED_AT}}</span></p>
+
+    <div class="tabs" role="tablist">
+      {{TABS}}
+    </div>
+
+    {{PANELS}}
+
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot" style="background:#0ca30c"></span>Good</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#fab219"></span>Warning</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#ec835a"></span>Serious</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#d03b3b"></span>Critical</div>
+      <div class="legend-item">&mdash; No data for this window</div>
+    </div>
+
+    <footer>
+      Thresholds: Good &ge;95%, Warning &ge;85%, Serious &ge;70%, Critical &lt;70% (inverted for "stuck" metrics, where a high % is bad).
+    </footer>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.journey-panel');
+    function activate(journey) {
+      tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.journey === journey ? 'true' : 'false'));
+      panels.forEach(p => p.classList.toggle('active', p.id === 'panel-' + journey));
+    }
+    tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.journey)));
+    activate(tabs[0].dataset.journey);
+
+    // format the refreshed timestamp in the viewer's local time
+    const el = document.getElementById('refreshed-at');
+    try {
+      const d = new Date(el.textContent);
+      el.textContent = d.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+    } catch (e) {}
+  </script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+{
+ "generated_at_utc": "2026-07-29T07:38:25.183118+00:00",
+ "metrics": [
+  {
+   "id": 2,
+   "journey": "B2I",
+   "name": "Booking provisioning (payment -> booking)",
+   "description": "For every successful booking-fee payment, did we create a booking record against that same transaction?",
+   "tbd": false,
+   "values": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    99.54,
+    99.69
+   ],
+   "error": null
+  },
+  {
+   "id": 3,
+   "journey": "B2I",
+   "name": "BFP auto-refund SLA (7-day)",
+   "description": "For bookings/BFPs not installed within 7 days, was the auto-refund issued within SLA?",
+   "tbd": true,
+   "values": null,
+   "error": null
+  },
+  {
+   "id": 11,
+   "journey": "B2I",
+   "name": "Address Submitted -> Booking Confirmed (24h) %",
+   "description": "For every customer who submits their address, do they go on to confirm the booking within 24 hours (either direction, session-deduped)? Values are a 0-1 fraction.",
+   "tbd": false,
+   "values": [
+    0.926,
+    0.866,
+    0.854,
+    0.842,
+    0.985,
+    0.974,
+    0.982,
+    0.962,
+    0.934
+   ],
+   "error": null
+  },
+  {
+   "id": 12,
+   "journey": "B2I",
+   "name": "Install TRUM plan creation within 30 mins",
+   "description": "For every install reaching the awaiting-customer-OTP step, was the TRUM plan created within 30 minutes of it?",
+   "tbd": false,
+   "values": [
+    100.0,
+    100.0,
+    98.1308,
+    98.4,
+    99.1892,
+    97.8142,
+    98.1413,
+    100.0,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 13,
+   "journey": "B2I",
+   "name": "Device live at install (ping within 30 min)",
+   "description": "For every install reaching the awaiting-customer-OTP step, did the device show any ping activity within 30 minutes of it?",
+   "tbd": false,
+   "values": [
+    87.8788,
+    87.6289,
+    92.5234,
+    66.08,
+    90.2703,
+    91.5301,
+    null,
+    null,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 14,
+   "journey": "B2I",
+   "name": "Rating done to happy code delivered on chat",
+   "description": "For every install rating submitted, was the happy-code confirmation delivered via chat around the same time?",
+   "tbd": false,
+   "values": [
+    95.5882,
+    96.9697,
+    96.1905,
+    95.6731,
+    96.1749,
+    95.6403,
+    96.8284,
+    94.3396,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 15,
+   "journey": "B2I",
+   "name": "Technician assigned msg to customer",
+   "description": "For every technician assignment, was the customer notified via chat within 10 minutes?",
+   "tbd": false,
+   "values": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    99.9569
+   ],
+   "error": null
+  },
+  {
+   "id": 4,
+   "journey": "R2E",
+   "name": "Renewal Reminder - R0 (sent within 24h before expiry)",
+   "description": "For every plan expiry, was the R0 reminder sent within 24 hours before it?",
+   "tbd": false,
+   "values": [
+    88.7798,
+    91.3075,
+    90.1866,
+    89.6664,
+    88.3809,
+    87.9129,
+    84.678,
+    86.6709,
+    86.0157
+   ],
+   "error": null
+  },
+  {
+   "id": 5,
+   "journey": "R2E",
+   "name": "Recharge to device live within 2h",
+   "description": "For every recharge, did the device come back online within 2 hours of the plan start?",
+   "tbd": false,
+   "values": [
+    95.1149,
+    95.1588,
+    94.5608,
+    94.2714,
+    93.9509,
+    93.036,
+    null,
+    null,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 6,
+   "journey": "R2E",
+   "name": "Renewal provisioning (payment -> plan & entitlement)",
+   "description": "For every successful renewal payment, did we create the plan and the entitlement?",
+   "tbd": false,
+   "values": [
+    "99.96",
+    "99.94",
+    "99.94",
+    "99.96",
+    "99.95",
+    "99.90",
+    "-",
+    "-",
+    "-"
+   ],
+   "error": null
+  },
+  {
+   "id": 7,
+   "journey": "R2E",
+   "name": "No free usage after Wiom expiry (ISP active)",
+   "description": "Of customers whose Wiom plan expired while the ISP is still live, the share showing ~zero data usage that day.",
+   "tbd": true,
+   "values": null,
+   "error": null
+  },
+  {
+   "id": 8,
+   "journey": "R2E",
+   "name": "Customer plan ISP coverage (paid-hour level)",
+   "description": "Of every hour a customer paid for, what share actually had the ISP gate open?",
+   "tbd": false,
+   "values": [
+    95.8363,
+    95.9436,
+    95.8024,
+    94.5601,
+    96.3098,
+    95.838,
+    null,
+    null,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 9,
+   "journey": "R2E",
+   "name": "Customers NOT affected rate (100 - % customers affected)",
+   "description": "Of paying customers, what share had zero blocked hours in the period?",
+   "tbd": false,
+   "values": [
+    92.8771,
+    93.0718,
+    93.1052,
+    91.1504,
+    93.5843,
+    92.7668,
+    null,
+    null,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 10,
+   "journey": "R2E",
+   "name": "Captive Portal triggered -> Captive portal open",
+   "description": "For every captive portal trigger, did the portal actually open on the customer device?",
+   "tbd": false,
+   "values": [
+    95.6376,
+    96.0289,
+    96.1953,
+    95.0016,
+    94.3741,
+    95.2678,
+    95.5997,
+    95.3048,
+    63.7048
+   ],
+   "error": null
+  },
+  {
+   "id": 16,
+   "journey": "Closure",
+   "name": "% Refund Requested (PAYG)",
+   "description": "Of all PUT tickets created for PAYG customers, what share have a security-deposit refund order created?",
+   "tbd": false,
+   "values": [
+    94.4615,
+    95.3488,
+    94.3522,
+    94.6072,
+    93.6617,
+    90.6101,
+    84.5367,
+    85.0085,
+    66.6667
+   ],
+   "error": null
+  },
+  {
+   "id": 17,
+   "journey": "Closure",
+   "name": "% Refund Processed (PAYG)",
+   "description": "Of completed pickup tickets, excluding cases stuck at netbox-returned-no-UPI, what share have the refund actually in PROCESSING or SUCCESSFUL?",
+   "tbd": false,
+   "values": [
+    100.0,
+    96.1538,
+    95.4545,
+    59.5092,
+    68.0982,
+    69.0141,
+    84.7826,
+    29.4118,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 18,
+   "journey": "Closure",
+   "name": "% Refund Orders stuck >72h in Processing (PAYG)",
+   "description": "Of PAYG refund orders that entered PROCESSING at least 72h ago, what share have NOT reached SUCCESSFUL within 72 hours?",
+   "tbd": false,
+   "values": [
+    null,
+    null,
+    100.0,
+    71.4286,
+    75.0,
+    33.3333,
+    80.0,
+    80.0,
+    96.4286
+   ],
+   "error": null
+  }
+ ]
+}
