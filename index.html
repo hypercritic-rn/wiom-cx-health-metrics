@@ -146,7 +146,7 @@
   <div class="wrap">
     <h1>Product Health &mdash; CX Metrics</h1>
     <p class="subtitle">L0 health metrics across the B2I, Recharge-to-Exit, and Closure journeys. Refreshed daily.</p>
-    <p class="refreshed">Last refreshed: <span id="refreshed-at">2026-07-29T07:38:25.183118+00:00</span></p>
+    <p class="refreshed">Last refreshed: <span id="refreshed-at">2026-07-29T11:30:27.023141+00:00</span></p>
 
     <div class="tabs" role="tablist">
       <button class="tab" id="tab-B2I" role="tab" aria-selected="true" aria-controls="panel-B2I" data-journey="B2I">B2I (Booking to Install)</button><button class="tab" id="tab-R2E" role="tab" aria-selected="false" aria-controls="panel-R2E" data-journey="R2E">R2E (Recharge to Exit)</button><button class="tab" id="tab-Closure" role="tab" aria-selected="false" aria-controls="panel-Closure" data-journey="Closure">Closure</button>
@@ -167,9 +167,9 @@
           <td class="metric-name">Booking provisioning (payment -&gt; booking)<div class="metric-desc">For every successful booking-fee payment, did we create a booking record against that same transaction?</div></td>
           <td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>99.5%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>99.7%</td>
         </tr>
-        <tr class="metric-row tbd-row">
-          <td class="metric-name">BFP auto-refund SLA (7-day)<div class="metric-desc">For bookings/BFPs not installed within 7 days, was the auto-refund issued within SLA?</div></td>
-          <td class="tbd-cell" colspan="9">Not yet built &mdash; TBD</td>
+        <tr class="metric-row">
+          <td class="metric-name">BFP not-installed-14D -&gt; refunded-by-16D (CSP OR legacy OTP)<div class="metric-desc">Replacement for the old 7-day BFP auto-refund SLA metric. Of booking-fee-paid customers who did NOT get installed within 14 days (checked against both CSP install-complete and legacy technician-OTP-verified signals), what share got their booking fee refunded by day 16? Bucketed by maturity date (bfp_time + 16d) so only fully-mature bookings are counted per window.</div></td>
+          <td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>64.1%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>56.3%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>64.6%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>64.2%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>62.3%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>61.0%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>86.5%</td><td class="metric-cell"><span class="dot" style="background:#ec835a"></span>84.2%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>59.7%</td>
         </tr>
         <tr class="metric-row">
           <td class="metric-name">Address Submitted -&gt; Booking Confirmed (24h) % <span class="frac-note">(normalized from 0-1 fraction)</span><div class="metric-desc">For every customer who submits their address, do they go on to confirm the booking within 24 hours (either direction, session-deduped)? Values are a 0-1 fraction.</div></td>
@@ -222,7 +222,7 @@
         </tr>
         <tr class="metric-row">
           <td class="metric-name">Customer plan ISP coverage (paid-hour level)<div class="metric-desc">Of every hour a customer paid for, what share actually had the ISP gate open?</div></td>
-          <td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.8%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.9%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.8%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>94.6%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>96.3%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.8%</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td>
+          <td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.9%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>96.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.8%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>94.6%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>96.3%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.8%</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td>
         </tr>
         <tr class="metric-row">
           <td class="metric-name">Customers NOT affected rate (100 - % customers affected)<div class="metric-desc">Of paying customers, what share had zero blocked hours in the period?</div></td>
@@ -247,15 +247,15 @@
           
         <tr class="metric-row">
           <td class="metric-name">% Refund Requested (PAYG)<div class="metric-desc">Of all PUT tickets created for PAYG customers, what share have a security-deposit refund order created?</div></td>
-          <td class="metric-cell"><span class="dot" style="background:#fab219"></span>94.5%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.3%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>94.4%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>94.6%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>93.7%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>90.6%</td><td class="metric-cell"><span class="dot" style="background:#ec835a"></span>84.5%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>85.0%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>66.7%</td>
+          <td class="metric-cell"><span class="dot" style="background:#fab219"></span>94.5%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.3%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>94.4%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>94.5%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>93.6%</td><td class="metric-cell"><span class="dot" style="background:#fab219"></span>90.5%</td><td class="metric-cell"><span class="dot" style="background:#ec835a"></span>84.5%</td><td class="metric-cell"><span class="dot" style="background:#ec835a"></span>84.9%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>66.7%</td>
         </tr>
         <tr class="metric-row">
           <td class="metric-name">% Refund Processed (PAYG)<div class="metric-desc">Of completed pickup tickets, excluding cases stuck at netbox-returned-no-UPI, what share have the refund actually in PROCESSING or SUCCESSFUL?</div></td>
           <td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>96.2%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>95.5%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>59.5%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>68.1%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>69.0%</td><td class="metric-cell"><span class="dot" style="background:#ec835a"></span>84.8%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>29.4%</td><td class="metric-cell empty">&mdash;</td>
         </tr>
         <tr class="metric-row">
-          <td class="metric-name">% Refund Orders stuck &gt;72h in Processing (PAYG)<div class="metric-desc">Of PAYG refund orders that entered PROCESSING at least 72h ago, what share have NOT reached SUCCESSFUL within 72 hours?</div></td>
-          <td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>71.4%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>75.0%</td><td class="metric-cell"><span class="dot" style="background:#ec835a"></span>33.3%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>80.0%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>80.0%</td><td class="metric-cell"><span class="dot" style="background:#d03b3b"></span>96.4%</td>
+          <td class="metric-name">Refund Orders stuck 5+ days in Processing (PAYG)<div class="metric-desc">Snapshot count (not a %): of PAYG refund orders currently sitting in PROCESSING status, how many have already been there 5+ days? Reconstructed as-of D-1/D-2/D-3 from status history; not defined for W-1..M-3 (this is a live backlog count, not a period rate). Target is 0.</div></td>
+          <td class="metric-cell"><span class="dot" style="background:#ec835a"></span>31.0%</td><td class="metric-cell"><span class="dot" style="background:#ec835a"></span>31.0%</td><td class="metric-cell"><span class="dot" style="background:#ec835a"></span>31.0%</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td><td class="metric-cell empty">&mdash;</td>
         </tr>
         </tbody>
       </table>
@@ -270,7 +270,8 @@
     </div>
 
     <footer>
-      Thresholds: Good &ge;95%, Warning &ge;85%, Serious &ge;70%, Critical &lt;70% (inverted for "stuck" metrics, where a high % is bad).
+      Thresholds: Good &ge;95%, Warning &ge;85%, Serious &ge;70%, Critical &lt;70% (inverted for "stuck" % metrics, where a high % is bad).
+      Count-based metrics (e.g. Refund Orders stuck 5+ days) show a raw backlog count, not a %: Good = 0, Warning 1-10, Serious 11-25, Critical &gt;25 &mdash; target is zero.
     </footer>
   </div>
 

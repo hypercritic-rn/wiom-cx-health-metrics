@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-07-29T07:38:25.183118+00:00",
+ "generated_at_utc": "2026-07-29T11:30:27.023141+00:00",
  "metrics": [
   {
    "id": 2,
@@ -23,10 +23,20 @@
   {
    "id": 3,
    "journey": "B2I",
-   "name": "BFP auto-refund SLA (7-day)",
-   "description": "For bookings/BFPs not installed within 7 days, was the auto-refund issued within SLA?",
-   "tbd": true,
-   "values": null,
+   "name": "BFP not-installed-14D -> refunded-by-16D (CSP OR legacy OTP)",
+   "description": "Replacement for the old 7-day BFP auto-refund SLA metric. Of booking-fee-paid customers who did NOT get installed within 14 days (checked against both CSP install-complete and legacy technician-OTP-verified signals), what share got their booking fee refunded by day 16? Bucketed by maturity date (bfp_time + 16d) so only fully-mature bookings are counted per window.",
+   "tbd": false,
+   "values": [
+    64.1221,
+    56.3218,
+    64.6341,
+    64.1882,
+    62.3355,
+    61.0368,
+    86.5431,
+    84.2226,
+    59.7294
+   ],
    "error": null
   },
   {
@@ -137,9 +147,9 @@
     89.6664,
     88.3809,
     87.9129,
-    84.678,
-    86.6709,
-    86.0157
+    84.6787,
+    86.6716,
+    86.0156
    ],
    "error": null
   },
@@ -197,10 +207,10 @@
    "description": "Of every hour a customer paid for, what share actually had the ISP gate open?",
    "tbd": false,
    "values": [
-    95.8363,
-    95.9436,
-    95.8024,
-    94.5601,
+    95.8629,
+    95.9594,
+    95.8127,
+    94.5669,
     96.3098,
     95.838,
     null,
@@ -216,10 +226,10 @@
    "description": "Of paying customers, what share had zero blocked hours in the period?",
    "tbd": false,
    "values": [
-    92.8771,
-    93.0718,
-    93.1052,
-    91.1504,
+    92.8991,
+    93.0852,
+    93.115,
+    91.1568,
     93.5843,
     92.7668,
     null,
@@ -235,10 +245,10 @@
    "description": "For every captive portal trigger, did the portal actually open on the customer device?",
    "tbd": false,
    "values": [
-    95.6376,
+    95.6414,
     96.0289,
     96.1953,
-    95.0016,
+    95.0017,
     94.3741,
     95.2678,
     95.5997,
@@ -257,11 +267,11 @@
     94.4615,
     95.3488,
     94.3522,
-    94.6072,
-    93.6617,
-    90.6101,
-    84.5367,
-    85.0085,
+    94.5293,
+    93.5792,
+    90.514,
+    84.5149,
+    84.8639,
     66.6667
    ],
    "error": null
@@ -288,19 +298,19 @@
   {
    "id": 18,
    "journey": "Closure",
-   "name": "% Refund Orders stuck >72h in Processing (PAYG)",
-   "description": "Of PAYG refund orders that entered PROCESSING at least 72h ago, what share have NOT reached SUCCESSFUL within 72 hours?",
+   "name": "Refund Orders stuck 5+ days in Processing (PAYG)",
+   "description": "Snapshot count (not a %): of PAYG refund orders currently sitting in PROCESSING status, how many have already been there 5+ days? Reconstructed as-of D-1/D-2/D-3 from status history; not defined for W-1..M-3 (this is a live backlog count, not a period rate). Target is 0.",
    "tbd": false,
    "values": [
+    31,
+    31,
+    31,
     null,
     null,
-    100.0,
-    71.4286,
-    75.0,
-    33.3333,
-    80.0,
-    80.0,
-    96.4286
+    null,
+    null,
+    null,
+    null
    ],
    "error": null
   }

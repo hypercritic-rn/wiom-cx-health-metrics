@@ -41,6 +41,19 @@ def status_for(value, inverted=False):
         return "critical"
 
 
+def status_for_count(value):
+    # positive/count metric: 0 is the target, any backlog is a problem
+    if value is None:
+        return None
+    if value <= 0:
+        return "good"
+    if value <= 10:
+        return "warning"
+    if value <= 25:
+        return "serious"
+    return "critical"
+
+
 def to_float(v):
     if v is None:
         return None
@@ -69,23 +82,39 @@ def build_metric_row(m):
 
     raw_values = m.get("values") or [None] * 9
     floats = [to_float(v) for v in raw_values]
-    # detect 0-1 fraction metrics (e.g. Address->Confirm) and normalize to percentage for display
-    non_null = [f for f in floats if f is not None]
-    is_fraction = bool(non_null) and all(0 <= f <= 1 for f in non_null)
-    display_values = [f * 100 if (f is not None and is_fraction) else f for f in floats]
+    is_count_metric = m.get("unit") == "count"
 
-    cells_html = []
-    for dv in display_values:
-        if dv is None:
-            cells_html.append('<td class="metric-cell empty">&mdash;</td>')
-            continue
-        status = status_for(dv, inverted=is_stuck_metric)
-        color = STATUS.get(status, "#898781")
-        cells_html.append(
-            f'<td class="metric-cell"><span class="dot" style="background:{color}"></span>{dv:.1f}%</td>'
-        )
-    cells = "".join(cells_html)
-    frac_note = ' <span class="frac-note">(normalized from 0-1 fraction)</span>' if is_fraction else ""
+    if is_count_metric:
+        cells_html = []
+        for dv in floats:
+            if dv is None:
+                cells_html.append('<td class="metric-cell empty">&mdash;</td>')
+                continue
+            status = status_for_count(dv)
+            color = STATUS.get(status, "#898781")
+            cells_html.append(
+                f'<td class="metric-cell"><span class="dot" style="background:{color}"></span>{int(dv)}</td>'
+            )
+        cells = "".join(cells_html)
+        frac_note = ""
+    else:
+        # detect 0-1 fraction metrics (e.g. Address->Confirm) and normalize to percentage for display
+        non_null = [f for f in floats if f is not None]
+        is_fraction = bool(non_null) and all(0 <= f <= 1 for f in non_null)
+        display_values = [f * 100 if (f is not None and is_fraction) else f for f in floats]
+
+        cells_html = []
+        for dv in display_values:
+            if dv is None:
+                cells_html.append('<td class="metric-cell empty">&mdash;</td>')
+                continue
+            status = status_for(dv, inverted=is_stuck_metric)
+            color = STATUS.get(status, "#898781")
+            cells_html.append(
+                f'<td class="metric-cell"><span class="dot" style="background:{color}"></span>{dv:.1f}%</td>'
+            )
+        cells = "".join(cells_html)
+        frac_note = ' <span class="frac-note">(normalized from 0-1 fraction)</span>' if is_fraction else ""
 
     return f"""
         <tr class="metric-row">
