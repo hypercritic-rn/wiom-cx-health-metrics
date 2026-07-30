@@ -57,6 +57,8 @@
   h1 { font-size: 22px; font-weight: 700; margin: 0 0 4px; }
   .subtitle { color: var(--text-secondary); font-size: 14px; margin: 0 0 24px; }
   .refreshed { color: var(--text-muted); font-size: 12px; margin-bottom: 24px; }
+  .refreshed a { color: var(--accent); text-decoration: none; }
+  .refreshed a:hover { text-decoration: underline; }
 
   .tabs {
     display: flex;
@@ -146,7 +148,7 @@
   <div class="wrap">
     <h1>Product Health &mdash; CX Metrics</h1>
     <p class="subtitle">L0 health metrics across the B2I, Recharge-to-Exit, and Closure journeys. Refreshed daily.</p>
-    <p class="refreshed">Last refreshed: <span id="refreshed-at">{{GENERATED_AT}}</span></p>
+    <p class="refreshed">Last refreshed: <span id="refreshed-at">{{GENERATED_AT}}</span> &middot; <a href="https://docs.google.com/spreadsheets/d/1f__2VgFVqZOZ8oRfdteettr4Ngjipzbk9SBjVP_y4rk/edit?gid=10226281#gid=10226281" target="_blank" rel="noopener">Full metric definitions</a></p>
 
     <div class="tabs" role="tablist">
       {{TABS}}

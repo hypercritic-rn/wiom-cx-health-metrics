@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-07-30T13:56:54.704040+00:00",
+ "generated_at_utc": "2026-07-30T15:22:45.794608+00:00",
  "metrics": [
   {
    "id": 2,
@@ -24,18 +24,18 @@
    "id": 11,
    "journey": "B2I",
    "name": "Address Submitted -> Booking Confirmed (24h) %",
-   "description": "Of customers who submitted an address (address_updated event) -- counting only their first submission, or their first since a prior booking was cancelled (cancelled event) -- what share had their booking confirmed within 24 hours? D-1 only counts address submissions that have themselves completed a full 24 hours, so it never shows a partial, still-maturing day.",
+   "description": "Of customers who submitted an address (address_updated event) -- counting only their first submission, or their first since a prior booking was cancelled (cancelled event) -- what share had their booking confirmed (booking_confirmed event) within 24 hours? D-1 only counts address submissions that have themselves completed a full 24 hours, so it never shows a partial, still-maturing day.",
    "tbd": false,
    "values": [
-    0.935,
-    0.933,
-    0.878,
-    0.849,
-    0.987,
-    0.978,
-    0.986,
-    0.97,
-    0.944
+    0.983,
+    0.364,
+    0.286,
+    0.725,
+    0.988,
+    0.991,
+    0.993,
+    0.977,
+    0.951
    ],
    "error": null
   },
@@ -122,15 +122,15 @@
    "description": "Of plan expiries where the customer hadn't already recharged early (or renewed with zero gap), what share had the R0 renewal reminder sent within 24 hours before expiry?",
    "tbd": false,
    "values": [
-    99.9189,
-    99.8864,
-    99.9737,
-    99.8846,
-    99.8605,
-    99.9162,
-    99.8862,
-    99.7453,
-    94.707
+    99.9326,
+    99.9045,
+    99.9555,
+    99.8954,
+    99.8586,
+    99.917,
+    99.8907,
+    99.7547,
+    94.4297
    ],
    "error": null
   },
@@ -217,15 +217,15 @@
    "description": "Of times the captive portal was triggered (captive_portal_initialised event), what share had the portal actually open (open_captive_portal event) on the customer's device?",
    "tbd": false,
    "values": [
-    95.0491,
+    95.0493,
     95.6388,
-    96.0305,
-    95.0018,
-    94.3739,
+    96.0308,
+    95.0011,
+    94.3746,
     95.2679,
-    95.5997,
+    95.5998,
     95.305,
-    63.7058
+    63.706
    ],
    "error": null
   },
@@ -239,11 +239,11 @@
     94.3218,
     94.4615,
     95.3623,
-    94.3692,
-    93.3273,
-    90.4711,
-    84.521,
-    85.034,
+    94.2495,
+    93.2849,
+    90.4233,
+    84.5121,
+    84.8896,
     66.6667
    ],
    "error": null
