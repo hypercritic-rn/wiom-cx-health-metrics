@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-07-29T14:06:27.636049+00:00",
+ "generated_at_utc": "2026-07-30T05:09:23.333402+00:00",
  "metrics": [
   {
    "id": 2,
@@ -27,9 +27,9 @@
    "description": "Of customers who paid but weren't installed within 14 days, what share got their booking fee refunded within 16 days?",
    "tbd": false,
    "values": [
+    66.6667,
     64.1221,
     56.3218,
-    64.6341,
     64.1882,
     62.3355,
     61.0368,
@@ -46,9 +46,9 @@
    "description": "Of customers who submitted their installation address, what share went on to confirm their booking within 24 hours?",
    "tbd": false,
    "values": [
+    0.932,
     0.926,
     0.866,
-    0.854,
     0.842,
     0.985,
     0.974,
@@ -67,7 +67,7 @@
    "values": [
     100.0,
     100.0,
-    98.1308,
+    100.0,
     98.4,
     99.1892,
     97.8142,
@@ -84,9 +84,9 @@
    "description": "Of installs where the customer verified their OTP, what share had their device come online within 30 minutes?",
    "tbd": false,
    "values": [
+    97.2727,
     87.8788,
     87.6289,
-    92.5234,
     66.08,
     90.2703,
     91.5301,
@@ -103,9 +103,9 @@
    "description": "Of installs where the customer submitted a rating, what share received their install-confirmation message around the same time?",
    "tbd": false,
    "values": [
+    99.0654,
     95.5882,
     96.9697,
-    96.1905,
     95.6731,
     96.1749,
     95.6403,
@@ -141,9 +141,9 @@
    "description": "Of plans nearing expiry, what share received a renewal reminder within 24 hours before expiry?",
    "tbd": false,
    "values": [
+    89.5412,
     88.7798,
     91.3075,
-    90.1866,
     89.6664,
     88.3809,
     87.9129,
@@ -160,9 +160,9 @@
    "description": "Of recharges, what share had the device back online within 2 hours of the new plan starting?",
    "tbd": false,
    "values": [
+    94.1098,
     95.1149,
     95.1588,
-    94.5608,
     94.2714,
     93.9509,
     93.036,
@@ -179,8 +179,8 @@
    "description": "Of successful renewal payments, what share had the new plan and entitlement activated?",
    "tbd": false,
    "values": [
+    "100.00",
     "99.96",
-    "99.94",
     "99.94",
     "99.96",
     "99.95",
@@ -207,10 +207,10 @@
    "description": "Of the hours a customer paid for, what share were actually delivered with an active connection?",
    "tbd": false,
    "values": [
-    95.8683,
-    95.9632,
-    95.8159,
-    94.5676,
+    95.5582,
+    95.8721,
+    95.9647,
+    94.5684,
     96.3098,
     95.838,
     null,
@@ -226,10 +226,10 @@
    "description": "Of paying customers, what share had zero blocked hours in the period?",
    "tbd": false,
    "values": [
-    92.9027,
-    93.0889,
-    93.1174,
-    91.1573,
+    92.3078,
+    92.9052,
+    93.0901,
+    91.158,
     93.5843,
     92.7668,
     null,
@@ -245,15 +245,15 @@
    "description": "Of times a customer is prompted to sign in to Wi-Fi, what share actually saw the sign-in screen open on their device?",
    "tbd": false,
    "values": [
-    95.6423,
+    95.043,
+    95.6382,
     96.0296,
-    96.196,
-    95.0019,
-    94.3741,
-    95.2678,
+    95.0017,
+    94.3737,
+    95.2679,
     95.5997,
-    95.3048,
-    63.7048
+    95.3049,
+    63.7054
    ],
    "error": null
   },
@@ -264,14 +264,14 @@
    "description": "Of pickup tickets raised, what share had a refund request created?",
    "tbd": false,
    "values": [
+    94.3218,
     94.4615,
-    95.3488,
-    94.3522,
-    94.4492,
-    93.4941,
-    90.514,
-    84.497,
-    84.8639,
+    95.3623,
+    94.4091,
+    93.4121,
+    90.567,
+    84.5607,
+    85.034,
     66.6667
    ],
    "error": null
@@ -283,9 +283,9 @@
    "description": "Of completed pickups where the customer submitted their payment details, what share had their refund actually processed or completed?",
    "tbd": false,
    "values": [
+    90.9091,
     100.0,
     96.1538,
-    95.4545,
     59.5092,
     68.0982,
     69.0141,
@@ -321,15 +321,15 @@
    "description": "Of customer messages that are expected to get a reply, what share received one within 60 seconds?",
    "tbd": false,
    "values": [
+    83.3856,
     81.7496,
     85.453,
-    83.2627,
     84.1012,
     83.0595,
     82.6233,
     85.6007,
     92.611,
-    89.3585
+    89.3573
    ],
    "error": null
   },
@@ -340,9 +340,9 @@
    "description": "Of new complaint tickets confirmed to the customer over chat, what share were actually created in the ticketing system within 5 minutes?",
    "tbd": false,
    "values": [
+    99.3631,
     99.7199,
     99.3151,
-    98.4085,
     98.6596,
     98.3021,
     96.8265,
