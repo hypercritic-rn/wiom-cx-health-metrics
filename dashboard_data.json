@@ -318,7 +318,7 @@
    "id": 19,
    "journey": "Chat",
    "name": "Chat input to output within 1 min",
-   "description": "Of customer chat messages that are supposed to get a reply, what share receive one within 60 seconds? Messages with intent confirmSlot or acknowledgement don't get a reply by default -- they only do if the conversation is in one of 10 specific states, and everywhere else no reply is sent by design, so those are excluded here. A reply also has to arrive before the customer sends their next message (or within 24 hours) to count, otherwise it's likely answering something else, not this message.",
+   "description": "Of customer chat messages, what share receive one within 60 seconds, excluding messages that are never meant to get a reply?",
    "tbd": false,
    "values": [
     83.3856,
