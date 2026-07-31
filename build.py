@@ -4,6 +4,7 @@ tabbed by journey (B2I / R2E / Closure)."""
 import json
 import os
 import html
+from datetime import datetime
 
 JOURNEYS = ["B2I", "R2E", "Closure", "Chat"]
 JOURNEY_LABELS = {"B2I": "B2I (Booking to Install)", "R2E": "R2E (Recharge to Exit)", "Closure": "Closure", "Chat": "Chat"}
@@ -72,6 +73,73 @@ def to_float(v):
     return float(v)
 
 
+def mask_mobile(v):
+    s = str(v)
+    return s if len(s) <= 4 else "•" * (len(s) - 4) + s[-4:]
+
+
+def fmt_ts(v):
+    if v is None:
+        return "no ping"
+    try:
+        return datetime.fromisoformat(str(v)).strftime("%b %d, %I:%M %p").replace(" 0", " ")
+    except ValueError:
+        return html.escape(str(v))
+
+
+def build_drilldown_panel(m):
+    dd = m.get("drilldown")
+    if not dd:
+        return ""
+    panel_id = f"drill-{m['id']}"
+    has_rows = bool(dd.get("rows")) and not dd.get("error")
+    actions_html = (
+        '<div class="drill-actions">'
+        '<button class="drill-action" data-action="open-tab">Open in new tab &#8599;</button>'
+        '<button class="drill-action" data-action="download-csv">Download CSV &#8595;</button>'
+        '</div>'
+    ) if has_rows else ""
+
+    raw_data_html = ""
+    if dd.get("error"):
+        body = f'<p class="drill-note">Could not load defaulter list: {html.escape(dd["error"])}</p>'
+    elif not dd.get("rows"):
+        body = '<p class="drill-note">No defaulters for this window.</p>'
+    else:
+        header_cells = "".join(f"<th>{html.escape(c)}</th>" for c in dd["columns"])
+        row_html = []
+        full_rows = []
+        for r in dd["rows"]:
+            nas_id, mobile, otp_wait, first_ping, last_ping, total_pings = r
+            cells = (
+                f"<td>{html.escape(str(nas_id))}</td>"
+                f"<td>{mask_mobile(mobile)}</td>"
+                f"<td>{fmt_ts(otp_wait)}</td>"
+                f"<td>{fmt_ts(first_ping)}</td>"
+                f"<td>{fmt_ts(last_ping)}</td>"
+                f"<td>{total_pings}</td>"
+            )
+            row_html.append(f"<tr>{cells}</tr>")
+            full_rows.append([str(nas_id), str(mobile), fmt_ts(otp_wait), fmt_ts(first_ping), fmt_ts(last_ping), str(total_pings)])
+        body = f"""<table class="drill-table"><thead><tr>{header_cells}</tr></thead><tbody>{"".join(row_html)}</tbody></table>"""
+        # unmasked mobiles for CSV export only -- the visible table and "open in new tab" stay masked
+        raw_json = json.dumps({"columns": dd["columns"], "rows": full_rows}, ensure_ascii=False).replace("</", "<\\/")
+        raw_data_html = f'<script type="application/json" class="drill-raw-data">{raw_json}</script>'
+    return f"""
+        <tr class="drill-panel-row" id="{panel_id}" style="display:none">
+          <td colspan="10">
+            <div class="drill-panel" data-metric-name="{html.escape(m["name"])}" data-window="{html.escape(dd["window"])}">
+              <div class="drill-title-row">
+                <div class="drill-title">{html.escape(dd["window"])} defaulters &mdash; not counted in the numerator</div>
+                {actions_html}
+              </div>
+              {body}
+              {raw_data_html}
+            </div>
+          </td>
+        </tr>"""
+
+
 def build_metric_row(m):
     name = html.escape(m["name"])
     desc = html.escape(m["description"])
@@ -88,18 +156,28 @@ def build_metric_row(m):
     raw_values = m.get("values") or [None] * 9
     floats = [to_float(v) for v in raw_values]
     is_count_metric = m.get("unit") == "count"
+    has_drilldown = bool(m.get("drilldown"))
+    drill_id = f"drill-{m['id']}"
+
+    def wrap_drill(idx, inner):
+        # only the D-1 column (index 0) gets the drilldown toggle
+        if has_drilldown and idx == 0:
+            return (
+                f'<button class="drill-toggle" data-target="{drill_id}" aria-expanded="false">'
+                f'{inner}<span class="drill-caret">&#9662;</span></button>'
+            )
+        return inner
 
     if is_count_metric:
         cells_html = []
-        for dv in floats:
+        for idx, dv in enumerate(floats):
             if dv is None:
                 cells_html.append('<td class="metric-cell empty">&mdash;</td>')
                 continue
             status = status_for_count(dv)
             color = STATUS.get(status, "#898781")
-            cells_html.append(
-                f'<td class="metric-cell"><span class="dot" style="background:{color}"></span>{int(dv)}</td>'
-            )
+            inner = f'<span class="dot" style="background:{color}"></span>{int(dv)}'
+            cells_html.append(f'<td class="metric-cell">{wrap_drill(idx, inner)}</td>')
         cells = "".join(cells_html)
         frac_note = ""
     else:
@@ -109,23 +187,23 @@ def build_metric_row(m):
         display_values = [f * 100 if (f is not None and is_fraction) else f for f in floats]
 
         cells_html = []
-        for dv in display_values:
+        for idx, dv in enumerate(display_values):
             if dv is None:
                 cells_html.append('<td class="metric-cell empty">&mdash;</td>')
                 continue
             status = status_for(dv, inverted=is_stuck_metric)
             color = STATUS.get(status, "#898781")
-            cells_html.append(
-                f'<td class="metric-cell"><span class="dot" style="background:{color}"></span>{dv:.1f}%</td>'
-            )
+            inner = f'<span class="dot" style="background:{color}"></span>{dv:.1f}%'
+            cells_html.append(f'<td class="metric-cell">{wrap_drill(idx, inner)}</td>')
         cells = "".join(cells_html)
         frac_note = ' <span class="frac-note">(normalized from 0-1 fraction)</span>' if is_fraction else ""
 
-    return f"""
+    row_html = f"""
         <tr class="metric-row">
           <td class="metric-name">{name}{frac_note}<div class="metric-desc">{desc}</div></td>
           {cells}
         </tr>"""
+    return row_html + build_drilldown_panel(m)
 
 
 def build_journey_table(journey, metrics):

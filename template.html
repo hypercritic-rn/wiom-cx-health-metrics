@@ -133,6 +133,58 @@
   .tbd-row { opacity: 0.55; }
   .tbd-cell { text-align: left !important; color: var(--text-muted); font-style: italic; }
 
+  .drill-toggle {
+    appearance: none;
+    background: none;
+    border: none;
+    color: var(--accent);
+    font: inherit;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .drill-toggle:hover { text-decoration-style: solid; }
+  .drill-caret {
+    font-size: 9px;
+    line-height: 1;
+    transition: transform 0.15s ease;
+  }
+  .drill-toggle[aria-expanded="true"] .drill-caret { transform: rotate(180deg); }
+  .drill-panel-row td { padding: 0; border-bottom: 1px solid var(--gridline); }
+  .drill-panel { padding: 14px 16px; background: var(--page-plane); text-align: left; }
+  .drill-title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+  .drill-title { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+  .drill-actions { display: flex; gap: 8px; }
+  .drill-action {
+    appearance: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--accent);
+    font: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 9px;
+    cursor: pointer;
+  }
+  .drill-action:hover { background: var(--surface-1); }
+  .drill-note { font-size: 12px; color: var(--text-muted); margin: 0; }
+  .drill-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .drill-table th, .drill-table td {
+    padding: 6px 10px;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--gridline);
+  }
+  .drill-table th { color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 10px; letter-spacing: 0.03em; }
+
   .legend {
     display: flex; flex-wrap: wrap; gap: 16px;
     margin: 20px 0 4px;
@@ -180,6 +232,66 @@
     }
     tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.journey)));
     activate(tabs[0].dataset.journey);
+
+    document.querySelectorAll('.drill-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const el = document.getElementById(btn.dataset.target);
+        if (!el) return;
+        const isOpen = el.style.display !== 'none';
+        el.style.display = isOpen ? 'none' : 'table-row';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+
+    function tableToRows(table) {
+      return Array.from(table.querySelectorAll('tr')).map(tr =>
+        Array.from(tr.children).map(cell => cell.textContent.trim()));
+    }
+    function toCsv(rows) {
+      return rows.map(r => r.map(c => {
+        const q = /[",\n]/.test(c) ? '"' + c.replace(/"/g, '""') + '"' : c;
+        return q;
+      }).join(',')).join('\r\n');
+    }
+    function fileBase(panel) {
+      return (panel.dataset.metricName + '_' + panel.dataset.window)
+        .toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+    }
+
+    document.querySelectorAll('.drill-action').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panel = btn.closest('.drill-panel');
+        const table = panel.querySelector('.drill-table');
+        if (!table) return;
+
+        if (btn.dataset.action === 'download-csv') {
+          const rawEl = panel.querySelector('.drill-raw-data');
+          const rows = rawEl
+            ? (data => [data.columns, ...data.rows])(JSON.parse(rawEl.textContent))
+            : tableToRows(table);
+          const csv = toCsv(rows);
+          const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = fileBase(panel) + '.csv';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        } else if (btn.dataset.action === 'open-tab') {
+          const title = panel.dataset.metricName + ' — ' + panel.dataset.window + ' defaulters';
+          const doc = '<!doctype html><html><head><meta charset="utf-8"><title>' + title + '</title>'
+            + '<style>body{font-family:system-ui,sans-serif;padding:24px;color:#0b0b0b}'
+            + 'table{border-collapse:collapse;width:100%;font-size:13px}'
+            + 'th,td{padding:6px 12px;text-align:left;border-bottom:1px solid #ddd;white-space:nowrap}'
+            + 'th{text-transform:uppercase;font-size:11px;color:#666}h1{font-size:16px}</style></head>'
+            + '<body><h1>' + title + '</h1>' + table.outerHTML + '</body></html>';
+          const blob = new Blob([doc], { type: 'text/html' });
+          window.open(URL.createObjectURL(blob), '_blank');
+        }
+      });
+    });
 
     // format the refreshed timestamp in the viewer's local time
     const el = document.getElementById('refreshed-at');

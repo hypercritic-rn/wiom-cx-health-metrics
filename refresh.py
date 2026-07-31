@@ -77,6 +77,15 @@ def main():
                 values = row[1:] if len(row) > 1 else [None] * 9
                 entry["values"] = values
                 entry["error"] = None
+
+            if m.get("drilldown"):
+                d_rows, d_cols, d_err = run_query(key, m["drilldown"]["query"])
+                entry["drilldown"] = {
+                    "window": m["drilldown"]["window"],
+                    "columns": m["drilldown"]["columns"],
+                    "rows": d_rows,
+                    "error": d_err[:500] if d_err else None,
+                }
         results.append(entry)
         print(f"  [{'TBD' if m['tbd'] else 'ok' if not entry.get('error') else 'ERR'}] {m['name']}")
 
