@@ -83,6 +83,7 @@ def main():
                 entry["drilldown"] = {
                     "window": m["drilldown"]["window"],
                     "columns": m["drilldown"]["columns"],
+                    "null_label": m["drilldown"].get("null_label", "—"),
                     "rows": d_rows,
                     "error": d_err[:500] if d_err else None,
                 }

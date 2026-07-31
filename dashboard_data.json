@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-07-31T09:12:27.899843+00:00",
+ "generated_at_utc": "2026-07-31T11:19:36.125906+00:00",
  "metrics": [
   {
    "id": 2,
@@ -18,7 +18,31 @@
     99.54,
     99.69
    ],
-   "error": null
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Transaction ID",
+      "type": "id"
+     },
+     {
+      "label": "Payment time",
+      "type": "ts"
+     },
+     {
+      "label": "Booking record status",
+      "type": "text"
+     }
+    ],
+    "null_label": "—",
+    "rows": [],
+    "error": null
+   }
   },
   {
    "id": 11,
@@ -27,7 +51,7 @@
    "description": "Of customers who submitted an address (address_updated event) -- counting only their first submission, or their first since a prior booking was cancelled (cancelled event) -- what share had their booking confirmed (booking_confirmed event) within 24 hours? D-1 only counts address submissions that have themselves completed a full 24 hours, so it never shows a partial, still-maturing day.",
    "tbd": false,
    "values": [
-    0.974,
+    0.979,
     0.977,
     0.364,
     0.725,
@@ -37,7 +61,43 @@
     0.977,
     0.951
    ],
-   "error": null
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Address submitted at",
+      "type": "ts"
+     },
+     {
+      "label": "Confirmed at",
+      "type": "ts"
+     }
+    ],
+    "null_label": "never confirmed",
+    "rows": [
+     [
+      "7827967044",
+      "2026-07-30T09:22:12.414+05:30",
+      null
+     ],
+     [
+      "9310079152",
+      "2026-07-30T10:44:44.426+05:30",
+      null
+     ],
+     [
+      "7042780055",
+      "2026-07-30T14:24:56.8+05:30",
+      null
+     ]
+    ],
+    "error": null
+   }
   },
   {
    "id": 12,
@@ -56,7 +116,35 @@
     100.0,
     null
    ],
-   "error": null
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "NAS ID",
+      "type": "id"
+     },
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "OTP-wait time (install moment)",
+      "type": "ts"
+     },
+     {
+      "label": "TRUM created at",
+      "type": "ts"
+     },
+     {
+      "label": "Gap (min)",
+      "type": "int"
+     }
+    ],
+    "null_label": "not created",
+    "rows": [],
+    "error": null
+   }
   },
   {
    "id": 13,
@@ -79,45 +167,64 @@
    "drilldown": {
     "window": "D-1",
     "columns": [
-     "NAS ID",
-     "Mobile",
-     "OTP-wait time (install moment)",
-     "First ping",
-     "Last ping",
-     "Total pings"
+     {
+      "label": "NAS ID",
+      "type": "id"
+     },
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "OTP-wait time (install moment)",
+      "type": "ts"
+     },
+     {
+      "label": "First ping",
+      "type": "ts"
+     },
+     {
+      "label": "Last ping",
+      "type": "ts"
+     },
+     {
+      "label": "Total pings",
+      "type": "int"
+     }
     ],
+    "null_label": "no ping",
     "rows": [
      [
       707005,
       "9321773372",
       "2026-07-30T11:56:22.028+05:30",
       "2026-07-30T17:55:00+05:30",
-      "2026-07-31T12:05:00+05:30",
-      52
+      "2026-07-31T14:15:00+05:30",
+      55
      ],
      [
       707007,
       "9990882555",
       "2026-07-30T12:08:16.025+05:30",
       "2026-07-30T13:20:00+05:30",
-      "2026-07-31T12:55:00+05:30",
-      272
+      "2026-07-31T14:55:00+05:30",
+      295
      ],
      [
       707014,
       "7982118289",
       "2026-07-30T13:06:55.866+05:30",
       "2026-07-30T16:00:00+05:30",
-      "2026-07-31T12:55:00+05:30",
-      162
+      "2026-07-31T14:55:00+05:30",
+      186
      ],
      [
       707019,
       "9205396309",
       "2026-07-30T13:21:46.301+05:30",
       "2026-07-30T14:25:00+05:30",
-      "2026-07-31T12:55:00+05:30",
-      257
+      "2026-07-31T14:55:00+05:30",
+      280
      ],
      [
       707039,
@@ -132,8 +239,8 @@
       "8595760334",
       "2026-07-30T14:53:12.918+05:30",
       "2026-07-30T18:30:00+05:30",
-      "2026-07-31T12:55:00+05:30",
-      218
+      "2026-07-31T14:55:00+05:30",
+      242
      ],
      [
       707046,
@@ -156,8 +263,8 @@
       "9716140417",
       "2026-07-30T18:13:07.07+05:30",
       "2026-07-30T19:40:00+05:30",
-      "2026-07-31T12:55:00+05:30",
-      204
+      "2026-07-31T14:55:00+05:30",
+      228
      ],
      [
       707069,
@@ -180,16 +287,16 @@
       "8766261352",
       "2026-07-30T19:02:19.462+05:30",
       "2026-07-30T19:40:00+05:30",
-      "2026-07-31T12:55:00+05:30",
-      142
+      "2026-07-31T14:55:00+05:30",
+      165
      ],
      [
       707088,
       "9625523681",
       "2026-07-30T19:23:17.541+05:30",
       "2026-07-31T12:05:00+05:30",
-      "2026-07-31T12:55:00+05:30",
-      9
+      "2026-07-31T14:55:00+05:30",
+      33
      ],
      [
       707105,
@@ -220,7 +327,86 @@
     94.3396,
     null
    ],
-   "error": null
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Rating submitted at",
+      "type": "ts"
+     },
+     {
+      "label": "Happy-code sent at",
+      "type": "ts"
+     },
+     {
+      "label": "Gap (min)",
+      "type": "int"
+     }
+    ],
+    "null_label": "not sent",
+    "rows": [
+     [
+      "9990882555",
+      "2026-07-30T13:44:13.692+05:30",
+      "2026-07-30T13:20:33.497629+05:30",
+      24
+     ],
+     [
+      "9911992821",
+      "2026-07-30T14:29:51.635+05:30",
+      "2026-07-30T14:06:15.477336+05:30",
+      23
+     ],
+     [
+      "9508913641",
+      "2026-07-30T15:16:13.382+05:30",
+      "2026-07-30T14:58:33.786268+05:30",
+      18
+     ],
+     [
+      "9382702418",
+      "2026-07-30T16:00:24.835+05:30",
+      "2026-07-30T15:25:38.556564+05:30",
+      35
+     ],
+     [
+      "7982118289",
+      "2026-07-30T16:12:01.699+05:30",
+      "2026-07-30T16:01:41.080506+05:30",
+      11
+     ],
+     [
+      "8901995616",
+      "2026-07-30T16:53:19.908+05:30",
+      "2026-07-30T16:21:31.827038+05:30",
+      32
+     ],
+     [
+      "9761155400",
+      "2026-07-30T18:03:45.684+05:30",
+      "2026-07-30T16:54:21.390742+05:30",
+      69
+     ],
+     [
+      "7217803375",
+      "2026-07-30T20:32:59.029+05:30",
+      "2026-07-30T17:50:00.641323+05:30",
+      162
+     ],
+     [
+      "9911721908",
+      "2026-07-30T20:44:30.713+05:30",
+      "2026-07-30T17:30:44.658392+05:30",
+      194
+     ]
+    ],
+    "error": null
+   }
   },
   {
    "id": 15,
@@ -239,7 +425,31 @@
     100.0,
     99.9569
    ],
-   "error": null
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Technician-assigned time",
+      "type": "ts"
+     },
+     {
+      "label": "Message sent at",
+      "type": "ts"
+     },
+     {
+      "label": "Gap (min)",
+      "type": "int"
+     }
+    ],
+    "null_label": "not sent",
+    "rows": [],
+    "error": null
+   }
   },
   {
    "id": 4,
@@ -305,8 +515,8 @@
    "description": "Of every hour a customer's plan is active and paid for, what share actually had ISP access enabled (gate open)?",
    "tbd": false,
    "values": [
-    95.106,
-    95.5888,
+    95.1086,
+    95.59,
     95.8961,
     94.5737,
     96.3089,
@@ -324,7 +534,7 @@
    "description": "Of paying customers, what share had zero hours where their ISP access gate was closed?",
    "tbd": false,
    "values": [
-    91.9041,
+    91.9066,
     92.3348,
     92.9285,
     91.1627,
@@ -343,8 +553,8 @@
    "description": "Of times the captive portal was triggered (captive_portal_initialised event), what share had the portal actually open (open_captive_portal event) on the customer's device?",
    "tbd": false,
    "values": [
-    95.868,
-    95.0504,
+    95.8684,
+    95.0507,
     95.6391,
     95.0012,
     94.3764,
@@ -365,11 +575,11 @@
     91.6399,
     94.3218,
     94.4615,
-    94.2543,
+    94.2568,
     93.2396,
-    90.3805,
-    84.5846,
-    84.8896,
+    90.3328,
+    84.5737,
+    84.7458,
     66.6667
    ],
    "error": null
@@ -486,7 +696,50 @@
     0.991,
     0.98
    ],
-   "error": null
+   "error": null,
+   "drilldown": {
+    "window": "D-1 (16-day cohort)",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Fee-paid time",
+      "type": "ts"
+     },
+     {
+      "label": "Days since fee",
+      "type": "int"
+     },
+     {
+      "label": "Cancelled at",
+      "type": "ts"
+     },
+     {
+      "label": "Cancel type",
+      "type": "text"
+     }
+    ],
+    "null_label": "—",
+    "rows": [
+     [
+      "8287657801",
+      "2026-07-15T08:28:20.623+05:30",
+      16,
+      "2026-07-29T09:42:31.038+05:30",
+      "manual / other reason"
+     ],
+     [
+      "8595760334",
+      "2026-07-15T15:29:06.162+05:30",
+      16,
+      null,
+      "not cancelled"
+     ]
+    ],
+    "error": null
+   }
   }
  ]
 }

@@ -78,13 +78,38 @@ def mask_mobile(v):
     return s if len(s) <= 4 else "•" * (len(s) - 4) + s[-4:]
 
 
-def fmt_ts(v):
+def fmt_ts(v, null_label="—"):
     if v is None:
-        return "no ping"
+        return null_label
     try:
         return datetime.fromisoformat(str(v)).strftime("%b %d, %I:%M %p").replace(" 0", " ")
     except ValueError:
         return html.escape(str(v))
+
+
+def fmt_int(v, null_label="—"):
+    if v is None:
+        return null_label
+    try:
+        return str(int(round(float(v))))
+    except (TypeError, ValueError):
+        return html.escape(str(v))
+
+
+def fmt_text(v, null_label="—"):
+    return null_label if v is None else html.escape(str(v))
+
+
+def format_cell(col_type, v, null_label, unmask=False):
+    if col_type == "mobile":
+        if v is None:
+            return null_label
+        return html.escape(str(v)) if unmask else mask_mobile(v)
+    if col_type == "ts":
+        return fmt_ts(v, null_label)
+    if col_type == "int":
+        return fmt_int(v, null_label)
+    return fmt_text(v, null_label)
 
 
 def build_drilldown_panel(m):
@@ -93,6 +118,8 @@ def build_drilldown_panel(m):
         return ""
     panel_id = f"drill-{m['id']}"
     has_rows = bool(dd.get("rows")) and not dd.get("error")
+    null_label = dd.get("null_label", "—")
+    col_defs = dd["columns"]
     actions_html = (
         '<div class="drill-actions">'
         '<button class="drill-action" data-action="open-tab">Open in new tab &#8599;</button>'
@@ -106,24 +133,18 @@ def build_drilldown_panel(m):
     elif not dd.get("rows"):
         body = '<p class="drill-note">No defaulters for this window.</p>'
     else:
-        header_cells = "".join(f"<th>{html.escape(c)}</th>" for c in dd["columns"])
+        header_cells = "".join(f"<th>{html.escape(c['label'])}</th>" for c in col_defs)
         row_html = []
         full_rows = []
         for r in dd["rows"]:
-            nas_id, mobile, otp_wait, first_ping, last_ping, total_pings = r
-            cells = (
-                f"<td>{html.escape(str(nas_id))}</td>"
-                f"<td>{mask_mobile(mobile)}</td>"
-                f"<td>{fmt_ts(otp_wait)}</td>"
-                f"<td>{fmt_ts(first_ping)}</td>"
-                f"<td>{fmt_ts(last_ping)}</td>"
-                f"<td>{total_pings}</td>"
-            )
+            cells = "".join(f"<td>{format_cell(c['type'], v, null_label)}</td>" for c, v in zip(col_defs, r))
             row_html.append(f"<tr>{cells}</tr>")
-            full_rows.append([str(nas_id), str(mobile), fmt_ts(otp_wait), fmt_ts(first_ping), fmt_ts(last_ping), str(total_pings)])
+            full_rows.append([format_cell(c["type"], v, null_label, unmask=True) for c, v in zip(col_defs, r)])
         body = f"""<table class="drill-table"><thead><tr>{header_cells}</tr></thead><tbody>{"".join(row_html)}</tbody></table>"""
         # unmasked mobiles for CSV export only -- the visible table and "open in new tab" stay masked
-        raw_json = json.dumps({"columns": dd["columns"], "rows": full_rows}, ensure_ascii=False).replace("</", "<\\/")
+        raw_json = json.dumps(
+            {"columns": [c["label"] for c in col_defs], "rows": full_rows}, ensure_ascii=False
+        ).replace("</", "<\\/")
         raw_data_html = f'<script type="application/json" class="drill-raw-data">{raw_json}</script>'
     return f"""
         <tr class="drill-panel-row" id="{panel_id}" style="display:none">
