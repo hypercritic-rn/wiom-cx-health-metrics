@@ -72,9 +72,11 @@ def main():
                 entry["values"] = None
                 entry["error"] = err[:500]
             else:
-                # first row, columns after the kpi-name column are D-1..M-3
+                # first row, columns after the kpi-name column are D-1..M-3 (some metrics only
+                # return a shorter prefix, e.g. D-1..D-3 -- pad the rest with None)
                 row = rows[0] if rows else []
-                values = row[1:] if len(row) > 1 else [None] * 9
+                values = (row[1:] if len(row) > 1 else [])[:9]
+                values += [None] * (9 - len(values))
                 entry["values"] = values
                 entry["error"] = None
 

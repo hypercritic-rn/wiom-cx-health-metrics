@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-08-04T05:25:42.918679+00:00",
+ "generated_at_utc": "2026-08-04T11:50:02.908027+00:00",
  "metrics": [
   {
    "id": 2,
@@ -51,7 +51,7 @@
    "description": "Of customers who submitted an address (address_updated event) -- counting only their first submission, or their first since a prior booking was cancelled (cancelled event) -- what share had their booking confirmed (booking_confirmed event) within 24 hours? D-1 only counts address submissions that have themselves completed a full 24 hours, so it never shows a partial, still-maturing day.",
    "tbd": false,
    "values": [
-    0.973,
+    0.968,
     0.962,
     0.976,
     0.81,
@@ -83,6 +83,26 @@
      [
       "7678414210",
       "2026-08-03T10:39:42.315+05:30",
+      null
+     ],
+     [
+      "8802086457",
+      "2026-08-03T12:51:52.962+05:30",
+      null
+     ],
+     [
+      "8879223828",
+      "2026-08-03T13:22:04.181+05:30",
+      null
+     ],
+     [
+      "9811749690",
+      "2026-08-03T13:27:45.08+05:30",
+      null
+     ],
+     [
+      "9653672791",
+      "2026-08-03T14:17:27.417+05:30",
       null
      ]
     ],
@@ -197,16 +217,16 @@
       "6392293496",
       "2026-08-03T12:20:29.385+05:30",
       "2026-08-03T15:05:00+05:30",
-      "2026-08-04T08:55:00+05:30",
-      212
+      "2026-08-04T15:55:00+05:30",
+      296
      ],
      [
       707508,
       "8506883354",
       "2026-08-03T13:14:29.097+05:30",
       "2026-08-03T13:45:00+05:30",
-      "2026-08-04T08:55:00+05:30",
-      195
+      "2026-08-04T15:55:00+05:30",
+      276
      ],
      [
       707522,
@@ -221,24 +241,24 @@
       "9354114018",
       "2026-08-03T15:28:17.528+05:30",
       "2026-08-03T18:15:00+05:30",
-      "2026-08-04T08:55:00+05:30",
-      176
+      "2026-08-04T15:55:00+05:30",
+      249
      ],
      [
       707535,
       "9667402410",
       "2026-08-03T16:06:29.033+05:30",
       "2026-08-03T16:40:00+05:30",
-      "2026-08-04T08:55:00+05:30",
-      192
+      "2026-08-04T15:55:00+05:30",
+      273
      ],
      [
       707536,
       "8882676171",
       "2026-08-03T16:15:56.199+05:30",
       "2026-08-03T17:05:00+05:30",
-      "2026-08-04T08:55:00+05:30",
-      187
+      "2026-08-04T15:55:00+05:30",
+      271
      ],
      [
       707558,
@@ -253,150 +273,64 @@
       "9911445965",
       "2026-08-03T18:21:53.823+05:30",
       "2026-08-03T19:15:00+05:30",
-      "2026-08-04T08:55:00+05:30",
-      162
+      "2026-08-04T10:45:00+05:30",
+      184
      ],
      [
       707570,
       "8810451923",
       "2026-08-03T18:30:47.491+05:30",
       "2026-08-03T19:05:00+05:30",
-      "2026-08-03T19:45:00+05:30",
-      9
+      "2026-08-04T15:55:00+05:30",
+      16
      ],
      [
       707600,
       "9971192692",
       "2026-08-03T18:37:09.274+05:30",
       "2026-08-04T08:40:00+05:30",
-      "2026-08-04T08:50:00+05:30",
-      3
+      "2026-08-04T15:55:00+05:30",
+      58
      ],
      [
       707574,
       "7683025863",
       "2026-08-03T18:43:55.861+05:30",
-      null,
-      null,
-      0
+      "2026-08-04T14:15:00+05:30",
+      "2026-08-04T15:55:00+05:30",
+      21
      ],
      [
       707576,
       "8287361329",
       "2026-08-03T18:54:49.097+05:30",
       "2026-08-03T19:30:00+05:30",
-      "2026-08-04T06:35:00+05:30",
-      127
+      "2026-08-04T15:10:00+05:30",
+      172
      ],
      [
       707579,
       "9773547783",
       "2026-08-03T18:56:32.514+05:30",
       "2026-08-03T21:00:00+05:30",
-      "2026-08-04T08:55:00+05:30",
-      137
+      "2026-08-04T15:55:00+05:30",
+      221
      ],
      [
       707589,
       "9911593606",
       "2026-08-03T19:40:53.827+05:30",
-      null,
-      null,
-      0
+      "2026-08-04T09:00:00+05:30",
+      "2026-08-04T15:55:00+05:30",
+      75
      ],
      [
       707599,
       "8076953722",
       "2026-08-03T22:29:28.349+05:30",
       "2026-08-03T23:00:00+05:30",
-      "2026-08-03T23:55:00+05:30",
-      12
-     ]
-    ],
-    "error": null
-   }
-  },
-  {
-   "id": 14,
-   "journey": "B2I",
-   "name": "Rating done to happy code delivered on chat",
-   "description": "Of installs where a customer rating was submitted, what share had the happy-code confirmation delivered over chat around the same time?",
-   "tbd": false,
-   "values": [
-    93.4579,
-    96.6667,
-    94.6903,
-    96.3255,
-    95.6731,
-    96.1749,
-    96.1337,
-    96.8284,
-    94.3396
-   ],
-   "error": null,
-   "drilldown": {
-    "window": "D-1",
-    "columns": [
-     {
-      "label": "Mobile",
-      "type": "mobile"
-     },
-     {
-      "label": "Rating submitted at",
-      "type": "ts"
-     },
-     {
-      "label": "Happy-code sent at",
-      "type": "ts"
-     },
-     {
-      "label": "Gap (min)",
-      "type": "int"
-     }
-    ],
-    "null_label": "not sent",
-    "rows": [
-     [
-      "7065841612",
-      "2026-08-03T13:06:52.999+05:30",
-      "2026-08-02T21:22:28.61118+05:30",
-      944
-     ],
-     [
-      "9368335418",
-      "2026-08-03T13:09:03.709+05:30",
-      "2026-08-02T18:58:28.939475+05:30",
-      1091
-     ],
-     [
-      "9310079152",
-      "2026-08-03T15:50:16.779+05:30",
-      "2026-08-03T15:36:39.068345+05:30",
-      14
-     ],
-     [
-      "9990335594",
-      "2026-08-03T15:50:20.718+05:30",
-      "2026-08-03T13:32:09.62207+05:30",
-      138
-     ],
-     [
-      "9953734408",
-      "2026-08-03T17:25:44.219+05:30",
-      null,
-      null
-     ],
-     [
-      "8287741764",
-      "2026-08-03T17:40:12.653+05:30",
-      "2026-08-03T17:28:43.156421+05:30",
-      12
-     ],
-     [
-      "8799792250",
-      "2026-08-03T20:01:02.424+05:30",
-      "2026-08-03T00:20:10.99355+05:30",
-      1181
+      "2026-08-04T15:55:00+05:30",
+      28
      ]
     ],
     "error": null
@@ -490,8 +424,8 @@
    "description": "Of successful renewal payments, what share had a matching plan and entitlement created against that same transaction?",
    "tbd": false,
    "values": [
-    "99.96",
-    "99.96",
+    "99.92",
+    "99.95",
     "99.92",
     "99.95",
     "99.95",
@@ -509,13 +443,13 @@
    "description": "Of every hour a customer's plan is active and paid for, what share actually had ISP access enabled (gate open)?",
    "tbd": false,
    "values": [
-    95.2675,
-    95.0095,
-    95.4232,
-    95.6271,
-    94.6328,
+    95.2919,
+    95.026,
+    95.4384,
+    95.6364,
+    94.6329,
     96.3222,
-    95.6162,
+    95.6173,
     null,
     null
    ],
@@ -528,13 +462,13 @@
    "description": "Of paying customers, what share had zero hours where their ISP access gate was closed?",
    "tbd": false,
    "values": [
-    91.9254,
-    91.538,
-    91.9262,
-    92.4328,
+    91.9451,
+    91.5527,
+    91.941,
+    92.4408,
     91.2148,
     93.5963,
-    92.4771,
+    92.4779,
     null,
     null
    ],
@@ -547,15 +481,34 @@
    "description": "Of times the captive portal was triggered (captive_portal_initialised event), what share had the portal actually open (open_captive_portal event) on the customer's device?",
    "tbd": false,
    "values": [
-    95.6048,
-    95.9992,
-    96.0135,
-    95.7739,
+    95.6051,
+    95.996,
+    96.014,
+    95.7736,
     95.002,
     94.3773,
-    95.0823,
+    95.0824,
     95.5999,
-    95.3053
+    95.3052
+   ],
+   "error": null
+  },
+  {
+   "id": 23,
+   "journey": "R2E",
+   "name": "Recharge Ticket Creation Rate (System Health)",
+   "description": "For every hour a customer had already paid for (excluding their first 30 days post-install), does a recharge ticket's [created_at, obligation_window_end) window span that hour? Measures ticket creation and system-tracked obligation coverage only, not partner claim speed or resolution time. Only D-1..D-3 are computed; W-1..M-3 are not available for this metric.",
+   "tbd": false,
+   "values": [
+    99.3906,
+    99.4082,
+    99.4287,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
    ],
    "error": null
   },
@@ -568,12 +521,12 @@
    "values": [
     87.5,
     86.25,
-    84.7305,
-    90.6526,
-    93.6375,
-    92.191,
-    87.2636,
-    84.9202,
+    84.8214,
+    90.6608,
+    93.5983,
+    92.1945,
+    87.2051,
+    84.935,
     84.6284
    ],
    "error": null
@@ -585,7 +538,7 @@
    "description": "Of completed pickup tickets (excluding cases where the router was returned but no UPI was submitted), what share have their refund order in PROCESSING or SUCCESSFUL status?",
    "tbd": false,
    "values": [
-    66.6667,
+    62.963,
     88.4615,
     71.4286,
     86.5546,
@@ -649,7 +602,7 @@
     98.6596,
     98.3021,
     97.6306,
-    98.9562,
+    98.9561,
     97.235
    ],
    "error": null
