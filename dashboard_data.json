@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-08-04T11:50:02.908027+00:00",
+ "generated_at_utc": "2026-08-05T05:45:34.879519+00:00",
  "metrics": [
   {
    "id": 2,
@@ -51,9 +51,9 @@
    "description": "Of customers who submitted an address (address_updated event) -- counting only their first submission, or their first since a prior booking was cancelled (cancelled event) -- what share had their booking confirmed (booking_confirmed event) within 24 hours? D-1 only counts address submissions that have themselves completed a full 24 hours, so it never shows a partial, still-maturing day.",
    "tbd": false,
    "values": [
-    0.968,
+    0.94,
+    0.964,
     0.962,
-    0.976,
     0.81,
     0.725,
     0.988,
@@ -81,28 +81,18 @@
     "null_label": "never confirmed",
     "rows": [
      [
-      "7678414210",
-      "2026-08-03T10:39:42.315+05:30",
+      "8700488512",
+      "2026-08-04T00:16:44.182+05:30",
       null
      ],
      [
-      "8802086457",
-      "2026-08-03T12:51:52.962+05:30",
+      "7303556312",
+      "2026-08-04T00:17:25.763+05:30",
       null
      ],
      [
-      "8879223828",
-      "2026-08-03T13:22:04.181+05:30",
-      null
-     ],
-     [
-      "9811749690",
-      "2026-08-03T13:27:45.08+05:30",
-      null
-     ],
-     [
-      "9653672791",
-      "2026-08-03T14:17:27.417+05:30",
+      "9555601515",
+      "2026-08-04T08:35:56.946+05:30",
       null
      ]
     ],
@@ -116,9 +106,9 @@
    "description": "Of installs that reached the AWAITING_CUSTOMER_OTP state, what share had their TRUM plan created within 30 minutes of reaching it?",
    "tbd": false,
    "values": [
+    100.0,
     99.0566,
     99.187,
-    100.0,
     99.8701,
     98.4,
     99.1892,
@@ -152,15 +142,7 @@
      }
     ],
     "null_label": "not created",
-    "rows": [
-     [
-      707600,
-      "9971192692",
-      "2026-08-03T18:37:09.274317+05:30",
-      "2026-08-04T08:40:19.042+05:30",
-      843
-     ]
-    ],
+    "rows": [],
     "error": null
    }
   },
@@ -171,9 +153,9 @@
    "description": "Of installs that reached the AWAITING_CUSTOMER_OTP state, what share had the device show ping activity within 30 minutes after reaching it, or in the 10 minutes just before?",
    "tbd": false,
    "values": [
+    82.7273,
     85.8491,
     82.9268,
-    86.7257,
     88.7013,
     75.84,
     92.1622,
@@ -213,124 +195,156 @@
     "null_label": "no ping",
     "rows": [
      [
-      707500,
-      "6392293496",
-      "2026-08-03T12:20:29.385+05:30",
-      "2026-08-03T15:05:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      296
+      707603,
+      "9289372398",
+      "2026-08-04T11:04:45.719+05:30",
+      "2026-08-04T18:05:00+05:30",
+      "2026-08-05T08:55:00+05:30",
+      171
      ],
      [
-      707508,
-      "8506883354",
-      "2026-08-03T13:14:29.097+05:30",
-      "2026-08-03T13:45:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      276
+      707604,
+      "9899395584",
+      "2026-08-04T11:16:49.258+05:30",
+      "2026-08-04T12:00:00+05:30",
+      "2026-08-05T08:55:00+05:30",
+      248
      ],
      [
-      707522,
-      "9810727206",
-      "2026-08-03T14:03:02.215+05:30",
+      707607,
+      "9911120277",
+      "2026-08-04T11:35:04.152+05:30",
       null,
       null,
       0
      ],
      [
-      707534,
-      "9354114018",
-      "2026-08-03T15:28:17.528+05:30",
-      "2026-08-03T18:15:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      249
-     ],
-     [
-      707535,
-      "9667402410",
-      "2026-08-03T16:06:29.033+05:30",
-      "2026-08-03T16:40:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      273
-     ],
-     [
-      707536,
-      "8882676171",
-      "2026-08-03T16:15:56.199+05:30",
-      "2026-08-03T17:05:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      271
-     ],
-     [
-      707558,
-      "9811129232",
-      "2026-08-03T17:38:46.698+05:30",
+      707610,
+      "9718145432",
+      "2026-08-04T11:53:34.752+05:30",
       null,
       null,
       0
      ],
      [
-      707567,
-      "9911445965",
-      "2026-08-03T18:21:53.823+05:30",
-      "2026-08-03T19:15:00+05:30",
-      "2026-08-04T10:45:00+05:30",
-      184
+      707613,
+      "8920135121",
+      "2026-08-04T12:00:03.021+05:30",
+      null,
+      null,
+      0
      ],
      [
-      707570,
-      "8810451923",
-      "2026-08-03T18:30:47.491+05:30",
-      "2026-08-03T19:05:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      16
+      707622,
+      "8750955943",
+      "2026-08-04T12:49:01.921+05:30",
+      "2026-08-04T13:30:00+05:30",
+      "2026-08-05T08:55:00+05:30",
+      223
      ],
      [
-      707600,
-      "9971192692",
-      "2026-08-03T18:37:09.274+05:30",
-      "2026-08-04T08:40:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      58
-     ],
-     [
-      707574,
-      "7683025863",
-      "2026-08-03T18:43:55.861+05:30",
-      "2026-08-04T14:15:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      21
-     ],
-     [
-      707576,
-      "8287361329",
-      "2026-08-03T18:54:49.097+05:30",
-      "2026-08-03T19:30:00+05:30",
-      "2026-08-04T15:10:00+05:30",
-      172
-     ],
-     [
-      707579,
-      "9773547783",
-      "2026-08-03T18:56:32.514+05:30",
-      "2026-08-03T21:00:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      221
-     ],
-     [
-      707589,
-      "9911593606",
-      "2026-08-03T19:40:53.827+05:30",
-      "2026-08-04T09:00:00+05:30",
-      "2026-08-04T15:55:00+05:30",
+      707635,
+      "9899928506",
+      "2026-08-04T13:44:39.986+05:30",
+      "2026-08-04T14:50:00+05:30",
+      "2026-08-04T21:20:00+05:30",
       75
      ],
      [
-      707599,
-      "8076953722",
-      "2026-08-03T22:29:28.349+05:30",
-      "2026-08-03T23:00:00+05:30",
-      "2026-08-04T15:55:00+05:30",
-      28
+      707648,
+      "8860445032",
+      "2026-08-04T15:01:18.793+05:30",
+      "2026-08-04T20:35:00+05:30",
+      "2026-08-05T08:55:00+05:30",
+      141
+     ],
+     [
+      707651,
+      "7668409349",
+      "2026-08-04T15:16:42.027+05:30",
+      "2026-08-04T15:50:00+05:30",
+      "2026-08-05T08:55:00+05:30",
+      204
+     ],
+     [
+      707654,
+      "8423454293",
+      "2026-08-04T15:30:08.608+05:30",
+      "2026-08-04T16:20:00+05:30",
+      "2026-08-05T08:55:00+05:30",
+      197
+     ],
+     [
+      707673,
+      "9990865982",
+      "2026-08-04T17:29:34.778+05:30",
+      null,
+      null,
+      0
+     ],
+     [
+      707681,
+      "8800733650",
+      "2026-08-04T18:13:16.569+05:30",
+      "2026-08-04T20:15:00+05:30",
+      "2026-08-05T08:55:00+05:30",
+      151
+     ],
+     [
+      707683,
+      "8799795359",
+      "2026-08-04T18:18:24.244+05:30",
+      "2026-08-05T06:20:00+05:30",
+      "2026-08-05T07:05:00+05:30",
+      10
+     ],
+     [
+      707687,
+      "9810380845",
+      "2026-08-04T18:24:10.463+05:30",
+      "2026-08-04T19:10:00+05:30",
+      "2026-08-05T08:55:00+05:30",
+      160
+     ],
+     [
+      707690,
+      "7317679656",
+      "2026-08-04T18:44:41.682+05:30",
+      null,
+      null,
+      0
+     ],
+     [
+      707691,
+      "9315467768",
+      "2026-08-04T18:48:08.738+05:30",
+      "2026-08-04T19:35:00+05:30",
+      "2026-08-05T08:55:00+05:30",
+      159
+     ],
+     [
+      707696,
+      "7289806206",
+      "2026-08-04T19:14:24.762+05:30",
+      null,
+      null,
+      0
+     ],
+     [
+      707697,
+      "9711317464",
+      "2026-08-04T19:18:31.905+05:30",
+      "2026-08-04T22:35:00+05:30",
+      "2026-08-05T08:40:00+05:30",
+      2
+     ],
+     [
+      707706,
+      "8800523083",
+      "2026-08-04T20:30:16.995+05:30",
+      null,
+      null,
+      0
      ]
     ],
     "error": null
@@ -386,9 +400,9 @@
    "description": "Of plan expiries where the customer hadn't already recharged early (or renewed with zero gap), what share had the R0 renewal reminder sent within 24 hours before expiry?",
    "tbd": false,
    "values": [
+    99.974,
     99.9487,
     99.8715,
-    99.8948,
     99.9052,
     99.8846,
     99.8605,
@@ -405,9 +419,9 @@
    "description": "Of recharges that follow a genuine offline period (paid >=15 min after the prior plan's expiry, or the first-ever plan on that device), what share had the device show ping activity within 2 hours? Excludes queued recharges (paid before the prior plan expired), since those never take the router offline and don't test recovery behaviour.",
    "tbd": false,
    "values": [
+    93.7425,
     93.7374,
     93.4487,
-    94.1653,
     94.0126,
     93.783,
     93.3844,
@@ -424,9 +438,9 @@
    "description": "Of successful renewal payments, what share had a matching plan and entitlement created against that same transaction?",
    "tbd": false,
    "values": [
-    "99.92",
+    "99.98",
+    "99.96",
     "99.95",
-    "99.92",
     "99.95",
     "99.95",
     "99.95",
@@ -443,13 +457,13 @@
    "description": "Of every hour a customer's plan is active and paid for, what share actually had ISP access enabled (gate open)?",
    "tbd": false,
    "values": [
-    95.2919,
-    95.026,
-    95.4384,
-    95.6364,
-    94.6329,
+    95.2963,
+    95.3102,
+    95.0323,
+    95.639,
+    94.6334,
     96.3222,
-    95.6173,
+    95.6177,
     null,
     null
    ],
@@ -462,13 +476,13 @@
    "description": "Of paying customers, what share had zero hours where their ISP access gate was closed?",
    "tbd": false,
    "values": [
-    91.9451,
-    91.5527,
-    91.941,
-    92.4408,
-    91.2148,
+    91.948,
+    91.9562,
+    91.5564,
+    92.4429,
+    91.2153,
     93.5963,
-    92.4779,
+    92.4783,
     null,
     null
    ],
@@ -481,14 +495,14 @@
    "description": "Of times the captive portal was triggered (captive_portal_initialised event), what share had the portal actually open (open_captive_portal event) on the customer's device?",
    "tbd": false,
    "values": [
-    95.6051,
+    96.1718,
+    95.6059,
     95.996,
-    96.014,
-    95.7736,
-    95.002,
-    94.3773,
-    95.0824,
-    95.5999,
+    95.773,
+    95.0022,
+    94.3754,
+    95.082,
+    95.6,
     95.3052
    ],
    "error": null
@@ -500,9 +514,9 @@
    "description": "For every hour a customer had already paid for (excluding their first 30 days post-install), does a recharge ticket's [created_at, obligation_window_end) window span that hour? Measures ticket creation and system-tracked obligation coverage only, not partner claim speed or resolution time. Only D-1..D-3 are computed; W-1..M-3 are not available for this metric.",
    "tbd": false,
    "values": [
+    99.3723,
     99.3906,
     99.4082,
-    99.4287,
     null,
     null,
     null,
@@ -519,14 +533,14 @@
    "description": "Of PAYG pickup tickets created, what share have a security-deposit refund order created?",
    "tbd": false,
    "values": [
-    87.5,
+    84.1317,
+    87.5371,
     86.25,
-    84.8214,
-    90.6608,
-    93.5983,
-    92.1945,
-    87.2051,
-    84.935,
+    90.669,
+    93.4447,
+    91.9964,
+    87.1286,
+    84.9685,
     84.6284
    ],
    "error": null
@@ -538,15 +552,15 @@
    "description": "Of completed pickup tickets (excluding cases where the router was returned but no UPI was submitted), what share have their refund order in PROCESSING or SUCCESSFUL status?",
    "tbd": false,
    "values": [
-    62.963,
-    88.4615,
-    71.4286,
-    86.5546,
-    58.1818,
-    68.0723,
-    67.5926,
-    84.7826,
-    29.4118
+    75.0,
+    68.5714,
+    90.0,
+    85.8108,
+    57.5758,
+    65.5602,
+    66.3677,
+    85.3659,
+    38.4615
    ],
    "error": null
   },
@@ -576,14 +590,14 @@
    "description": "Of customer chat messages, what share receive one within 60 seconds, excluding messages that are never meant to get a reply?",
    "tbd": false,
    "values": [
+    97.8507,
     97.6619,
     98.2175,
-    97.4674,
     97.9873,
     97.9841,
     98.4744,
     98.2948,
-    98.7243,
+    98.7239,
     97.9335
    ],
    "error": null
@@ -595,9 +609,9 @@
    "description": "When the chat bot tells a customer a new complaint ticket has been created (complaint_ticket_type_3_or_4_created workflow), what share of those tickets actually exist in the ticket system within 5 minutes of that message?",
    "tbd": false,
    "values": [
+    98.25,
     99.1643,
     98.7277,
-    98.6595,
     99.0441,
     98.6596,
     98.3021,
@@ -620,7 +634,7 @@
     100.0,
     100.0,
     100.0,
-    99.5482,
+    99.5475,
     94.6136,
     80.0
    ],
@@ -636,9 +650,9 @@
     1.0,
     1.0,
     1.0,
+    0.972,
     0.975,
     0.964,
-    0.994,
     0.996,
     0.991,
     0.98
