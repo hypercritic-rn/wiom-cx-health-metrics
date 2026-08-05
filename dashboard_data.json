@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-08-05T11:18:22.597946+00:00",
+ "generated_at_utc": "2026-08-05T13:17:20.514537+00:00",
  "metrics": [
   {
    "id": 2,
@@ -53,7 +53,7 @@
    "tbd": false,
    "unit": null,
    "values": [
-    0.958,
+    0.967,
     0.964,
     0.962,
     0.81,
@@ -213,32 +213,32 @@
       "9289372398",
       "2026-08-04T11:04:45.719+05:30",
       "2026-08-04T18:05:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      239
+      "2026-08-05T16:50:00+05:30",
+      261
      ],
      [
       707604,
       "9899395584",
       "2026-08-04T11:16:49.258+05:30",
       "2026-08-04T12:00:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      319
+      "2026-08-05T16:55:00+05:30",
+      343
      ],
      [
       707607,
       "9911120277",
       "2026-08-04T11:35:04.152+05:30",
       "2026-08-05T11:00:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      42
+      "2026-08-05T16:55:00+05:30",
+      66
      ],
      [
       707610,
       "9718145432",
       "2026-08-04T11:53:34.752+05:30",
       "2026-08-05T11:00:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      37
+      "2026-08-05T16:55:00+05:30",
+      58
      ],
      [
       707613,
@@ -253,72 +253,72 @@
       "8750955943",
       "2026-08-04T12:49:01.921+05:30",
       "2026-08-04T13:30:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      290
+      "2026-08-05T16:55:00+05:30",
+      313
      ],
      [
       707635,
       "9899928506",
       "2026-08-04T13:44:39.986+05:30",
       "2026-08-04T14:50:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      129
+      "2026-08-05T16:55:00+05:30",
+      152
      ],
      [
       707648,
       "8860445032",
       "2026-08-04T15:01:18.793+05:30",
       "2026-08-04T20:35:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      213
+      "2026-08-05T16:55:00+05:30",
+      237
      ],
      [
       707651,
       "7668409349",
       "2026-08-04T15:16:42.027+05:30",
       "2026-08-04T15:50:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      271
+      "2026-08-05T16:55:00+05:30",
+      295
      ],
      [
       707654,
       "8423454293",
       "2026-08-04T15:30:08.608+05:30",
       "2026-08-04T16:20:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      268
+      "2026-08-05T16:55:00+05:30",
+      292
      ],
      [
       707673,
       "9990865982",
       "2026-08-04T17:29:34.778+05:30",
       "2026-08-05T11:00:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      46
+      "2026-08-05T16:55:00+05:30",
+      70
      ],
      [
       707681,
       "8800733650",
       "2026-08-04T18:13:16.569+05:30",
       "2026-08-04T20:15:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      214
+      "2026-08-05T16:10:00+05:30",
+      229
      ],
      [
       707683,
       "8799795359",
       "2026-08-04T18:18:24.244+05:30",
       "2026-08-05T06:20:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      52
+      "2026-08-05T16:55:00+05:30",
+      76
      ],
      [
       707687,
       "9810380845",
       "2026-08-04T18:24:10.463+05:30",
       "2026-08-04T19:10:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      231
+      "2026-08-05T16:55:00+05:30",
+      255
      ],
      [
       707690,
@@ -333,8 +333,8 @@
       "9315467768",
       "2026-08-04T18:48:08.738+05:30",
       "2026-08-04T19:35:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      231
+      "2026-08-05T16:55:00+05:30",
+      255
      ],
      [
       707696,
@@ -349,8 +349,8 @@
       "9711317464",
       "2026-08-04T19:18:31.905+05:30",
       "2026-08-04T22:35:00+05:30",
-      "2026-08-05T14:55:00+05:30",
-      38
+      "2026-08-05T16:55:00+05:30",
+      53
      ],
      [
       707706,
@@ -475,18 +475,8 @@
    "description": "Of every hour a customer's plan is active and paid for, what share actually had ISP access enabled (gate open)?",
    "tbd": false,
    "unit": null,
-   "values": [
-    95.332,
-    95.3359,
-    95.052,
-    95.6464,
-    94.6344,
-    96.3222,
-    95.6186,
-    null,
-    null
-   ],
-   "error": null
+   "values": null,
+   "error": "The read operation timed out"
   },
   {
    "id": 9,
@@ -496,10 +486,10 @@
    "tbd": false,
    "unit": null,
    "values": [
-    91.9789,
-    91.9759,
-    91.5749,
-    92.4494,
+    91.9937,
+    91.9809,
+    91.5761,
+    92.4496,
     91.2162,
     93.5963,
     92.479,
@@ -516,10 +506,10 @@
    "tbd": false,
    "unit": null,
    "values": [
-    96.2287,
+    96.2295,
     95.6238,
     96.0699,
-    95.7844,
+    95.7845,
     94.9913,
     94.3631,
     95.0811,
@@ -562,8 +552,8 @@
     90.6291,
     93.4057,
     91.9147,
-    87.0898,
-    84.9576,
+    87.0656,
+    84.9614,
     84.4857
    ],
    "error": null,
@@ -1034,15 +1024,15 @@
       "175.5"
      ],
      [
-      "9599302317",
-      18863,
-      "2026-04-02T11:48:47.514+05:30",
-      "124.5"
-     ],
-     [
       "7983764732",
       16327,
       "2026-04-02T11:58:46.969+05:30",
+      "124.5"
+     ],
+     [
+      "9599302317",
+      18863,
+      "2026-04-02T11:48:47.514+05:30",
       "124.5"
      ],
      [
@@ -1213,15 +1203,15 @@
    "tbd": false,
    "unit": null,
    "values": [
-    97.8507,
-    97.6619,
-    98.2175,
-    97.9873,
-    97.9841,
-    98.4744,
-    98.2948,
-    98.7239,
-    97.9335
+    97.8439,
+    97.6684,
+    98.2104,
+    97.9959,
+    97.9842,
+    98.4635,
+    98.2937,
+    98.7223,
+    97.941
    ],
    "error": null,
    "drilldown": {
@@ -1232,883 +1222,1790 @@
       "type": "mobile"
      },
      {
-      "label": "Message received at",
+      "label": "Acct ID",
+      "type": "id"
+     },
+     {
+      "label": "Inbound TS (IST)",
       "type": "ts"
      },
      {
-      "label": "Reply sent at",
-      "type": "ts"
+      "label": "Customer Message Text",
+      "type": "text",
+      "null_label": "no text content"
      },
      {
-      "label": "Gap (sec)",
-      "type": "int"
+      "label": "Reply TS (IST)",
+      "type": "ts",
+      "null_label": "no reply within 24h"
+     },
+     {
+      "label": "Reply Workflow",
+      "type": "text",
+      "null_label": "no reply within 24h"
+     },
+     {
+      "label": "Reply User ID",
+      "type": "id",
+      "null_label": "no reply within 24h"
+     },
+     {
+      "label": "Seconds To Reply",
+      "type": "int",
+      "null_label": "no reply within 24h"
+     },
+     {
+      "label": "User State",
+      "type": "text",
+      "null_label": "no intent classification found"
+     },
+     {
+      "label": "Finalised Intent",
+      "type": "text",
+      "null_label": "no intent classification found"
      }
     ],
-    "null_label": "no reply within 24h",
+    "null_label": "—",
     "rows": [
      [
       "9310387699",
+      103947,
       "2026-08-04T00:02:42.412901+05:30",
+      "no internet connectivity",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "9304954494",
+      296797,
       "2026-08-04T01:01:15.740401+05:30",
+      "हाँ, चालू है",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9650559942",
+      162228,
       "2026-08-04T01:07:50.425397+05:30",
+      "Kab tak aye ga",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8076965084",
+      272665,
       "2026-08-04T01:56:51.832885+05:30",
+      "cancel",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "cancelBooking"
      ],
      [
       "8810403959",
+      346599,
       "2026-08-04T02:54:23.810903+05:30",
+      "price",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "8700763339",
+      346039,
       "2026-08-04T04:21:34.691288+05:30",
+      "any installation charges",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9289533708",
+      270266,
       "2026-08-04T04:22:29.237139+05:30",
+      "मेरा प्लान कब खत्म होगा?",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkStatus"
      ],
      [
       "9289533708",
+      270266,
       "2026-08-04T04:34:29.707484+05:30",
+      "हाँ, वही दिक्कत है ",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9289533708",
+      270266,
       "2026-08-04T04:44:45.911387+05:30",
+      "to maine ek mahine wala recharge kar rakha hai 28 din wala",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "281749854830387",
+      153070,
       "2026-08-04T05:51:39.576076+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8929026129",
+      344964,
       "2026-08-04T06:03:09.400092+05:30",
+      "I need help",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9871761456",
+      347066,
       "2026-08-04T07:17:02.853709+05:30",
+      "kya alag se paise lagenge",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9056818681",
+      346773,
       "2026-08-04T07:43:53.23565+05:30",
+      "what will be the speed",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "planInfoSpeed"
      ],
      [
       "9056818681",
+      346773,
       "2026-08-04T07:44:18.721308+05:30",
+      "speed of internet?",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "planInfoSpeed"
      ],
      [
       "9056818681",
+      346773,
       "2026-08-04T07:54:53.012009+05:30",
+      "I want to know the internet speed",
       "2026-08-04T21:17:42.181448+05:30",
-      48169
+      "delay_slot_breached_customer_confirmed_but_rohit_not_assigned",
+      "9056818681",
+      48169,
+      "ACTIVE",
+      "planInfoSpeed"
      ],
      [
       "8595756870",
+      135645,
       "2026-08-04T08:10:47.465774+05:30",
+      "I need to recharge",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "recharge"
      ],
      [
       "8595756870",
+      135645,
       "2026-08-04T08:11:25.565395+05:30",
+      "how can I recharge my wifi",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "recharge"
      ],
      [
       "8595756870",
+      135645,
       "2026-08-04T08:14:42.10576+05:30",
+      "answer please",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "seekHelp"
      ],
      [
       "8279572922",
+      74845,
       "2026-08-04T08:16:46.794132+05:30",
+      "हाँ, चालू है",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "281749854713398",
+      93887,
       "2026-08-04T08:21:40.298723+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8800733650",
+      346281,
       "2026-08-04T08:51:44.712077+05:30",
+      "help",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "seekHelp"
      ],
      [
       "8828951983",
+      308069,
       "2026-08-04T09:19:19.959406+05:30",
+      "I'll Wait",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "7400357777",
+      99206,
       "2026-08-04T09:27:05.020443+05:30",
+      "Mera net band hai",
       "2026-08-04T09:28:42.657932+05:30",
-      97
+      "complaint_ping_failed_ask_netbox_on",
+      "7400357777",
+      97,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "274878044983",
+      223719,
       "2026-08-04T10:02:42.919108+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9013216245",
+      15602,
       "2026-08-04T10:14:03.658065+05:30",
+      "मुझे मदद चाहिए",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8800733650",
+      346281,
       "2026-08-04T10:19:06.317443+05:30",
+      "hello",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "greetings"
      ],
      [
       "8800733650",
+      346281,
       "2026-08-04T10:19:17.197108+05:30",
+      "help",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "seekHelp"
      ],
      [
       "9210717750",
+      167573,
       "2026-08-04T10:24:13.369284+05:30",
+      "पेमेंट हिस्ट्री देखनी है",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9891981364",
+      106760,
       "2026-08-04T10:50:13.001089+05:30",
+      "I need help",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "274878058258",
+      21484,
       "2026-08-04T11:08:01.175707+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8967005346",
+      22196,
       "2026-08-04T11:17:13.828689+05:30",
+      "usage hold",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
      ],
      [
       "9971240163",
+      346480,
       "2026-08-04T11:38:10.285014+05:30",
+      "रिचार्ज के प्लान देखें",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "274878043424",
+      88815,
       "2026-08-04T11:50:28.062237+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "274877996973",
+      99607,
       "2026-08-04T12:10:14.905059+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9971240163",
+      346480,
       "2026-08-04T12:25:01.672226+05:30",
+      "रिचार्ज के प्लान देखें",
       "2026-08-04T13:25:37.875686+05:30",
-      3636
-     ],
-     [
-      "9167870567",
-      "2026-08-04T12:25:39.256717+05:30",
+      "netbox_ready_connect_j2",
+      "9971240163",
+      3636,
       null,
       null
      ],
      [
+      "9167870567",
+      347245,
+      "2026-08-04T12:25:39.256717+05:30",
+      "जब कनेक्शन लगाने के लिए एग्जीक्यूटिव घर पर आएगा तब उसकी कितनी फीस देनी है और कुछ एक्स्ट्रा चार्ज है क्या",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
       "274878056537",
+      77639,
       "2026-08-04T12:50:56.946061+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9999222205",
+      208519,
       "2026-08-04T12:55:06.731724+05:30",
+      "met nhi chl rha",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "6287136706",
+      79638,
       "2026-08-04T13:28:04.969235+05:30",
+      "hi",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9289420582",
+      19633,
       "2026-08-04T13:59:38.970265+05:30",
+      "mere wifi ke red light wri hn",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "7701902694",
+      103262,
       "2026-08-04T14:05:25.826611+05:30",
+      "Mera wifi nahi chal rha hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "7683025863",
+      256552,
       "2026-08-04T14:22:46.090148+05:30",
+      "aage proceed kre",
       null,
-      null
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
      ],
      [
       "8800929429",
+      184710,
       "2026-08-04T14:26:31.342828+05:30",
+      "recharge",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "recharge"
      ],
      [
       "8800929429",
+      184710,
       "2026-08-04T14:26:59.524015+05:30",
+      "reply karo mujhe recharge karna hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "recharge"
      ],
      [
       "8800929429",
+      184710,
       "2026-08-04T14:27:31.424399+05:30",
+      "recharge karna hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "recharge"
      ],
      [
       "8800929429",
+      184710,
       "2026-08-04T14:29:07.874+05:30",
+      "recharge kaise hoga",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "paymentHelp"
      ],
      [
       "9820376704",
+      117080,
       "2026-08-04T14:31:06.66028+05:30",
+      "wiom net us useless",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "8800929429",
+      184710,
       "2026-08-04T14:31:37.514705+05:30",
+      "recharge",
       "2026-08-04T14:34:01.756133+05:30",
-      144
+      "ticket_type_3_or_4_created",
+      "281749855168147",
+      144,
+      "ACTIVE",
+      "recharge"
      ],
      [
       "8595756870",
+      135645,
       "2026-08-04T14:33:01.366715+05:30",
+      "hi",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "greetings"
      ],
      [
       "7683025863",
+      256552,
       "2026-08-04T14:41:31.715944+05:30",
+      "ss id and pasword",
       null,
-      null
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "updateSsid"
      ],
      [
       "9155252816",
+      346299,
       "2026-08-04T14:42:17.968988+05:30",
+      "मेरा स्टेटस बताओ",
       "2026-08-04T19:32:07.210991+05:30",
-      17390
+      "happy_code_auto_confirm",
+      "9155252816",
+      17390,
+      "HAPPY_CODE",
+      "checkStatus"
      ],
      [
       "7683025863",
+      256552,
       "2026-08-04T14:42:31.437343+05:30",
+      "ss id and pasword",
       null,
-      null
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "updateSsid"
      ],
      [
       "7683025863",
+      256552,
       "2026-08-04T14:45:31.607261+05:30",
+      "change ssid and password",
       null,
-      null
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "updateSsid"
      ],
      [
       "7683025863",
+      256552,
       "2026-08-04T14:51:55.033321+05:30",
+      "मेरा स्टेटस बताओ",
       "2026-08-04T15:04:00.991614+05:30",
-      725
+      "ticket_type_3_or_4_created",
+      "281749855166262",
+      725,
+      "HAPPY_CODE",
+      "checkStatus"
      ],
      [
       "9990110612",
+      342590,
       "2026-08-04T14:59:30.804048+05:30",
+      "payment",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "paymentHelp"
      ],
      [
       "9990110612",
+      342590,
       "2026-08-04T15:00:58.472832+05:30",
+      "payment",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "paymentHelp"
      ],
      [
       "7015366368",
+      94999,
       "2026-08-04T15:08:17.04562+05:30",
+      "new connection",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "rebook"
      ],
      [
       "8595756870",
+      135645,
       "2026-08-04T15:18:05.160793+05:30",
+      "प्लीज कनेक्ट द कॉल पर एमबीएम कस्टमर",
       "2026-08-04T22:54:08.717647+05:30",
-      27363
+      "renewal_payment_success",
+      "281749855124032",
+      27363,
+      "ACTIVE",
+      "seekHelp"
      ],
      [
       "8800929429",
+      184710,
       "2026-08-04T15:27:55.672572+05:30",
+      "recharge",
       "2026-08-04T15:29:01.194758+05:30",
-      66
+      "ticket_type_3_or_4_reopen_old_selected",
+      "281749855168147",
+      66,
+      "ACTIVE",
+      "recharge"
      ],
      [
       "7533013019",
+      287168,
       "2026-08-04T15:41:58.720334+05:30",
+      "booking fees",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "8447116847",
+      342212,
       "2026-08-04T15:47:31.805201+05:30",
+      "wifi name or password kaise badlu",
       null,
-      null
+      null,
+      null,
+      null,
+      "RATING",
+      "updateSsid"
      ],
      [
       "8447116847",
+      342212,
       "2026-08-04T15:48:17.775174+05:30",
+      "setup pura kaise kre",
       "2026-08-04T20:32:35.137725+05:30",
-      17058
+      "happy_code_auto_confirm",
+      "8447116847",
+      17058,
+      "RATING",
+      "seekHelp"
      ],
      [
       "9818249908",
+      298765,
       "2026-08-04T15:56:58.461281+05:30",
+      "kia hua",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "274878057468",
+      142780,
       "2026-08-04T16:36:36.958435+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "7683025863",
+      256552,
       "2026-08-04T16:44:03.42912+05:30",
+      "मेरा स्टेटस बताओ",
       null,
-      null
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
      ],
      [
       "8800733650",
+      346281,
       "2026-08-04T16:45:28.292212+05:30",
+      "help",
       "2026-08-04T17:00:56.834449+05:30",
-      928
+      "slot_confirmed_waiting_tech_assignment_checkStatus",
+      "8800733650",
+      928,
+      "ACTIVE",
+      "seekHelp"
      ],
      [
       "7683025863",
+      256552,
       "2026-08-04T16:45:37.564249+05:30",
+      "cancel krdo",
       null,
-      null
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "cancelBooking"
      ],
      [
       "7683025863",
+      256552,
       "2026-08-04T16:45:48.49394+05:30",
+      "refund do",
       null,
-      null
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkRefundStatus"
      ],
      [
       "9773632708",
+      344966,
       "2026-08-04T16:50:48.33658+05:30",
+      "Wiom123",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "changePassword"
      ],
      [
       "9773632708",
+      344966,
       "2026-08-04T16:51:29.358237+05:30",
+      "password 786000144",
       "2026-08-04T16:54:25.455459+05:30",
-      176
+      "netbox_configuring_wait_i",
+      "9773632708",
+      176,
+      "ACTIVE",
+      "changePassword"
      ],
      [
       "9560594557",
+      345723,
       "2026-08-04T16:57:05.954005+05:30",
+      "ye shift lag va ne ke Kitna price hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "8448064511",
+      86073,
       "2026-08-04T16:57:15.324007+05:30",
+      "Recharged",
       "2026-08-04T17:33:15.714964+05:30",
-      2160
-     ],
-     [
-      "9560594557",
-      "2026-08-04T17:16:29.901775+05:30",
+      "renewal_post_expiry_r1",
+      "281749854707160",
+      2160,
       null,
       null
      ],
      [
+      "9560594557",
+      345723,
+      "2026-08-04T17:11:02.30536+05:30",
+      "mujhe price Janna hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9560594557",
+      345723,
+      "2026-08-04T17:16:29.901775+05:30",
+      "price",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
       "",
+      347446,
       "2026-08-04T17:24:05.867987+05:30",
+      "wifi ka password bhool gaya Hun",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9895226372",
+      346455,
       "2026-08-04T17:30:34.933607+05:30",
+      "रिचार्ज के प्लान देखें",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "7990819014",
+      346715,
       "2026-08-04T17:37:54.080622+05:30",
+      "कब तक आ रहे हो भाई",
       "2026-08-04T17:51:40.907778+05:30",
-      826
+      "technician_arrived",
+      "7990819014",
+      826,
+      null,
+      null
      ],
      [
       "7530928108",
+      344928,
       "2026-08-04T17:40:46.901832+05:30",
+      "installation Charges bhi pay krne padenge kya",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9654122575",
+      347463,
       "2026-08-04T17:52:24.545908+05:30",
+      "वाई-फाई लगने के बाद कितने पैसे देने होंगे स्टार्टिंग में",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9654122575",
+      347463,
       "2026-08-04T17:52:52.247236+05:30",
+      "वाई-फाई लगने के कितने पैसे देने हैं",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9630580630",
+      342490,
       "2026-08-04T18:03:28.275387+05:30",
+      "टेक्नीशियन को कॉल करना है",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "281749854732832",
+      194945,
       "2026-08-04T18:06:19.367437+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "7015366368",
+      94999,
       "2026-08-04T18:25:34.927184+05:30",
+      "address: Kundan nagar gali no 2 4th floor",
       "2026-08-05T08:58:59.716004+05:30",
-      52405
+      "installation_slot_confirmed_i",
+      "7015366368",
+      52405,
+      "ACTIVE",
+      "addressInput"
      ],
      [
       "9911499868",
+      345432,
       "2026-08-04T18:29:31.766897+05:30",
+      "Wi-Fi lagane ke liye kitne payment karni hogi",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9911499868",
+      345432,
       "2026-08-04T18:30:00.027125+05:30",
+      "Wi-Fi lagane ke liye kitne payment Deni",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9990110612",
+      342590,
       "2026-08-04T18:43:07.771045+05:30",
+      "payment",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkPaymentHistory"
      ],
      [
       "8595282527",
+      346477,
       "2026-08-04T18:44:07.196876+05:30",
+      "happy cord",
       null,
-      null
+      null,
+      null,
+      null,
+      "RATING",
+      "ticketRating"
      ],
      [
       "9266872575",
+      338886,
       "2026-08-04T18:50:48.132745+05:30",
+      "happy code",
       null,
-      null
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
      ],
      [
       "9315467768",
+      347321,
       "2026-08-04T19:04:38.16124+05:30",
+      "password change",
       null,
-      null
+      null,
+      null,
+      null,
+      "RATING",
+      "changePassword"
      ],
      [
       "9266872575",
+      338886,
       "2026-08-04T19:04:50.784112+05:30",
+      "change ssid and password",
       null,
-      null
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "updateSsid"
      ],
      [
       "9315467768",
+      347321,
       "2026-08-04T19:05:19.684838+05:30",
+      "password change karna hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "RATING",
+      "changePassword"
      ],
      [
       "7065308193",
+      347168,
       "2026-08-04T19:15:47.629212+05:30",
+      "charge kitna hoga",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "7065308193",
+      347168,
       "2026-08-04T19:16:13.570426+05:30",
+      "charge kitna lagaga",
       "2026-08-04T21:17:42.37846+05:30",
-      7289
+      "delay_slot_breached_rohit_assigned_but_rohit_not_arrived",
+      "7065308193",
+      7289,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "8851377450",
+      160330,
       "2026-08-04T19:25:30.594106+05:30",
+      "kay ab chal raha hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "internetIssue"
      ],
      [
       "9871753120",
+      93946,
       "2026-08-04T19:47:59.646168+05:30",
+      "mera net kyo nhi chl rha",
       "2026-08-04T19:49:18.773583+05:30",
-      79
+      "complaint_ping_failed_ask_netbox_on",
+      "9871753120",
+      79,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "281749854881193",
+      48624,
       "2026-08-04T19:56:46.539497+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8810258276",
+      222444,
       "2026-08-04T19:57:31.307424+05:30",
+      "last date kya h",
       "2026-08-04T20:31:51.681123+05:30",
-      2060
+      "renewal_payment_success",
+      "274877957631",
+      2060,
+      null,
+      null
      ],
      [
       "",
+      347559,
       "2026-08-04T19:58:10.057327+05:30",
+      "कुल कितना खर्चा आएगा?",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8076957298",
+      310978,
       "2026-08-04T20:03:25.435289+05:30",
+      "net is not working properly 😔",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9717148250",
+      124004,
       "2026-08-04T20:13:38.298156+05:30",
+      "net is working",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "9971690090",
+      347577,
       "2026-08-04T20:21:16.51769+05:30",
+      "kab tak lagega",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
      ],
      [
       "9971690090",
+      347577,
       "2026-08-04T20:21:49.71587+05:30",
+      "hii",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "greetings"
      ],
      [
       "8587006388",
+      106392,
       "2026-08-04T20:22:45.078917+05:30",
+      "Mera internet nahin chal raha hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "9971690090",
+      347577,
       "2026-08-04T20:24:38.790806+05:30",
+      "hii",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "greetings"
      ],
      [
       "9971690090",
+      347577,
       "2026-08-04T20:25:22.649009+05:30",
+      "kab tak lagega",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
      ],
      [
       "9971690090",
+      347577,
       "2026-08-04T20:26:18.2557+05:30",
+      "9311232973",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "changeMobileNumber"
      ],
      [
       "9717370776",
+      1593,
       "2026-08-04T20:26:46.971236+05:30",
+      "kya sthi ti Hai",
+      "2026-08-05T16:09:49.053171+05:30",
+      "ticket_type_3_or_4_resolved",
+      "281749854849272",
+      70983,
       null,
       null
      ],
      [
       "7838521771",
+      125297,
       "2026-08-04T20:42:40.663867+05:30",
+      "how many times I downloade it ....",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
      ],
      [
       "7982839958",
+      343137,
       "2026-08-04T21:00:20.257468+05:30",
+      "मेरा स्टेटस बताओ",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
      ],
      [
       "9250477495",
+      311583,
       "2026-08-04T21:04:16.263818+05:30",
+      "sir mene aap ko payment key hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "paymentHelp"
      ],
      [
       "9250477495",
+      311583,
       "2026-08-04T21:04:59.816839+05:30",
+      "Rs. 45 sent from A/c xx2590 on 04-Aug-26 to Wiom via UPI (Ref ID: 890372172456).",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkPaymentHistory"
      ],
      [
       "9250477495",
+      311583,
       "2026-08-04T21:05:47.527406+05:30",
+      "a 57 lal kuan me net lagana hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "addressInput"
      ],
      [
       "9250477495",
+      311583,
       "2026-08-04T21:06:49.195135+05:30",
+      "भाई मैं आज पेमेंट किया है कब तक नेट लगेगा",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
      ],
      [
       "9250477495",
+      311583,
       "2026-08-04T21:09:20.67292+05:30",
+      "आज पेमेंट किया है तो नेट कितने दिन में लगता है",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
      ],
      [
       "9654217658",
+      121094,
       "2026-08-04T21:12:10.376806+05:30",
+      "kj. gkb.kukll b.nll.lhnnlkn.ib ining lluik.gkilli.lololi.b.k u",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "FallbackIntent"
      ],
      [
       "9654217658",
+      121094,
       "2026-08-04T21:12:25.823033+05:30",
+      ".bilbplm",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "smart_clarification"
      ],
      [
       "9250477495",
+      311583,
       "2026-08-04T21:12:39.230543+05:30",
+      "mujhe aapne ghar per Internet lagwana th is ley booking payme pay key hai.address 57 A block new jatav Chauk lal kuan m b road new delhi 110044",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "addressInput"
      ],
      [
       "9354872407",
+      344779,
       "2026-08-04T21:15:28.813426+05:30",
+      "aur mera Kitna kharch Dena padega",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9354872407",
+      344779,
       "2026-08-04T21:16:07.899135+05:30",
+      "lagane ka kharch charge bhi lagta hai kya",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "8920732733",
+      347627,
       "2026-08-04T21:16:08.71083+05:30",
+      "benefits bta do",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "wiomIntro"
      ],
      [
       "9354872407",
+      344779,
       "2026-08-04T21:16:56.483496+05:30",
+      "please bataen lagane ka charge lagta hai kya",
       "2026-08-04T21:18:00.474484+05:30",
-      64
+      "contact_saved",
+      "9354872407",
+      64,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9711767995",
+      30824,
       "2026-08-04T21:28:56.417838+05:30",
+      "I need help",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "seekHelp"
      ],
      [
       "9711767995",
+      30824,
       "2026-08-04T21:29:21.025942+05:30",
+      "No, it’s OFF",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9368230342",
+      346985,
       "2026-08-04T21:33:24.328473+05:30",
+      "hi",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "7781065037",
+      30547,
       "2026-08-04T21:42:24.621846+05:30",
+      "hii",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8010826591",
+      122561,
       "2026-08-04T21:55:00.122933+05:30",
+      "net nhi chal raha hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
      ],
      [
       "7557571008",
+      346920,
       "2026-08-04T21:59:11.532761+05:30",
+      "pese kitne lgege",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "7557571008",
+      346920,
       "2026-08-04T21:59:39.828439+05:30",
+      "reply",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "8882121418",
+      78234,
       "2026-08-04T22:15:16.277592+05:30",
+      "meri sewa chalu kar do",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "recharge"
      ],
      [
       "8882121418",
+      78234,
       "2026-08-04T22:16:02.297123+05:30",
+      "apki help support team call ke liye uplabdh nhi hai",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "seekHelp"
      ],
      [
       "9871753120",
+      93946,
       "2026-08-04T22:17:13.736338+05:30",
+      "हाँ, चालू है",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "281749854854915",
+      34240,
       "2026-08-04T22:18:59.957379+05:30",
+      "Still facing issue",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8882579412",
+      34240,
       "2026-08-04T22:19:58.735698+05:30",
+      "Yes, it’s ON",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "8800512851",
+      109146,
       "2026-08-04T22:34:51.947027+05:30",
+      "28",
       "2026-08-05T02:24:30.676823+05:30",
-      13779
+      "ticket_type_3_or_4_tat_breached",
+      "281749854869846",
+      13779,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
      ],
      [
       "",
+      346795,
       "2026-08-04T22:49:34.023363+05:30",
+      "video kaise banai jaati",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "",
+      347702,
       "2026-08-04T22:51:49.518794+05:30",
+      "what is total expenses to install Wiom at my home",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "",
+      347702,
       "2026-08-04T22:53:56.61019+05:30",
+      "For 14 days what I have to pay",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "",
+      347702,
       "2026-08-04T22:55:12.993286+05:30",
+      "with all of your charges",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "",
+      347702,
       "2026-08-04T23:00:49.500473+05:30",
+      "what is your complete charges along with installation initially for 14 days only to check how it works",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9990985314",
+      347699,
       "2026-08-04T23:01:02.549146+05:30",
+      "total mujhe Kitna charge karna padega",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "9990985314",
+      347699,
       "2026-08-04T23:01:34.849779+05:30",
+      "mujhe Kitna charge karna padega",
       null,
-      null
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
      ],
      [
       "",
+      347715,
       "2026-08-04T23:11:26.213614+05:30",
+      "hi",
+      null,
+      null,
+      null,
+      null,
       null,
       null
      ],
      [
       "9266872575",
+      338886,
       "2026-08-04T23:43:25.375793+05:30",
+      "how to change my password",
       null,
-      null
+      null,
+      null,
+      null,
+      "RATING",
+      "changePassword"
      ],
      [
       "9266872575",
+      338886,
       "2026-08-04T23:46:28.943717+05:30",
+      "मैं अपना पासवर्ड कैसे बदलूं?",
       null,
-      null
+      null,
+      null,
+      null,
+      "RATING",
+      "changePassword"
      ],
      [
       "9266872575",
+      338886,
       "2026-08-04T23:47:26.251726+05:30",
-      null,
-      null
+      "सेवा बहुत खराब है",
+      "2026-08-05T14:11:13.535539+05:30",
+      "rating_submitted",
+      "9266872575",
+      51827,
+      "RATING",
+      "seekHelp"
      ]
     ],
     "error": null
@@ -2129,8 +3026,8 @@
     98.6596,
     98.3021,
     97.6306,
-    98.9561,
-    97.235
+    98.9529,
+    null
    ],
    "error": null,
    "drilldown": {
@@ -2228,7 +3125,7 @@
     100.0,
     99.5475,
     94.6136,
-    80.0
+    null
    ],
    "error": null,
    "drilldown": {

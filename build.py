@@ -137,9 +137,13 @@ def build_drilldown_panel(m):
         row_html = []
         full_rows = []
         for r in dd["rows"]:
-            cells = "".join(f"<td>{format_cell(c['type'], v, null_label)}</td>" for c, v in zip(col_defs, r))
+            cells = "".join(
+                f"<td>{format_cell(c['type'], v, c.get('null_label', null_label))}</td>" for c, v in zip(col_defs, r)
+            )
             row_html.append(f"<tr>{cells}</tr>")
-            full_rows.append([format_cell(c["type"], v, null_label, unmask=True) for c, v in zip(col_defs, r)])
+            full_rows.append(
+                [format_cell(c["type"], v, c.get("null_label", null_label), unmask=True) for c, v in zip(col_defs, r)]
+            )
         body = f"""<table class="drill-table"><thead><tr>{header_cells}</tr></thead><tbody>{"".join(row_html)}</tbody></table>"""
         # unmasked mobiles for CSV export only -- the visible table and "open in new tab" stay masked
         raw_json = json.dumps(
