@@ -7,6 +7,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.request
 import datetime
 
@@ -45,6 +46,9 @@ def run_query(key, sql, retries=3, timeout=280):
             return rows, cols, None
         except Exception as e:  # noqa: BLE001
             last_err = str(e)
+            # transient DNS/network blips need time to clear, not an instant retry
+            if attempt < retries - 1:
+                time.sleep(10)
     return None, None, last_err
 
 
@@ -62,6 +66,7 @@ def main():
             "name": m["name"],
             "description": m["description"],
             "tbd": m["tbd"],
+            "unit": m.get("unit"),
         }
         if m["tbd"]:
             entry["values"] = None
