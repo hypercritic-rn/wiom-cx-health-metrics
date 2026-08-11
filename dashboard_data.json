@@ -1,3187 +1,3885 @@
 {
-  "generated_at_utc": "2026-08-10T03:59:26.874547+00:00",
-  "metrics": [
-    {
-      "id": 2,
-      "journey": "B2I",
-      "name": "Booking provisioning (payment -> booking)",
-      "description": "Of successful booking-fee payments, what share have a matching booking-fee-captured record against that same transaction?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        99.54
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Transaction ID",
-            "type": "id"
-          },
-          {
-            "label": "Payment time",
-            "type": "ts"
-          },
-          {
-            "label": "Booking record status",
-            "type": "text"
-          }
-        ],
-        "null_label": "\u2014",
-        "rows": [],
-        "error": null
-      }
-    },
-    {
-      "id": 11,
-      "journey": "B2I",
-      "name": "Address Submitted -> Booking Confirmed (24h) %",
-      "description": "Of customers who submitted an address (address_updated event) -- counting only their first submission, or their first since a prior booking was cancelled (cancelled event) -- what share had their booking confirmed (booking_confirmed event) within 24 hours? D-1 only counts address submissions that have themselves completed a full 24 hours, so it never shows a partial, still-maturing day.",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        0.967,
-        0.955,
-        0.967,
-        0.966,
-        0.81,
-        0.725,
-        0.884,
-        0.993,
-        0.977
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Address submitted at",
-            "type": "ts"
-          },
-          {
-            "label": "Confirmed at",
-            "type": "ts"
-          }
-        ],
-        "null_label": "never confirmed",
-        "rows": [
-          [
-            "7840822966",
-            "2026-08-09T01:51:55.663+05:30",
-            null
-          ]
-        ],
-        "error": null
-      }
-    },
-    {
-      "id": 12,
-      "journey": "B2I",
-      "name": "Install TRUM plan creation within 30 mins",
-      "description": "Of installs that reached the AWAITING_CUSTOMER_OTP state, what share had their TRUM plan created within 30 minutes of reaching it?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        100.0,
-        100.0,
-        100.0,
-        99.7271,
-        99.8701,
-        98.4,
-        98.7666,
-        98.1413,
-        100.0
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "NAS ID",
-            "type": "id"
-          },
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "OTP-wait time (install moment)",
-            "type": "ts"
-          },
-          {
-            "label": "TRUM created at",
-            "type": "ts"
-          },
-          {
-            "label": "Gap (min)",
-            "type": "int"
-          }
-        ],
-        "null_label": "not created",
-        "rows": [],
-        "error": null
-      }
-    },
-    {
-      "id": 13,
-      "journey": "B2I",
-      "name": "Device live at install (ping within 30 min)",
-      "description": "Of installs that reached the AWAITING_CUSTOMER_OTP state, what share had the device show ping activity within 30 minutes after reaching it, or in the 10 minutes just before?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        89.0411,
-        97.2603,
-        82.3529,
-        88.5402,
-        88.7013,
-        75.84,
-        86.907,
-        null,
-        null
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "NAS ID",
-            "type": "id"
-          },
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "OTP-wait time (install moment)",
-            "type": "ts"
-          },
-          {
-            "label": "First ping",
-            "type": "ts"
-          },
-          {
-            "label": "Last ping",
-            "type": "ts"
-          },
-          {
-            "label": "Total pings",
-            "type": "int"
-          }
-        ],
-        "null_label": "no ping",
-        "rows": [
-          [
-            708086,
-            "8882282338",
-            "2026-08-09T10:45:17.137+05:30",
-            "2026-08-09T11:35:00+05:30",
-            "2026-08-10T06:45:00+05:30",
-            209
-          ],
-          [
-            708087,
-            "7065318471",
-            "2026-08-09T10:50:50.953+05:30",
-            "2026-08-09T14:40:00+05:30",
-            "2026-08-10T07:55:00+05:30",
-            205
-          ],
-          [
-            708088,
-            "8595355907",
-            "2026-08-09T11:08:28.273+05:30",
-            "2026-08-09T13:10:00+05:30",
-            "2026-08-10T07:55:00+05:30",
-            216
-          ],
-          [
-            708092,
-            "8587048231",
-            "2026-08-09T11:51:51.557+05:30",
-            "2026-08-09T14:15:00+05:30",
-            "2026-08-10T07:55:00+05:30",
-            202
-          ],
-          [
-            708095,
-            "7830438269",
-            "2026-08-09T12:01:17.661+05:30",
-            null,
-            null,
-            0
-          ],
-          [
-            708111,
-            "9354437736",
-            "2026-08-09T13:24:54.9+05:30",
-            "2026-08-09T14:20:00+05:30",
-            "2026-08-10T07:55:00+05:30",
-            202
-          ],
-          [
-            708127,
-            "8587851641",
-            "2026-08-09T14:05:34.735+05:30",
-            null,
-            null,
-            0
-          ],
-          [
-            708139,
-            "9718410774",
-            "2026-08-09T14:54:54.492+05:30",
-            "2026-08-09T16:30:00+05:30",
-            "2026-08-09T16:35:00+05:30",
-            2
-          ],
-          [
-            708145,
-            "9312111545",
-            "2026-08-09T15:16:34.696+05:30",
-            "2026-08-09T17:50:00+05:30",
-            "2026-08-10T07:55:00+05:30",
-            168
-          ],
-          [
-            708146,
-            "8860800745",
-            "2026-08-09T15:20:49.302+05:30",
-            null,
-            null,
-            0
-          ],
-          [
-            708180,
-            "8750367789",
-            "2026-08-09T17:23:45.833+05:30",
-            "2026-08-09T18:05:00+05:30",
-            "2026-08-10T07:55:00+05:30",
-            153
-          ],
-          [
-            708185,
-            "9311427653",
-            "2026-08-09T17:59:26.177+05:30",
-            null,
-            null,
-            0
-          ],
-          [
-            708192,
-            "9473115342",
-            "2026-08-09T18:26:50.948+05:30",
-            "2026-08-09T20:20:00+05:30",
-            "2026-08-10T07:55:00+05:30",
-            137
-          ],
-          [
-            708203,
-            "9540740973",
-            "2026-08-09T19:04:32.625+05:30",
-            null,
-            null,
-            0
-          ],
-          [
-            708207,
-            "9319382738",
-            "2026-08-09T19:21:27.616+05:30",
-            null,
-            null,
-            0
-          ],
-          [
-            708211,
-            "7906028884",
-            "2026-08-09T19:46:01.786+05:30",
-            null,
-            null,
-            0
-          ]
-        ],
-        "error": null
-      }
-    },
-    {
-      "id": 15,
-      "journey": "B2I",
-      "name": "Technician assigned msg to customer",
-      "description": "Of technician assignments (rohit_assigned event), what share had the customer notified over chat within 10 minutes?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Technician-assigned time",
-            "type": "ts"
-          },
-          {
-            "label": "Message sent at",
-            "type": "ts"
-          },
-          {
-            "label": "Gap (min)",
-            "type": "int"
-          }
-        ],
-        "null_label": "not sent",
-        "rows": [],
-        "error": null
-      }
-    },
-    {
-      "id": 4,
-      "journey": "R2E",
-      "name": "Renewal Reminder - R0 (sent within 24h before expiry)",
-      "description": "Of plan expiries where the customer hadn't already recharged early (or renewed with zero gap), what share had the R0 renewal reminder sent within 24 hours before expiry?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        99.9168,
-        99.9475,
-        99.9199,
-        99.9252,
-        99.9052,
-        99.8846,
-        99.8848,
-        99.8862,
-        99.7442
-      ],
-      "error": null
-    },
-    {
-      "id": 5,
-      "journey": "R2E",
-      "name": "Recharge to device live within 2h (non-queued only)",
-      "description": "Of recharges that follow a genuine offline period (paid >=15 min after the prior plan's expiry, or the first-ever plan on that device), what share had the device show ping activity within 2 hours? Excludes queued recharges (paid before the prior plan expired), since those never take the router offline and don't test recovery behaviour.",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        93.1693,
-        93.6508,
-        92.9927,
-        93.5474,
-        94.0126,
-        93.7908,
-        93.2778,
-        null,
-        null
-      ],
-      "error": null
-    },
-    {
-      "id": 6,
-      "journey": "R2E",
-      "name": "Renewal provisioning (payment -> plan & entitlement)",
-      "description": "Of successful renewal payments, what share had a matching plan and entitlement created against that same transaction?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        "99.96",
-        "100.00",
-        "99.98",
-        "99.98",
-        "99.95",
-        "99.95",
-        "99.92",
-        "-",
-        "-"
-      ],
-      "error": null
-    },
-    {
-      "id": 8,
-      "journey": "R2E",
-      "name": "Customer plan ISP coverage (paid-hour level)",
-      "description": "Of every hour a customer's plan is active and paid for, what share actually had ISP access enabled (gate open)?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        95.9625,
-        95.7861,
-        95.4561,
-        95.5425,
-        95.6759,
-        94.642,
-        95.6237,
-        null,
-        null
-      ],
-      "error": null
-    },
-    {
-      "id": 9,
-      "journey": "R2E",
-      "name": "Customers NOT affected rate (100 - % customers affected)",
-      "description": "Of paying customers, what share had zero hours where their ISP access gate was closed?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        93.0876,
-        92.968,
-        92.4126,
-        92.3656,
-        92.4763,
-        91.2232,
-        92.4839,
-        null,
-        null
-      ],
-      "error": null
-    },
-    {
-      "id": 10,
-      "journey": "R2E",
-      "name": "Captive Portal triggered -> Captive portal open",
-      "description": "Of times the captive portal was triggered (captive_portal_initialised event), what share had the portal actually open (open_captive_portal event) on the customer's device?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        95.8854,
-        96.4636,
-        95.7055,
-        95.974,
-        95.7839,
-        94.9913,
-        95.0812,
-        95.5974,
-        95.306
-      ],
-      "error": null
-    },
-    {
-      "id": 23,
-      "journey": "R2E",
-      "name": "Recharge Ticket Creation Rate (System Health)",
-      "description": "For every hour a customer had already paid for (excluding their first 30 days post-install), does a recharge ticket's [created_at, obligation_window_end) window span that hour? Measures ticket creation and system-tracked obligation coverage only, not partner claim speed or resolution time. Only D-1..D-3 are computed; W-1..M-3 are not available for this metric.",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        99.3759,
-        99.3849,
-        99.3741,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "error": null
-    },
-    {
-      "id": 16,
-      "journey": "Closure",
-      "name": "% Refund Requested (PAYG)",
-      "description": "Of PAYG pickup tickets created, what share have a security-deposit refund order created?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        90.9091,
-        65.8643,
-        86.2275,
-        82.6656,
-        90.4595,
-        93.1177,
-        86.866,
-        85.2047,
-        84.5118
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Ticket ID",
-            "type": "id"
-          },
-          {
-            "label": "Ticket created at",
-            "type": "ts"
-          },
-          {
-            "label": "Ticket state",
-            "type": "text"
-          }
-        ],
-        "null_label": "\u2014",
-        "rows": [
-          [
-            "9193215163",
-            "49ab05fc-b17f-4b60-93c3-f7a5a171d1af",
-            "2026-08-09T00:20:09.261721+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8743028870",
-            "1958df06-feb3-48f0-a9ea-be30ba4e7359",
-            "2026-08-09T05:31:25.762431+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8745810355",
-            "bbabc6c3-60ee-45df-9788-4984c435ee81",
-            "2026-08-09T05:31:27.854213+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8287855957",
-            "d7d221b5-0273-43c3-ac6e-d08891bf402f",
-            "2026-08-09T06:56:13.0444+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8860925302",
-            "1b927605-8b33-4080-bf2e-50460f7db81e",
-            "2026-08-09T06:59:16.822655+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8882451205",
-            "b947085c-7440-4c2e-b869-6cbebee50c09",
-            "2026-08-09T06:59:20.975509+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "7065493729",
-            "b4ff1616-7e83-453e-bfa4-a5332da991e0",
-            "2026-08-09T06:59:20.979827+05:30",
-            "IN_PROGRESS"
-          ],
-          [
-            "9548516334",
-            "cae0b007-3e85-4f7a-ae91-111d688d9110",
-            "2026-08-09T07:11:35.370302+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9579844617",
-            "51fa11d8-70ff-43e6-af76-dcc19ba827d2",
-            "2026-08-09T07:11:45.625315+05:30",
-            "COMPLETED"
-          ],
-          [
-            "9250758510",
-            "86b5ec5a-e53f-4c72-a0d3-35848250f1aa",
-            "2026-08-09T07:11:49.81601+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9899947224",
-            "642d4aa4-0dce-4c39-b435-6c5af15447cb",
-            "2026-08-09T07:11:53.978755+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9213278929",
-            "0c4fef98-6ee2-4476-8018-7821666bab63",
-            "2026-08-09T07:12:47.690724+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8920651434",
-            "c01e8002-5cae-48f9-a90d-f5dc4535dc44",
-            "2026-08-09T07:12:47.694648+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8287566358",
-            "5f478a32-2dd5-4902-b4b0-c6c6484571cb",
-            "2026-08-09T09:21:00.823383+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9224997336",
-            "0e3e29dc-c602-4d3a-91fd-815668e8b334",
-            "2026-08-09T12:31:43.324256+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8802367267",
-            "794b8c93-63b0-452a-92c6-b44ab7e6debb",
-            "2026-08-09T13:39:38.533607+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8595841138",
-            "448d8372-9f04-4a5b-b51d-0db0f317259d",
-            "2026-08-09T14:03:50.546874+05:30",
-            "IN_PROGRESS"
-          ],
-          [
-            "7263929080",
-            "e41276d0-1bd2-4965-982a-cdcd6fb7bff9",
-            "2026-08-09T14:48:08.909562+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8588051637",
-            "8e335dba-bcb7-4d12-813a-79d3c9b9ee0c",
-            "2026-08-09T14:59:14.493469+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "8076458919",
-            "ce1ba2cf-a5a8-4e2b-b5e4-eb757eb26f13",
-            "2026-08-09T15:05:41.567863+05:30",
-            "IN_PROGRESS"
-          ],
-          [
-            "8447397638",
-            "aa8443b1-ee27-4f9a-8d08-5d39af1444d2",
-            "2026-08-09T15:45:52.78597+05:30",
-            "IN_PROGRESS"
-          ],
-          [
-            "9326630357",
-            "1bc77093-cc5a-47b9-b950-74f65bdd3c28",
-            "2026-08-09T16:51:20.114786+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "7080001498",
-            "9bd1646e-7b2e-4e2d-a13d-e4106b7fe42b",
-            "2026-08-09T16:51:22.183056+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9971326844",
-            "ede8675e-9901-44fd-a6ea-5a05797b9416",
-            "2026-08-09T17:46:51.499357+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9213462753",
-            "433f811f-fdca-4f97-8deb-e5664f883257",
-            "2026-08-09T18:02:51.889489+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9015703783",
-            "b307d33e-7f89-4147-b060-7d174c8bb8de",
-            "2026-08-09T19:05:14.516215+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9711304426",
-            "300c958e-07c8-49ed-b6da-78f693bda21c",
-            "2026-08-09T19:53:57.770624+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9911786268",
-            "edc8e36c-7d3d-4c06-bcef-edc5f840aee1",
-            "2026-08-09T20:55:10.31082+05:30",
-            "PENDING_PICKUP"
-          ],
-          [
-            "9667865269",
-            "0e7ca490-9525-4be6-a6e8-2ad9eecb304b",
-            "2026-08-09T22:22:21.033579+05:30",
-            "PENDING_PICKUP"
-          ]
-        ],
-        "error": null
-      }
-    },
-    {
-      "id": 17,
-      "journey": "Closure",
-      "name": "% Refund Processed (PAYG)",
-      "description": "Of completed pickup tickets (excluding cases where the router was returned but no UPI was submitted), what share have their refund order in PROCESSING or SUCCESSFUL status?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        82.1429,
-        65.0,
-        54.5455,
-        75.1773,
-        83.1933,
-        57.8313,
-        67.2308,
-        84.7826,
-        29.4118
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Ticket ID",
-            "type": "id"
-          },
-          {
-            "label": "Ticket completed at",
-            "type": "ts"
-          },
-          {
-            "label": "Refund order status",
-            "type": "text"
-          }
-        ],
-        "null_label": "\u2014",
-        "rows": [
-          [
-            "9818538773",
-            "832d1a96-596f-41ed-8c1b-ae2ee82fe894",
-            "2026-08-09T12:07:20.76158+05:30",
-            "no refund order found"
-          ],
-          [
-            "9579844617",
-            "51fa11d8-70ff-43e6-af76-dcc19ba827d2",
-            "2026-08-09T16:07:47.875682+05:30",
-            "no refund order found"
-          ],
-          [
-            "6206126434",
-            "32af6bb5-d0d7-4713-8999-e585c2dc386a",
-            "2026-08-09T18:35:10.640812+05:30",
-            "no refund order found"
-          ],
-          [
-            "9315998435",
-            "f764dbbf-144c-49b1-b0f1-e56288f6bfb8",
-            "2026-08-09T19:20:16.508906+05:30",
-            "no refund order found"
-          ],
-          [
-            "9907011545",
-            "35b088de-a10b-4442-9e7c-0ba2ff3b0acb",
-            "2026-08-09T19:50:53.72601+05:30",
-            "no refund order found"
-          ]
-        ],
-        "error": null
-      }
-    },
-    {
-      "id": 18,
-      "journey": "Closure",
-      "name": "Refund Orders stuck 5+ days in Processing (PAYG)",
-      "description": "How many PAYG refund orders are currently in PROCESSING status and have already been there 5+ days? Shown as a count, not a percentage -- target is zero.",
-      "tbd": false,
-      "unit": "count",
-      "values": [
-        29,
-        29,
-        29,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Order ID",
-            "type": "id"
-          },
-          {
-            "label": "Entered PROCESSING at",
-            "type": "ts"
-          },
-          {
-            "label": "Days stuck",
-            "type": "text"
-          }
-        ],
-        "null_label": "\u2014",
-        "rows": [
-          [
-            "9953087283_ARCHIVED",
-            4,
-            "2026-02-10T10:39:09.73+05:30",
-            "180.5"
-          ],
-          [
-            "7983764732",
-            16327,
-            "2026-04-02T11:58:46.969+05:30",
-            "129.5"
-          ],
-          [
-            "9599302317",
-            18863,
-            "2026-04-02T11:48:47.514+05:30",
-            "129.5"
-          ],
-          [
-            "9811979391",
-            20507,
-            "2026-04-02T13:02:54.509+05:30",
-            "129.5"
-          ],
-          [
-            "7488038141",
-            16244,
-            "2026-04-02T12:30:16.402+05:30",
-            "129.5"
-          ],
-          [
-            "8802531517",
-            17687,
-            "2026-04-03T12:00:25.907+05:30",
-            "128.5"
-          ],
-          [
-            "9971396808",
-            16861,
-            "2026-04-03T11:30:10.743+05:30",
-            "128.5"
-          ],
-          [
-            "9821327820",
-            20540,
-            "2026-04-04T13:10:43.412+05:30",
-            "127.5"
-          ],
-          [
-            "8587996304",
-            20561,
-            "2026-04-04T15:08:31.834+05:30",
-            "127.4"
-          ],
-          [
-            "8449793193",
-            20558,
-            "2026-04-04T20:32:20.967+05:30",
-            "127.1"
-          ],
-          [
-            "8447976507",
-            17784,
-            "2026-04-05T12:16:49.413+05:30",
-            "126.5"
-          ],
-          [
-            "7290099355",
-            20291,
-            "2026-04-05T14:17:36.758+05:30",
-            "126.4"
-          ],
-          [
-            "9241947839",
-            18335,
-            "2026-04-05T20:03:03.051+05:30",
-            "126.2"
-          ],
-          [
-            "9582922134",
-            20508,
-            "2026-04-06T11:36:16.086+05:30",
-            "125.5"
-          ],
-          [
-            "9911141852",
-            16912,
-            "2026-04-06T16:42:02.773+05:30",
-            "125.3"
-          ],
-          [
-            "8700600197",
-            20590,
-            "2026-04-06T17:51:20.015+05:30",
-            "125.3"
-          ],
-          [
-            "8709735160",
-            20575,
-            "2026-04-06T18:37:32.295+05:30",
-            "125.2"
-          ],
-          [
-            "6307629315",
-            19148,
-            "2026-04-06T21:16:49.299+05:30",
-            "125.1"
-          ],
-          [
-            "9625089694",
-            20600,
-            "2026-04-07T13:06:21.847+05:30",
-            "124.5"
-          ],
-          [
-            "9311037487",
-            14990,
-            "2026-04-07T14:12:35.354+05:30",
-            "124.4"
-          ],
-          [
-            "7667537738",
-            14273,
-            "2026-04-07T15:42:34.935+05:30",
-            "124.3"
-          ],
-          [
-            "7011339535",
-            20612,
-            "2026-04-07T17:16:14.726+05:30",
-            "124.3"
-          ],
-          [
-            "9811938004",
-            12424,
-            "2026-04-07T20:51:48.598+05:30",
-            "124.1"
-          ],
-          [
-            "9899550553",
-            20619,
-            "2026-04-08T10:03:45.717+05:30",
-            "123.6"
-          ],
-          [
-            "7982250889",
-            14991,
-            "2026-04-08T10:49:25.494+05:30",
-            "123.5"
-          ],
-          [
-            "9717706633",
-            11759,
-            "2026-04-08T11:37:29.086+05:30",
-            "123.5"
-          ],
-          [
-            "7267037336",
-            20605,
-            "2026-04-08T14:32:46.62+05:30",
-            "123.4"
-          ],
-          [
-            "9997554713",
-            37792,
-            "2026-06-25T15:08:20.128+05:30",
-            "45.4"
-          ],
-          [
-            "8218665400",
-            47842,
-            "2026-07-27T16:54:53.131+05:30",
-            "13.3"
-          ]
-        ],
-        "error": null
-      }
-    },
-    {
-      "id": 19,
-      "journey": "Chat",
-      "name": "Chat input to output within 1 min",
-      "description": "Of customer chat messages, what share receive one within 60 seconds, excluding messages that are never meant to get a reply?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        98.0087,
-        98.1816,
-        97.3777,
-        97.8727,
-        97.9959,
-        97.9842,
-        98.2932,
-        98.7223,
-        97.9241
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Acct ID",
-            "type": "id"
-          },
-          {
-            "label": "Inbound TS (IST)",
-            "type": "ts"
-          },
-          {
-            "label": "Customer Message Text",
-            "type": "text",
-            "null_label": "no text content"
-          },
-          {
-            "label": "Reply TS (IST)",
-            "type": "ts",
-            "null_label": "no reply within 24h"
-          },
-          {
-            "label": "Reply Workflow",
-            "type": "text",
-            "null_label": "no reply within 24h"
-          },
-          {
-            "label": "Reply User ID",
-            "type": "id",
-            "null_label": "no reply within 24h"
-          },
-          {
-            "label": "Seconds To Reply",
-            "type": "int",
-            "null_label": "no reply within 24h"
-          },
-          {
-            "label": "User State",
-            "type": "text",
-            "null_label": "no intent classification found"
-          },
-          {
-            "label": "Finalised Intent",
-            "type": "text",
-            "null_label": "no intent classification found"
-          }
-        ],
-        "null_label": "\u2014",
-        "rows": [
-          [
-            "281749854878708",
-            28516,
-            "2026-08-09T00:46:20.897772+05:30",
-            "\u0916\u0941\u0926 \u0938\u0947 \u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0930\u0947\u0902",
-            "2026-08-09T00:49:47.752496+05:30",
-            "renewal_payment_success",
-            "281749854878708",
-            207,
-            null,
-            null
-          ],
-          [
-            "281749854758979",
-            216114,
-            "2026-08-09T00:49:40.991103+05:30",
-            "\u0905\u092d\u0940 \u092d\u0940 \u0926\u093f\u0915\u094d\u0915\u0924 \u0906 \u0930\u0939\u0940 \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8750313459",
-            321123,
-            "2026-08-09T00:52:22.758641+05:30",
-            "\u092e\u0947\u0930\u093e \u0938\u094d\u091f\u0947\u091f\u0938 \u092c\u0924\u093e\u0913",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "checkStatus"
-          ],
-          [
-            "9669131269",
-            350037,
-            "2026-08-09T00:56:30.29586+05:30",
-            "\u092e\u0947\u0930\u093e \u0938\u094d\u091f\u0947\u091f\u0938 \u092c\u0924\u093e\u0913",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "checkStatus"
-          ],
-          [
-            "8750313459",
-            321123,
-            "2026-08-09T01:34:26.107335+05:30",
-            "\u092e\u0947\u0930\u093e \u0938\u094d\u091f\u0947\u091f\u0938 \u092c\u0924\u093e\u0913",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "checkStatus"
-          ],
-          [
-            "9354017299",
-            341496,
-            "2026-08-09T02:12:14.290087+05:30",
-            "abhi kitne use ho rhe h",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "checkDataUsage"
-          ],
-          [
-            "9811871404",
-            351119,
-            "2026-08-09T06:50:38.932636+05:30",
-            "kya mujhe koi charge dena hoga 250ke alava",
-            "2026-08-09T07:11:12.237267+05:30",
-            "technician_assigned",
-            "9811871404",
-            1234,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "7982959204",
-            347440,
-            "2026-08-09T07:39:48.14669+05:30",
-            "Aaj net laganey aaiga aapka person",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "checkStatus"
-          ],
-          [
-            "8178002972",
-            13607,
-            "2026-08-09T07:55:20.490459+05:30",
-            "naii mere wifi ka nam SARDAR_7011 HAI",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8368161699",
-            351146,
-            "2026-08-09T08:24:13.35222+05:30",
-            "kitne samy tk aayega",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "281749855025675",
-            164236,
-            "2026-08-09T08:44:07.490331+05:30",
-            "Recharge manually",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8506869962",
-            208540,
-            "2026-08-09T08:53:07.781391+05:30",
-            "net na chal",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "internetIssue"
-          ],
-          [
-            "9717525104",
-            348114,
-            "2026-08-09T09:34:24.458864+05:30",
-            "abhi box ni kaga",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "seekHelp"
-          ],
-          [
-            "",
-            351213,
-            "2026-08-09T09:37:12.669713+05:30",
-            "kya aap 3 rupee s mein net dete hee",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9310454722",
-            350669,
-            "2026-08-09T09:43:38.884784+05:30",
-            "kb lage ga",
-            "2026-08-09T14:11:08.315986+05:30",
-            "technician_assigned",
-            "9310454722",
-            16050,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "9871291883",
-            351231,
-            "2026-08-09T09:56:48.200802+05:30",
-            "Recharge ka kitna amount pay karna hoga",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "9871291883",
-            351231,
-            "2026-08-09T09:57:29.972564+05:30",
-            "stating ke recharge ka kitna amount pay karna hoga",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "8744820224",
-            280734,
-            "2026-08-09T10:02:17.527672+05:30",
-            "recharge update",
-            "2026-08-09T10:03:36.978136+05:30",
-            "active_recharge_requested",
-            "8744820224",
-            79,
-            "ACTIVE_PRE_EXPIRY",
-            "recharge"
-          ],
-          [
-            "7085611632",
-            305978,
-            "2026-08-09T10:10:07.75258+05:30",
-            "want to recharge",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8766359211",
-            32765,
-            "2026-08-09T10:12:39.254051+05:30",
-            "I need help",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "seekHelp"
-          ],
-          [
-            "8700354524",
-            3830,
-            "2026-08-09T10:14:24.908945+05:30",
-            "net nhi chl rha",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "internetIssue"
-          ],
-          [
-            "9608246552",
-            325135,
-            "2026-08-09T10:14:46.760927+05:30",
-            "View payment history",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8700354524",
-            3830,
-            "2026-08-09T10:15:55.607704+05:30",
-            "fr bhi nhi chl rha h",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "281749855023393",
-            11978,
-            "2026-08-09T10:52:26.842645+05:30",
-            "\u0905\u092d\u0940 \u092d\u0940 \u0926\u093f\u0915\u094d\u0915\u0924 \u0906 \u0930\u0939\u0940 \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9871849085",
-            217869,
-            "2026-08-09T11:01:12.739149+05:30",
-            "only for 1 day",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9311783240",
-            350517,
-            "2026-08-09T11:01:17.836857+05:30",
-            "mereko iss wifi ke liye kitne ruppe dene padenge total karke bato",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "9311783240",
-            350517,
-            "2026-08-09T11:01:40.512191+05:30",
-            "mereko iss wifi ke liye kitne ruppe dene padenge total karke bato",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "9311783240",
-            350517,
-            "2026-08-09T11:02:01.166441+05:30",
-            "wifi ke total paise batao",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "7065621443",
-            384,
-            "2026-08-09T11:02:56.920815+05:30",
-            "\u092e\u0941\u091d\u0947 \u092e\u0926\u0926 \u091a\u093e\u0939\u093f\u090f",
-            "2026-08-09T15:28:09.074548+05:30",
-            "ticket_type_3_or_4_tat_breached",
-            "281749854852511",
-            15913,
-            null,
-            null
-          ],
-          [
-            "7065425178",
-            27173,
-            "2026-08-09T11:10:41.934388+05:30",
-            "naeet Khatami ho gay kya",
-            "2026-08-10T05:43:23.967425+05:30",
-            "renewal_pre_expiry_d1",
-            "281749855027863",
-            66762,
-            null,
-            null
-          ],
-          [
-            "281749855019973",
-            44089,
-            "2026-08-09T11:11:36.404272+05:30",
-            "\u0905\u092d\u0940 \u092d\u0940 \u0926\u093f\u0915\u094d\u0915\u0924 \u0906 \u0930\u0939\u0940 \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "7065318471",
-            350875,
-            "2026-08-09T11:31:12.890799+05:30",
-            "Now how long",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "checkStatus"
-          ],
-          [
-            "8299797817",
-            351215,
-            "2026-08-09T11:32:23.464145+05:30",
-            "\u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0947 \u092a\u094d\u0932\u093e\u0928 \u0926\u0947\u0916\u0947\u0902",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8299797817",
-            351215,
-            "2026-08-09T11:32:48.643955+05:30",
-            "\u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0947 \u092a\u094d\u0932\u093e\u0928 \u0926\u0947\u0916\u0947\u0902",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "281749854849097",
-            5759,
-            "2026-08-09T11:42:16.533492+05:30",
-            "\u0916\u0941\u0926 \u0938\u0947 \u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0930\u0947\u0902",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "7065318471",
-            350875,
-            "2026-08-09T11:50:57.898131+05:30",
-            "It can't happen today",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "chooseOtherSlot"
-          ],
-          [
-            "8802715822",
-            92914,
-            "2026-08-09T11:52:52.316044+05:30",
-            "data history",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "checkDataUsage"
-          ],
-          [
-            "8368961498",
-            348272,
-            "2026-08-09T11:55:40.886684+05:30",
-            "engineer number",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "callRohit"
-          ],
-          [
-            "9718145623",
-            345935,
-            "2026-08-09T12:12:23.646589+05:30",
-            "Check my status",
-            "2026-08-09T12:20:04.508032+05:30",
-            "netbox_configuration_completed_e",
-            "9718145623",
-            461,
-            null,
-            null
-          ],
-          [
-            "9274596305",
-            350858,
-            "2026-08-09T12:13:37.038723+05:30",
-            "\u092e\u0947\u0930\u093e \u092a\u094d\u0932\u093e\u0928 \u0915\u092c \u0916\u0924\u094d\u092e \u0939\u094b\u0917\u093e?",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8929657736",
-            165877,
-            "2026-08-09T12:15:43.341919+05:30",
-            "net nh chal raha hai",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9717535819",
-            98122,
-            "2026-08-09T12:16:04.836697+05:30",
-            "When is my plan expiry?",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "checkStatus"
-          ],
-          [
-            "9718145432",
-            345795,
-            "2026-08-09T12:22:41.740759+05:30",
-            "i want to know kithe log chala rhe kitna activeeh",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "checkDataUsage"
-          ],
-          [
-            "7678564722",
-            130108,
-            "2026-08-09T12:29:50.235301+05:30",
-            "hmare recharge ki last date kya h",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "checkStatus"
-          ],
-          [
-            "7678564722",
-            130108,
-            "2026-08-09T12:30:47.779838+05:30",
-            "When is my plan expiry?",
-            "2026-08-09T23:55:34.067075+05:30",
-            "renewal_payment_success",
-            "274877982117",
-            41087,
-            "ACTIVE_PRE_EXPIRY",
-            "checkStatus"
-          ],
-          [
-            "9953336126",
-            350844,
-            "2026-08-09T12:37:02.078511+05:30",
-            "1st setup me kitna lgega",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "9958423815",
-            13658,
-            "2026-08-09T12:48:11.337532+05:30",
-            "I need help",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "seekHelp"
-          ],
-          [
-            "8527530185",
-            261724,
-            "2026-08-09T12:58:53.888877+05:30",
-            "\u0939\u093e\u0901, \u091a\u093e\u0932\u0942 \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9582618742",
-            344978,
-            "2026-08-09T13:14:12.500654+05:30",
-            "cancel",
-            "2026-08-09T21:13:33.200323+05:30",
-            "delay_slot_breached_rohit_assigned_but_rohit_not_arrived",
-            "9582618742",
-            28761,
-            null,
-            null
-          ],
-          [
-            "9457727873",
-            309098,
-            "2026-08-09T13:14:48.990458+05:30",
-            "\u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0930\u0947\u0902",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9899844155",
-            348729,
-            "2026-08-09T13:17:06.899712+05:30",
-            "Jora",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "smart_clarification"
-          ],
-          [
-            "9899844155",
-            348729,
-            "2026-08-09T13:17:26.380666+05:30",
-            "Jora1234567",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "changePassword"
-          ],
-          [
-            "9958173342",
-            351507,
-            "2026-08-09T13:21:54.488215+05:30",
-            "net hamen \u20b9250 ka hi milega ki aur paise dene",
-            "2026-08-09T13:29:19.569529+05:30",
-            "technician_assigned",
-            "9958173342",
-            445,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "9310399185",
-            62589,
-            "2026-08-09T13:31:40.540322+05:30",
-            "internet nahin chal raha hai mera",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9899844155",
-            348729,
-            "2026-08-09T13:32:03.592512+05:30",
-            "mere net ka name batao",
-            "2026-08-09T13:33:37.026029+05:30",
-            "netbox_naming_reminder_i",
-            "9899844155",
-            94,
-            "ACTIVE",
-            "checkStatus"
-          ],
-          [
-            "9599056805",
-            347562,
-            "2026-08-09T13:34:51.090654+05:30",
-            "vyom how much pay",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "7982766125",
-            125887,
-            "2026-08-09T13:44:12.897956+05:30",
-            "\u092e\u0947\u0930\u093e \u092a\u094d\u0932\u093e\u0928 \u0915\u092c \u0916\u0924\u094d\u092e \u0939\u094b\u0917\u093e?",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8368556462",
-            123205,
-            "2026-08-09T13:47:14.59699+05:30",
-            "please resolve it",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "seekHelp"
-          ],
-          [
-            "",
-            351549,
-            "2026-08-09T13:50:11.253701+05:30",
-            "\u0906\u092a \u0938\u092a\u094b\u0930\u094d\u091f \u0915\u094b \u0915\u0949\u0932 \u0915\u0930\u0928\u0947 \u0915\u094b \u092c\u094b\u0932 \u0926\u094b",
-            "2026-08-09T13:54:19.991106+05:30",
-            "support_chat_welcome_message",
-            "351549",
-            248,
-            null,
-            null
-          ],
-          [
-            "9892742413",
-            149328,
-            "2026-08-09T13:50:56.64172+05:30",
-            "hel",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "seekHelp"
-          ],
-          [
-            "",
-            351549,
-            "2026-08-09T13:55:05.758822+05:30",
-            "\u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0935\u093e\u0932\u093e \u0918\u0930 \u0915\u093e \u0928\u0947\u091f \u0915\u094d\u092f\u093e \u0939\u0948?",
-            "2026-08-09T13:56:13.257714+05:30",
-            "recharge_ghar_net_intro",
-            "351549",
-            68,
-            null,
-            null
-          ],
-          [
-            "281749854744385",
-            12614,
-            "2026-08-09T14:16:29.832146+05:30",
-            "\u0916\u0941\u0926 \u0938\u0947 \u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0930\u0947\u0902",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8980074575",
-            49567,
-            "2026-08-09T14:22:55.71611+05:30",
-            "vo kah raha hi ki application se karo",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9819982556",
-            167126,
-            "2026-08-09T14:48:32.592088+05:30",
-            "har roj network jata hai",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "internetIssue"
-          ],
-          [
-            "7065318471",
-            350875,
-            "2026-08-09T15:18:51.745535+05:30",
-            "\u092e\u0947\u0930\u093e \u0938\u094d\u091f\u0947\u091f\u0938 \u092c\u0924\u093e\u0913",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "checkStatus"
-          ],
-          [
-            "7065318471",
-            350875,
-            "2026-08-09T15:19:08.902199+05:30",
-            "status",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "checkStatus"
-          ],
-          [
-            "9990722811",
-            347932,
-            "2026-08-09T15:27:16.274517+05:30",
-            "\u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0947 \u092a\u094d\u0932\u093e\u0928 \u0926\u0947\u0916\u0947\u0902",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "7065318471",
-            350875,
-            "2026-08-09T15:27:56.727648+05:30",
-            "status",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "checkStatus"
-          ],
-          [
-            "9990722811",
-            347932,
-            "2026-08-09T15:27:58.523297+05:30",
-            "\u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0947 \u092a\u094d\u0932\u093e\u0928 \u0926\u0947\u0916\u0947\u0902",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "",
-            351658,
-            "2026-08-09T15:28:24.66238+05:30",
-            "550 rupe",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "7065318471",
-            350875,
-            "2026-08-09T15:29:53.787616+05:30",
-            "Status",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "checkStatus"
-          ],
-          [
-            "8218722532",
-            5953,
-            "2026-08-09T15:32:53.066987+05:30",
-            "jaldi karane ka try karo",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "internetIssue"
-          ],
-          [
-            "",
-            351670,
-            "2026-08-09T15:35:03.633298+05:30",
-            "1 day ka recharge kitne ka hota hai",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "7065318471",
-            350875,
-            "2026-08-09T15:35:44.040026+05:30",
-            "\u092e\u0947\u0930\u093e \u0938\u094d\u091f\u0947\u091f\u0938 \u092c\u0924\u093e\u0913",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "checkStatus"
-          ],
-          [
-            "8960826807",
-            350999,
-            "2026-08-09T15:36:48.77144+05:30",
-            "total 1st time payment kitani karni hogi aur kitne din ka net milega",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "9717949270",
-            343827,
-            "2026-08-09T15:44:15.061014+05:30",
-            "\u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0947 \u092a\u094d\u0932\u093e\u0928 \u0926\u0947\u0916\u0947\u0902",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "7065318471",
-            350875,
-            "2026-08-09T15:52:40.426161+05:30",
-            "\u092e\u0947\u0930\u093e \u0938\u094d\u091f\u0947\u091f\u0938 \u092c\u0924\u093e\u0913",
-            "2026-08-09T15:55:59.862399+05:30",
-            "rating_submitted",
-            "7065318471",
-            199,
-            "RATING",
-            "checkStatus"
-          ],
-          [
-            "8595969694",
-            351731,
-            "2026-08-09T16:18:25.499261+05:30",
-            "booking amount",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "8076213465",
-            72693,
-            "2026-08-09T16:36:10.155621+05:30",
-            "recharge kase kare",
-            null,
-            null,
-            null,
-            null,
-            "INACTIVE_POST_EXPIRY",
-            "recharge"
-          ],
-          [
-            "",
-            351749,
-            "2026-08-09T16:38:49.560171+05:30",
-            "\u0915\u0941\u0932 \u0915\u093f\u0924\u0928\u093e \u0916\u0930\u094d\u091a\u093e \u0906\u090f\u0917\u093e?",
-            "2026-08-09T16:43:04.106914+05:30",
-            "repetition_breaker_seekHelp",
-            "351749",
-            255,
-            null,
-            null
-          ],
-          [
-            "",
-            351749,
-            "2026-08-09T16:44:31.429005+05:30",
-            "\u0915\u0941\u0932 \u0915\u093f\u0924\u0928\u093e \u0916\u0930\u094d\u091a\u093e \u0906\u090f\u0917\u093e?",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "274878059729",
-            114559,
-            "2026-08-09T16:45:12.586363+05:30",
-            "Still facing issue",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9953336126",
-            350844,
-            "2026-08-09T16:47:30.860667+05:30",
-            "how much total payment should I need to pay",
-            "2026-08-09T21:11:57.117919+05:30",
-            "delay_slot_breached_rohit_assigned_but_rohit_not_arrived",
-            "9953336126",
-            15867,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "7042337937",
-            351759,
-            "2026-08-09T16:54:05.867515+05:30",
-            "kya sir 250 dene hai us ke baad 14 day free",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "8700593551",
-            349155,
-            "2026-08-09T17:02:42.313414+05:30",
-            "abhi tak mere ghar wiom network nhi laga h",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9109651999",
-            350969,
-            "2026-08-09T17:20:55.389378+05:30",
-            "msd",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "checkStatus"
-          ],
-          [
-            "8130259931",
-            117354,
-            "2026-08-09T17:49:12.895435+05:30",
-            "Yes, it\u2019s ON",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8130259931",
-            117354,
-            "2026-08-09T17:49:12.94484+05:30",
-            "Yes, it\u2019s ON",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8130259931",
-            117354,
-            "2026-08-09T17:49:13.190368+05:30",
-            "Yes, it\u2019s ON",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8130259931",
-            117354,
-            "2026-08-09T17:49:15.045059+05:30",
-            "Yes, it\u2019s ON",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8130259931",
-            117354,
-            "2026-08-09T17:49:15.120042+05:30",
-            "Yes, it\u2019s ON",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "",
-            351850,
-            "2026-08-09T18:28:02.756055+05:30",
-            "ok",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8285809270",
-            351637,
-            "2026-08-09T18:30:54.1875+05:30",
-            "kya 250 rs or pay karne honge",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T19:13:00.161952+05:30",
-            "booking cancel",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T19:13:38.510855+05:30",
-            "booking cancel karni hai",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8287412083",
-            349480,
-            "2026-08-09T19:14:55.345795+05:30",
-            "kitne mein lagega",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "9818437490",
-            350923,
-            "2026-08-09T19:15:06.953914+05:30",
-            "koi aaya nhi net lagane",
-            "2026-08-09T21:18:52.655611+05:30",
-            "delay_slot_breached_rohit_assigned_but_rohit_not_arrived",
-            "9818437490",
-            7426,
-            null,
-            null
-          ],
-          [
-            "8287412083",
-            349480,
-            "2026-08-09T19:15:19.136806+05:30",
-            "Paisa Kitna lagega",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "8076022304",
-            36107,
-            "2026-08-09T19:26:57.983059+05:30",
-            "\u0915\u0938\u094d\u091f\u092e\u0930 \u0915\u0947\u092f\u0930 \u0928\u0939\u0940\u0902 \u092c\u094b\u0932\u093e \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            "INACTIVE_PICKUP_CREATED",
-            "seekHelp"
-          ],
-          [
-            "8076022304",
-            36107,
-            "2026-08-09T19:27:52.083445+05:30",
-            "\u092e\u0948\u0902\u0928\u0947 \u0905\u092a\u0928\u0940",
-            null,
-            null,
-            null,
-            null,
-            "INACTIVE_PICKUP_CREATED",
-            "smart_clarification"
-          ],
-          [
-            "9473115342",
-            350689,
-            "2026-08-09T19:48:04.792241+05:30",
-            "router diya hi nahi to net connect kaise kare",
-            "2026-08-09T19:52:47.250982+05:30",
-            "ticket_type_3_or_4_created",
-            "281749855173661",
-            283,
-            "RATING",
-            "internetIssue"
-          ],
-          [
-            "9315122178",
-            45353,
-            "2026-08-09T20:11:28.970328+05:30",
-            "\u092e\u0947\u0930\u093e \u0935\u093e\u0908-\u092b\u093e\u0908 \u0915\u093f\u0938-\u0915\u093f\u0938 \u0928\u0947 \u0915\u0928\u0947\u0915\u094d\u091f \u0915\u0930 \u0930\u0916\u093e \u0939\u0948 \u092e\u0947\u0930\u0947 \u0915\u094b \u092a\u0924\u093e \u0932\u0917\u093e\u0928\u093e \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "checkDataUsage"
-          ],
-          [
-            "8787475077",
-            351540,
-            "2026-08-09T20:26:04.901821+05:30",
-            "happy code nhi aa raha hai",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "internetIssue"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T20:26:33.620508+05:30",
-            "mujhe booking cancel karni hai abhi",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T20:29:41.044393+05:30",
-            "I want to cancel my booking",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T20:30:13.836102+05:30",
-            "cancle booking",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8787475077",
-            351540,
-            "2026-08-09T20:32:14.42843+05:30",
-            "Check my status",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "checkStatus"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T20:32:29.444705+05:30",
-            "cancle booking",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "9654529323",
-            350459,
-            "2026-08-09T20:40:07.757914+05:30",
-            "I'll Wait",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9654529323",
-            350459,
-            "2026-08-09T20:40:08.240568+05:30",
-            "I'll Wait",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8010051311",
-            193637,
-            "2026-08-09T20:41:51.906896+05:30",
-            "box remove karwa do",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8983409094",
-            25518,
-            "2026-08-09T20:44:06.646869+05:30",
-            "Recharji",
-            null,
-            null,
-            null,
-            null,
-            "INACTIVE_POST_EXPIRY",
-            "recharge"
-          ],
-          [
-            "8787475077",
-            351540,
-            "2026-08-09T20:45:12.142398+05:30",
-            "the router isn't available",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "seekHelp"
-          ],
-          [
-            "8787475077",
-            351540,
-            "2026-08-09T20:45:37.827851+05:30",
-            "for setting password",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "changePassword"
-          ],
-          [
-            "8787475077",
-            351540,
-            "2026-08-09T20:46:38.532568+05:30",
-            "the net isn't active",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "internetIssue"
-          ],
-          [
-            "281749854998991",
-            194484,
-            "2026-08-09T20:55:33.579739+05:30",
-            "Recharge manually",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "274877986309",
-            200463,
-            "2026-08-09T21:05:51.60713+05:30",
-            "\u0916\u0941\u0926 \u0938\u0947 \u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0930\u0947\u0902",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "7838104136",
-            352010,
-            "2026-08-09T21:13:40.373529+05:30",
-            "kitne rupees mein lagta hai",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "8447345354",
-            16557,
-            "2026-08-09T21:19:07.788201+05:30",
-            "is customer se main baat",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE_PRE_EXPIRY",
-            "seekHelp"
-          ],
-          [
-            "8076223486",
-            308451,
-            "2026-08-09T21:34:37.56166+05:30",
-            "in hindi",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T21:35:08.59804+05:30",
-            "cancle",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T21:35:12.57064+05:30",
-            "booking",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T21:35:53.649726+05:30",
-            "hi",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "greetings"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T21:36:02.155709+05:30",
-            "mera status batao",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "checkStatus"
-          ],
-          [
-            "9350589776",
-            66874,
-            "2026-08-09T21:39:33.743375+05:30",
-            "nahi kar sakye",
-            "2026-08-10T05:53:24.028744+05:30",
-            "renewal_r0_expired",
-            "281749854860031",
-            29631,
-            null,
-            null
-          ],
-          [
-            "274878014750",
-            122756,
-            "2026-08-09T21:41:33.967329+05:30",
-            "Recharge manually",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8076223486",
-            308451,
-            "2026-08-09T21:42:34.496142+05:30",
-            "data nahi chal hai",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8929442990",
-            351856,
-            "2026-08-09T22:11:50.143431+05:30",
-            "Kal sham 6 baje k bad engineer bhejen",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "chooseOtherSlot"
-          ],
-          [
-            "9870818353",
-            54301,
-            "2026-08-09T22:18:07.125032+05:30",
-            "humra net abhi on kro humne 1 day ka recharge  kiya hai",
-            "2026-08-09T23:48:52.101141+05:30",
-            "ticket_type_3_or_4_resolved",
-            "281749854864788",
-            5445,
-            null,
-            null
-          ],
-          [
-            "9149311973",
-            143165,
-            "2026-08-09T22:20:42.936015+05:30",
-            "Yes, it\u2019s ON",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "281749854692402",
-            163641,
-            "2026-08-09T22:26:20.728407+05:30",
-            "\u0905\u092d\u0940 \u092d\u0940 \u0926\u093f\u0915\u094d\u0915\u0924 \u0906 \u0930\u0939\u0940 \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "281749855033369",
-            250156,
-            "2026-08-09T22:39:55.273787+05:30",
-            "\u0905\u092d\u0940 \u092d\u0940 \u0926\u093f\u0915\u094d\u0915\u0924 \u0906 \u0930\u0939\u0940 \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "7258977582",
-            61688,
-            "2026-08-09T22:45:48.575678+05:30",
-            "start kaise kre",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "howToGetStarted"
-          ],
-          [
-            "7258977582",
-            61688,
-            "2026-08-09T22:48:02.703788+05:30",
-            "recharge offer",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "recharge"
-          ],
-          [
-            "9570820054",
-            351030,
-            "2026-08-09T22:52:50.935572+05:30",
-            "password galat bata raha hai",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "seekHelp"
-          ],
-          [
-            "9570820054",
-            351030,
-            "2026-08-09T22:53:33.540473+05:30",
-            "reset my password",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "changePassword"
-          ],
-          [
-            "8130453169",
-            8369,
-            "2026-08-09T22:57:12.396037+05:30",
-            "recharge Kara sakte h",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "7011554125",
-            352092,
-            "2026-08-09T23:03:17.970883+05:30",
-            "Wi-Fi lagane wala Jo aaega usko kitni payment Deni hogi",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "7011554125",
-            352092,
-            "2026-08-09T23:04:51.931571+05:30",
-            "\u0935\u093e\u0908-\u092b\u093e\u0908 \u0935\u093e\u0932\u093e \u091c\u094b \u0907\u0902\u091c\u0940\u0928\u093f\u092f\u0930 \u0906\u090f\u0917\u093e \u0909\u0938\u0915\u094b \u0915\u093f\u0924\u0928\u0940 \u092b\u0940\u0938 \u0926\u0947\u0928\u0940 \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "8130515937",
-            352087,
-            "2026-08-09T23:04:59.280667+05:30",
-            "total cost kitna hai",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "8130515937",
-            352087,
-            "2026-08-09T23:06:20.347941+05:30",
-            "total wifi ki cost kitna hai fainal tak ka",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "totalCost"
-          ],
-          [
-            "9560905464",
-            342843,
-            "2026-08-09T23:11:07.916407+05:30",
-            "internet nahi chal raha",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "internetIssue"
-          ],
-          [
-            "9560905464",
-            342843,
-            "2026-08-09T23:11:35.471602+05:30",
-            "internet problem",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "internetIssue"
-          ],
-          [
-            "9560905464",
-            342843,
-            "2026-08-09T23:11:57.976855+05:30",
-            "internet problem",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "internetIssue"
-          ],
-          [
-            "9560905464",
-            342843,
-            "2026-08-09T23:15:39.056418+05:30",
-            "\u092e\u0947\u0930\u093e \u0938\u094d\u091f\u0947\u091f\u0938 \u092c\u0924\u093e\u0913",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "checkStatus"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T23:21:55.191722+05:30",
-            "cancle",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T23:21:57.849799+05:30",
-            "booking",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T23:23:51.232004+05:30",
-            "hi wiom",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "greetings"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T23:24:00.120658+05:30",
-            "hi wiom",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "greetings"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T23:24:44.450309+05:30",
-            "booking",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "checkStatus"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T23:24:46.920455+05:30",
-            "cancle",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "cancelBooking"
-          ],
-          [
-            "8447029357",
-            81524,
-            "2026-08-09T23:24:59.537308+05:30",
-            "mera status batao",
-            null,
-            null,
-            null,
-            null,
-            "ACTIVE",
-            "checkStatus"
-          ],
-          [
-            "9570820054",
-            351030,
-            "2026-08-09T23:27:53.33659+05:30",
-            "I want to reset my password",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "changePassword"
-          ],
-          [
-            "9570820054",
-            351030,
-            "2026-08-09T23:28:30.415393+05:30",
-            "mujhe connect karne me help chaiye",
-            null,
-            null,
-            null,
-            null,
-            "RATING",
-            "seekHelp"
-          ],
-          [
-            "9570820054",
-            351030,
-            "2026-08-09T23:29:40.836137+05:30",
-            "\u092e\u0947\u0930\u093e \u0938\u094d\u091f\u0947\u091f\u0938 \u092c\u0924\u093e\u0913",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "checkStatus"
-          ],
-          [
-            "9570820054",
-            351030,
-            "2026-08-09T23:30:24.040938+05:30",
-            "\u092e\u0947\u0930\u093e \u0938\u094d\u091f\u0947\u091f\u0938 \u092c\u0924\u093e\u0913",
-            null,
-            null,
-            null,
-            null,
-            "HAPPY_CODE",
-            "checkStatus"
-          ],
-          [
-            "9773580253",
-            13006,
-            "2026-08-09T23:35:49.309985+05:30",
-            "hi",
-            null,
-            null,
-            null,
-            null,
-            "INACTIVE_POST_EXPIRY",
-            "greetings"
-          ],
-          [
-            "",
-            352122,
-            "2026-08-09T23:38:11.908293+05:30",
-            "hi",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "9773580253",
-            13006,
-            "2026-08-09T23:38:35.021615+05:30",
-            "\u092e\u0941\u091d\u0947 \u0930\u093f\u091a\u093e\u0930\u094d\u091c \u0915\u0930\u0928\u093e \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-          ],
-          [
-            "8957861312",
-            196307,
-            "2026-08-09T23:42:13.707399+05:30",
-            "\u0930\u093f\u092b\u0902\u0921 \u0938\u094d\u091f\u0947\u091f\u0938 \u0926\u0947\u0916\u0928\u093e \u0939\u0948",
-            null,
-            null,
-            null,
-            null,
-            "REMOVED",
-            "checkRefundStatus"
-          ]
-        ],
-        "error": null
-      }
-    },
-    {
-      "id": 20,
-      "journey": "Chat",
-      "name": "New ticket via chat -> created in ticket system within 5min",
-      "description": "When the chat bot tells a customer a new complaint ticket has been created (complaint_ticket_type_3_or_4_created), does that ticket actually exist in the correct backend within 5 minutes? Routed by the customer's own partner's migration status at the time of the ticket: migrated partners are checked against the new CSP complaints system, not-yet-migrated partners against the old STM system.",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        100.0,
-        100.0,
-        100.0,
-        99.9661,
-        99.8756,
-        99.8378,
-        99.8388,
-        99.0814,
-        null
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Ticket ID",
-            "type": "id"
-          },
-          {
-            "label": "Chat message at",
-            "type": "ts"
-          },
-          {
-            "label": "Partner status",
-            "type": "text"
-          },
-          {
-            "label": "Found in ticket system at",
-            "type": "ts"
-          },
-          {
-            "label": "Gap (min)",
-            "type": "int"
-          }
-        ],
-        "null_label": "not found in ticket system",
-        "rows": [],
-        "error": null
-      }
-    },
-    {
-      "id": 21,
-      "journey": "Chat",
-      "name": "Reopened ticket via chat -> reopened in ticket system within 5min",
-      "description": "When the chat bot tells a customer their ticket has been reopened (complaint_resolved_ticket_reopened workflow), what share actually show as reopened in the ticket system within 5 minutes of that message?",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        100.0,
-        99.5475,
-        94.1176,
-        null
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Ticket ID",
-            "type": "id"
-          },
-          {
-            "label": "Chat message at",
-            "type": "ts"
-          },
-          {
-            "label": "Reopened in ticket system at",
-            "type": "ts"
-          },
-          {
-            "label": "Gap (min)",
-            "type": "int"
-          }
-        ],
-        "null_label": "not found reopened in ticket system",
-        "rows": [],
-        "error": null
-      }
-    },
-    {
-      "id": 22,
-      "journey": "B2I",
-      "name": "Booking not-installed-14D -> auto-cancelled-by-16D",
-      "description": "Of bookings still not installed 14 days after the booking fee was paid, what share got automatically cancelled (and refunded) by day 16? Checks whether the auto-cancel sweep job is actually firing on stale bookings.",
-      "tbd": false,
-      "unit": null,
-      "values": [
-        0.9,
-        0.741,
-        0.862,
-        0.972,
-        0.975,
-        0.964,
-        0.996,
-        0.991,
-        0.98
-      ],
-      "error": null,
-      "drilldown": {
-        "window": "D-1 (16-day cohort)",
-        "columns": [
-          {
-            "label": "Mobile",
-            "type": "mobile"
-          },
-          {
-            "label": "Fee-paid time",
-            "type": "ts"
-          },
-          {
-            "label": "Days since fee",
-            "type": "int"
-          },
-          {
-            "label": "Cancelled at",
-            "type": "ts"
-          },
-          {
-            "label": "Cancel type",
-            "type": "text"
-          }
-        ],
-        "null_label": "\u2014",
-        "rows": [
-          [
-            "7417139637",
-            "2026-07-25T03:35:02.688+05:30",
-            16,
-            null,
-            "not cancelled"
-          ],
-          [
-            "7042711321",
-            "2026-07-25T09:05:06.163+05:30",
-            16,
-            null,
-            "not cancelled"
-          ],
-          [
-            "8882780171",
-            "2026-07-25T09:17:33.3+05:30",
-            16,
-            null,
-            "not cancelled"
-          ]
-        ],
-        "error": null
-      }
-    }
-  ]
+ "generated_at_utc": "2026-08-11T03:49:22.513265+00:00",
+ "metrics": [
+  {
+   "id": 2,
+   "journey": "B2I",
+   "name": "Booking provisioning (payment -> booking)",
+   "description": "Of successful booking-fee payments, what share have a matching booking-fee-captured record against that same transaction?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    99.54
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Transaction ID",
+      "type": "id"
+     },
+     {
+      "label": "Payment time",
+      "type": "ts"
+     },
+     {
+      "label": "Booking record status",
+      "type": "text"
+     }
+    ],
+    "null_label": "—",
+    "rows": [],
+    "error": null
+   }
+  },
+  {
+   "id": 11,
+   "journey": "B2I",
+   "name": "Address Submitted -> Booking Confirmed (24h) %",
+   "description": "Of customers who submitted an address (address_updated event) -- counting only their first submission, or their first since a prior booking was cancelled (cancelled event) -- what share had their booking confirmed (booking_confirmed event) within 24 hours? D-1 only counts address submissions that have themselves completed a full 24 hours, so it never shows a partial, still-maturing day.",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    0.962,
+    0.972,
+    0.955,
+    0.967,
+    0.81,
+    0.725,
+    0.884,
+    0.993,
+    0.977
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Address submitted at",
+      "type": "ts"
+     },
+     {
+      "label": "Confirmed at",
+      "type": "ts"
+     }
+    ],
+    "null_label": "never confirmed",
+    "rows": [
+     [
+      "9625607075",
+      "2026-08-10T01:18:41.044+05:30",
+      null
+     ]
+    ],
+    "error": null
+   }
+  },
+  {
+   "id": 12,
+   "journey": "B2I",
+   "name": "Install TRUM plan creation within 30 mins",
+   "description": "Of installs that reached the AWAITING_CUSTOMER_OTP state, what share had their TRUM plan created within 30 minutes of reaching it?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    100.0,
+    100.0,
+    100.0,
+    99.7271,
+    99.8701,
+    98.4,
+    98.7666,
+    98.1413,
+    100.0
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "NAS ID",
+      "type": "id"
+     },
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "OTP-wait time (install moment)",
+      "type": "ts"
+     },
+     {
+      "label": "TRUM created at",
+      "type": "ts"
+     },
+     {
+      "label": "Gap (min)",
+      "type": "int"
+     }
+    ],
+    "null_label": "not created",
+    "rows": [],
+    "error": null
+   }
+  },
+  {
+   "id": 13,
+   "journey": "B2I",
+   "name": "Device live at install (ping within 30 min)",
+   "description": "Of installs that reached the AWAITING_CUSTOMER_OTP state, what share had the device show ping activity within 30 minutes after reaching it, or in the 10 minutes just before?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    79.8319,
+    89.0411,
+    97.2603,
+    88.5402,
+    88.7013,
+    75.84,
+    86.907,
+    null,
+    null
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "NAS ID",
+      "type": "id"
+     },
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "OTP-wait time (install moment)",
+      "type": "ts"
+     },
+     {
+      "label": "First ping",
+      "type": "ts"
+     },
+     {
+      "label": "Last ping",
+      "type": "ts"
+     },
+     {
+      "label": "Total pings",
+      "type": "int"
+     }
+    ],
+    "null_label": "no ping",
+    "rows": [
+     [
+      708238,
+      "9818437490",
+      "2026-08-10T11:27:20.865+05:30",
+      "2026-08-10T12:00:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      236
+     ],
+     [
+      708246,
+      "9026998294",
+      "2026-08-10T12:19:16.25+05:30",
+      "2026-08-10T13:05:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      224
+     ],
+     [
+      708249,
+      "9910758312",
+      "2026-08-10T12:32:43.829+05:30",
+      "2026-08-10T13:55:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      209
+     ],
+     [
+      708255,
+      "9310606651",
+      "2026-08-10T13:04:43.67+05:30",
+      null,
+      null,
+      0
+     ],
+     [
+      708268,
+      "9315453204",
+      "2026-08-10T13:41:55.692+05:30",
+      "2026-08-10T16:40:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      181
+     ],
+     [
+      708270,
+      "9939940144",
+      "2026-08-10T13:53:52.421+05:30",
+      "2026-08-10T15:50:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      192
+     ],
+     [
+      708276,
+      "8287076128",
+      "2026-08-10T14:14:54.97+05:30",
+      "2026-08-10T16:15:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      187
+     ],
+     [
+      708281,
+      "9220586659",
+      "2026-08-10T14:37:12.463+05:30",
+      "2026-08-10T17:05:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      114
+     ],
+     [
+      708282,
+      "9899901844",
+      "2026-08-10T14:40:45.47+05:30",
+      "2026-08-10T16:55:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      174
+     ],
+     [
+      708285,
+      "9716031114",
+      "2026-08-10T14:53:05.368+05:30",
+      "2026-08-10T15:45:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      183
+     ],
+     [
+      708291,
+      "7827171841",
+      "2026-08-10T15:57:42.425+05:30",
+      "2026-08-10T16:35:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      184
+     ],
+     [
+      708293,
+      "9541539735",
+      "2026-08-10T16:30:10.176+05:30",
+      "2026-08-10T17:05:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      177
+     ],
+     [
+      708297,
+      "7739306582",
+      "2026-08-10T16:44:23.347+05:30",
+      "2026-08-10T19:00:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      153
+     ],
+     [
+      708299,
+      "9990371786",
+      "2026-08-10T16:53:17.01+05:30",
+      "2026-08-10T22:05:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      118
+     ],
+     [
+      708301,
+      "8595451799",
+      "2026-08-10T16:57:36.635+05:30",
+      "2026-08-10T17:45:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      167
+     ],
+     [
+      708304,
+      "9310343781",
+      "2026-08-10T17:11:23.869+05:30",
+      null,
+      null,
+      0
+     ],
+     [
+      708310,
+      "7384462576",
+      "2026-08-10T17:39:05.748+05:30",
+      "2026-08-10T18:45:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      150
+     ],
+     [
+      708323,
+      "9540718399",
+      "2026-08-10T18:28:19.336+05:30",
+      "2026-08-10T19:25:00+05:30",
+      "2026-08-10T21:40:00+05:30",
+      27
+     ],
+     [
+      708326,
+      "9717695494",
+      "2026-08-10T18:42:07.044+05:30",
+      "2026-08-10T19:15:00+05:30",
+      "2026-08-11T05:55:00+05:30",
+      129
+     ],
+     [
+      708338,
+      "8586894149",
+      "2026-08-10T19:42:55.006+05:30",
+      null,
+      null,
+      0
+     ],
+     [
+      708343,
+      "9667939451",
+      "2026-08-10T20:35:56.03+05:30",
+      "2026-08-10T21:10:00+05:30",
+      "2026-08-11T02:55:00+05:30",
+      69
+     ],
+     [
+      708344,
+      "7455868973",
+      "2026-08-10T20:36:18.221+05:30",
+      "2026-08-10T21:30:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      115
+     ],
+     [
+      708346,
+      "7065548467",
+      "2026-08-10T20:46:17.604+05:30",
+      "2026-08-10T21:20:00+05:30",
+      "2026-08-11T07:55:00+05:30",
+      126
+     ],
+     [
+      708349,
+      "7678346586",
+      "2026-08-10T21:28:27.548+05:30",
+      null,
+      null,
+      0
+     ]
+    ],
+    "error": null
+   }
+  },
+  {
+   "id": 15,
+   "journey": "B2I",
+   "name": "Technician assigned msg to customer",
+   "description": "Of technician assignments (rohit_assigned event), what share had the customer notified over chat within 10 minutes?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Technician-assigned time",
+      "type": "ts"
+     },
+     {
+      "label": "Message sent at",
+      "type": "ts"
+     },
+     {
+      "label": "Gap (min)",
+      "type": "int"
+     }
+    ],
+    "null_label": "not sent",
+    "rows": [],
+    "error": null
+   }
+  },
+  {
+   "id": 4,
+   "journey": "R2E",
+   "name": "Renewal Reminder - R0 (sent within 24h before expiry)",
+   "description": "Of plan expiries where the customer hadn't already recharged early (or renewed with zero gap), what share had the R0 renewal reminder sent within 24 hours before expiry?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    99.8931,
+    99.9168,
+    99.9475,
+    99.9252,
+    99.9052,
+    99.8846,
+    99.8848,
+    99.8862,
+    99.7442
+   ],
+   "error": null
+  },
+  {
+   "id": 5,
+   "journey": "R2E",
+   "name": "Recharge to device live within 2h (non-queued only)",
+   "description": "Of recharges that follow a genuine offline period (paid >=15 min after the prior plan's expiry, or the first-ever plan on that device), what share had the device show ping activity within 2 hours? Excludes queued recharges (paid before the prior plan expired), since those never take the router offline and don't test recovery behaviour.",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    93.5884,
+    93.1693,
+    93.6508,
+    93.5474,
+    94.0126,
+    93.7908,
+    93.2778,
+    null,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 6,
+   "journey": "R2E",
+   "name": "Renewal provisioning (payment -> plan & entitlement)",
+   "description": "Of successful renewal payments, what share had a matching plan and entitlement created against that same transaction?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    "99.98",
+    "99.96",
+    "100.00",
+    "99.98",
+    "99.95",
+    "99.95",
+    "99.92",
+    "-",
+    "-"
+   ],
+   "error": null
+  },
+  {
+   "id": 8,
+   "journey": "R2E",
+   "name": "Customer plan ISP coverage (paid-hour level)",
+   "description": "Of every hour a customer's plan is active and paid for, what share actually had ISP access enabled (gate open)?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    95.8496,
+    96.0002,
+    95.8055,
+    95.5572,
+    95.6778,
+    94.6432,
+    95.6243,
+    null,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 9,
+   "journey": "R2E",
+   "name": "Customers NOT affected rate (100 - % customers affected)",
+   "description": "Of paying customers, what share had zero hours where their ISP access gate was closed?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    93.3093,
+    93.1161,
+    92.9828,
+    92.378,
+    92.4779,
+    91.2244,
+    92.4844,
+    null,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 10,
+   "journey": "R2E",
+   "name": "Captive Portal triggered -> Captive portal open",
+   "description": "Of times the captive portal was triggered (captive_portal_initialised event), what share had the portal actually open (open_captive_portal event) on the customer's device?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    94.9302,
+    95.8891,
+    96.4641,
+    95.9736,
+    95.784,
+    94.9916,
+    95.0814,
+    95.5972,
+    95.3059
+   ],
+   "error": null
+  },
+  {
+   "id": 23,
+   "journey": "R2E",
+   "name": "Recharge Ticket Creation Rate (System Health)",
+   "description": "For every hour a customer had already paid for (excluding their first 30 days post-install), does a recharge ticket's [created_at, obligation_window_end) window span that hour? Measures ticket creation and system-tracked obligation coverage only, not partner claim speed or resolution time. Only D-1..D-3 are computed; W-1..M-3 are not available for this metric.",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    99.3771,
+    99.3759,
+    99.3849,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "error": null
+  },
+  {
+   "id": 16,
+   "journey": "Closure",
+   "name": "% Refund Requested (PAYG)",
+   "description": "Of PAYG pickup tickets created, what share have a security-deposit refund order created?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    91.7178,
+    90.9091,
+    65.0964,
+    82.4247,
+    90.4199,
+    93.005,
+    86.8103,
+    85.2526,
+    84.8739
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Ticket ID",
+      "type": "id"
+     },
+     {
+      "label": "Ticket created at",
+      "type": "ts"
+     },
+     {
+      "label": "Ticket state",
+      "type": "text"
+     }
+    ],
+    "null_label": "—",
+    "rows": [
+     [
+      "9958727304",
+      "137edd2f-4ecb-4113-80ed-f3b7a2873d42",
+      "2026-08-10T01:14:52.546557+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9324192058",
+      "f781ba55-389d-4d45-b0c7-841ab296919b",
+      "2026-08-10T05:31:42.404307+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9211483254",
+      "e59ce1ce-5c22-466f-aa26-369166b0d469",
+      "2026-08-10T06:50:11.20888+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9999757563",
+      "6c161d8f-0f17-4cb5-babf-b876321cbd2c",
+      "2026-08-10T06:58:51.30568+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "8700416754",
+      "96fdf4dd-4203-4a44-9bc7-96a8f81204c0",
+      "2026-08-10T07:01:10.612546+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9769313753",
+      "f7e49116-ebea-46d2-856a-dc00a12463f1",
+      "2026-08-10T07:01:21.000624+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9152495996",
+      "1a521164-d0b3-416f-98a8-f1c94ce83e27",
+      "2026-08-10T07:01:21.014456+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "7715047696",
+      "d409ac4f-bedd-453e-8d3a-3a7f3966c2a2",
+      "2026-08-10T07:01:29.321539+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9310612071",
+      "086c0cee-72ee-494e-9540-58c5c4767e7b",
+      "2026-08-10T07:06:00.32923+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9871738941",
+      "ce0fb76a-74c2-407b-b409-49c71b1239ce",
+      "2026-08-10T07:06:10.751129+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "7834944645",
+      "329f76d4-97cf-42f1-aff8-ecb600d9e5f3",
+      "2026-08-10T07:06:16.982156+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "8700746113",
+      "fc204a3f-4eba-4863-81db-695009352d5b",
+      "2026-08-10T09:04:37.561885+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9987733767",
+      "1a14869f-fc88-47ec-9053-3da06f32032e",
+      "2026-08-10T09:35:15.37258+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "7678242660",
+      "9f70de9d-b8bd-4f1c-b2de-1c44e4628099",
+      "2026-08-10T10:21:35.077398+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "8130607947",
+      "2a4684ce-3f5c-4b76-9884-d6060733b1a8",
+      "2026-08-10T11:03:02.042874+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9818782073",
+      "1a3f5336-63ac-4fd5-971f-63b10a9d6aff",
+      "2026-08-10T11:05:06.414484+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9958926808",
+      "4ccc96bb-7bd9-4247-b335-125e3fc5113c",
+      "2026-08-10T12:15:37.805226+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9354764073",
+      "34d8bda6-7845-431b-88f1-718dd4b2c532",
+      "2026-08-10T13:47:17.606896+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "8750005662",
+      "f9a29643-3a7b-4764-a313-eb547801f45b",
+      "2026-08-10T13:52:26.306967+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "8527949523",
+      "bcf6dd89-72dc-4113-8742-75ec5783a6a3",
+      "2026-08-10T14:01:43.588611+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "8178891646",
+      "0dd8eada-82de-41f9-8430-a49b2eb747ae",
+      "2026-08-10T14:58:59.525565+05:30",
+      "IN_PROGRESS"
+     ],
+     [
+      "8853195451",
+      "dc40ca0e-3a81-4ca7-8229-096da8937427",
+      "2026-08-10T14:58:59.53746+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9625770183",
+      "b50ad9c7-eb66-48ab-bfe5-fff01499c8aa",
+      "2026-08-10T14:59:25.889639+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "8076502891",
+      "c29f5ce1-63a3-4266-b3ab-6dfb4654f879",
+      "2026-08-10T15:35:56.117812+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "8368238764",
+      "b3557258-e152-4ded-9701-53119db7438f",
+      "2026-08-10T15:54:24.56852+05:30",
+      "IN_PROGRESS"
+     ],
+     [
+      "9999330342",
+      "e2943916-fa1d-497e-a5f1-e88a2bccb12a",
+      "2026-08-10T16:25:20.857214+05:30",
+      "PENDING_PICKUP"
+     ],
+     [
+      "9540750191",
+      "ecb5d5cb-8c07-4776-a19b-785f58fe3864",
+      "2026-08-10T20:05:06.158377+05:30",
+      "IN_PROGRESS"
+     ]
+    ],
+    "error": null
+   }
+  },
+  {
+   "id": 17,
+   "journey": "Closure",
+   "name": "% Refund Processed (PAYG)",
+   "description": "Of completed pickup tickets (excluding cases where the router was returned but no UPI was submitted), what share have their refund order in PROCESSING or SUCCESSFUL status?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    58.3333,
+    82.1429,
+    65.0,
+    74.4681,
+    83.1933,
+    57.8313,
+    67.2308,
+    84.7826,
+    29.4118
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Ticket ID",
+      "type": "id"
+     },
+     {
+      "label": "Ticket completed at",
+      "type": "ts"
+     },
+     {
+      "label": "Refund order status",
+      "type": "text"
+     }
+    ],
+    "null_label": "—",
+    "rows": [
+     [
+      "9839580678",
+      "1ae4a722-a82f-4d03-b28c-106a8053da8b",
+      "2026-08-10T09:20:33.129232+05:30",
+      "no refund order found"
+     ],
+     [
+      "8448312740",
+      "6684a332-748e-47cf-8a11-ec5adad4feea",
+      "2026-08-10T15:14:23.488641+05:30",
+      "CREATED"
+     ],
+     [
+      "7531050945",
+      "deb9b39f-2057-4f10-aa75-be30b6957e20",
+      "2026-08-10T16:24:33.921282+05:30",
+      "CREATED"
+     ],
+     [
+      "7011185829",
+      "5c6a1401-d14c-48ca-9d94-57fafc95ebfb",
+      "2026-08-10T16:24:50.014806+05:30",
+      "CREATED"
+     ],
+     [
+      "7550756701",
+      "873c9e63-f120-4c34-9d6b-b6ed6743d16e",
+      "2026-08-10T18:04:42.062045+05:30",
+      "CREATED"
+     ]
+    ],
+    "error": null
+   }
+  },
+  {
+   "id": 18,
+   "journey": "Closure",
+   "name": "Refund Orders stuck 5+ days in Processing (PAYG)",
+   "description": "How many PAYG refund orders are currently in PROCESSING status and have already been there 5+ days? Shown as a count, not a percentage -- target is zero.",
+   "tbd": false,
+   "unit": "count",
+   "values": [
+    29,
+    29,
+    29,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Order ID",
+      "type": "id"
+     },
+     {
+      "label": "Entered PROCESSING at",
+      "type": "ts"
+     },
+     {
+      "label": "Days stuck",
+      "type": "text"
+     }
+    ],
+    "null_label": "—",
+    "rows": [
+     [
+      "9953087283_ARCHIVED",
+      4,
+      "2026-02-10T10:39:09.73+05:30",
+      "181.5"
+     ],
+     [
+      "7983764732",
+      16327,
+      "2026-04-02T11:58:46.969+05:30",
+      "130.5"
+     ],
+     [
+      "9599302317",
+      18863,
+      "2026-04-02T11:48:47.514+05:30",
+      "130.5"
+     ],
+     [
+      "7488038141",
+      16244,
+      "2026-04-02T12:30:16.402+05:30",
+      "130.5"
+     ],
+     [
+      "9811979391",
+      20507,
+      "2026-04-02T13:02:54.509+05:30",
+      "130.5"
+     ],
+     [
+      "8802531517",
+      17687,
+      "2026-04-03T12:00:25.907+05:30",
+      "129.5"
+     ],
+     [
+      "9971396808",
+      16861,
+      "2026-04-03T11:30:10.743+05:30",
+      "129.5"
+     ],
+     [
+      "9821327820",
+      20540,
+      "2026-04-04T13:10:43.412+05:30",
+      "128.5"
+     ],
+     [
+      "8587996304",
+      20561,
+      "2026-04-04T15:08:31.834+05:30",
+      "128.4"
+     ],
+     [
+      "8449793193",
+      20558,
+      "2026-04-04T20:32:20.967+05:30",
+      "128.1"
+     ],
+     [
+      "8447976507",
+      17784,
+      "2026-04-05T12:16:49.413+05:30",
+      "127.5"
+     ],
+     [
+      "7290099355",
+      20291,
+      "2026-04-05T14:17:36.758+05:30",
+      "127.4"
+     ],
+     [
+      "9241947839",
+      18335,
+      "2026-04-05T20:03:03.051+05:30",
+      "127.2"
+     ],
+     [
+      "9582922134",
+      20508,
+      "2026-04-06T11:36:16.086+05:30",
+      "126.5"
+     ],
+     [
+      "9911141852",
+      16912,
+      "2026-04-06T16:42:02.773+05:30",
+      "126.3"
+     ],
+     [
+      "8700600197",
+      20590,
+      "2026-04-06T17:51:20.015+05:30",
+      "126.3"
+     ],
+     [
+      "8709735160",
+      20575,
+      "2026-04-06T18:37:32.295+05:30",
+      "126.2"
+     ],
+     [
+      "6307629315",
+      19148,
+      "2026-04-06T21:16:49.299+05:30",
+      "126.1"
+     ],
+     [
+      "9625089694",
+      20600,
+      "2026-04-07T13:06:21.847+05:30",
+      "125.5"
+     ],
+     [
+      "9311037487",
+      14990,
+      "2026-04-07T14:12:35.354+05:30",
+      "125.4"
+     ],
+     [
+      "7667537738",
+      14273,
+      "2026-04-07T15:42:34.935+05:30",
+      "125.3"
+     ],
+     [
+      "7011339535",
+      20612,
+      "2026-04-07T17:16:14.726+05:30",
+      "125.3"
+     ],
+     [
+      "9811938004",
+      12424,
+      "2026-04-07T20:51:48.598+05:30",
+      "125.1"
+     ],
+     [
+      "9899550553",
+      20619,
+      "2026-04-08T10:03:45.717+05:30",
+      "124.6"
+     ],
+     [
+      "7982250889",
+      14991,
+      "2026-04-08T10:49:25.494+05:30",
+      "124.5"
+     ],
+     [
+      "9717706633",
+      11759,
+      "2026-04-08T11:37:29.086+05:30",
+      "124.5"
+     ],
+     [
+      "7267037336",
+      20605,
+      "2026-04-08T14:32:46.62+05:30",
+      "124.4"
+     ],
+     [
+      "9997554713",
+      37792,
+      "2026-06-25T15:08:20.128+05:30",
+      "46.4"
+     ],
+     [
+      "8218665400",
+      47842,
+      "2026-07-27T16:54:53.131+05:30",
+      "14.3"
+     ]
+    ],
+    "error": null
+   }
+  },
+  {
+   "id": 19,
+   "journey": "Chat",
+   "name": "Chat input to output within 1 min",
+   "description": "Of customer chat messages, what share receive one within 60 seconds, excluding messages that are never meant to get a reply?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    97.0527,
+    98.0082,
+    98.1816,
+    97.8726,
+    97.9959,
+    97.9842,
+    98.2932,
+    98.7223,
+    97.9221
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Acct ID",
+      "type": "id"
+     },
+     {
+      "label": "Inbound TS (IST)",
+      "type": "ts"
+     },
+     {
+      "label": "Customer Message Text",
+      "type": "text",
+      "null_label": "no text content"
+     },
+     {
+      "label": "Reply TS (IST)",
+      "type": "ts",
+      "null_label": "no reply within 24h"
+     },
+     {
+      "label": "Reply Workflow",
+      "type": "text",
+      "null_label": "no reply within 24h"
+     },
+     {
+      "label": "Reply User ID",
+      "type": "id",
+      "null_label": "no reply within 24h"
+     },
+     {
+      "label": "Seconds To Reply",
+      "type": "int",
+      "null_label": "no reply within 24h"
+     },
+     {
+      "label": "User State",
+      "type": "text",
+      "null_label": "no intent classification found"
+     },
+     {
+      "label": "Finalised Intent",
+      "type": "text",
+      "null_label": "no intent classification found"
+     }
+    ],
+    "null_label": "—",
+    "rows": [
+     [
+      "8076950739",
+      171838,
+      "2026-08-10T00:05:28.524347+05:30",
+      "raise a ticket of complain",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "seekHelp"
+     ],
+     [
+      "7011184261",
+      349332,
+      "2026-08-10T00:06:50.782451+05:30",
+      "muje complaint karni hai",
+      "2026-08-10T00:08:20.687731+05:30",
+      "help_requested",
+      "7011184261",
+      90,
+      "ACTIVE",
+      "seekHelp"
+     ],
+     [
+      "9305978560",
+      142222,
+      "2026-08-10T00:16:17.192358+05:30",
+      "Wi-Fi kyon nahin chal rahi hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "8826064086",
+      148876,
+      "2026-08-10T00:17:14.664044+05:30",
+      "Kya Mera Aaj night K data bad me milega",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
+     ],
+     [
+      "8860052495",
+      153145,
+      "2026-08-10T00:17:38.754532+05:30",
+      "hii",
+      "2026-08-10T04:07:27.481491+05:30",
+      "ticket_type_3_or_4_tat_breached",
+      "281749854863540",
+      13789,
+      null,
+      null
+     ],
+     [
+      "9899737799",
+      179736,
+      "2026-08-10T00:18:48.1204+05:30",
+      "internet is not working",
+      "2026-08-10T04:16:12.387515+05:30",
+      "ticket_type_3_or_4_tat_breached",
+      "281749854699666",
+      14244,
+      null,
+      null
+     ],
+     [
+      "281749854869532",
+      83953,
+      "2026-08-10T00:20:23.385386+05:30",
+      "हो गया, अब चेक करते हैं",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8447029357",
+      81524,
+      "2026-08-10T00:32:11.539249+05:30",
+      "service suspended",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "internetIssue"
+     ],
+     [
+      "9354440417",
+      352165,
+      "2026-08-10T00:36:31.639682+05:30",
+      "250 roater ke dene honge",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9354440417",
+      352165,
+      "2026-08-10T00:40:04.731499+05:30",
+      "btao 250 rupe kya net box ke dene honge",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "8476004341",
+      104727,
+      "2026-08-10T00:51:32.303099+05:30",
+      "esme limit kaise set kare",
+      "2026-08-10T05:52:06.167557+05:30",
+      "renewal_r0_expired",
+      "281749855014025",
+      18034,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
+     ],
+     [
+      "9936189756",
+      338289,
+      "2026-08-10T01:39:05.534681+05:30",
+      "258666",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
+     ],
+     [
+      "9250330434",
+      176300,
+      "2026-08-10T03:08:27.434123+05:30",
+      "नेट नही आ रहा है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "281749855013569",
+      9049,
+      "2026-08-10T06:11:32.07267+05:30",
+      "Recharge manually",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "",
+      348623,
+      "2026-08-10T07:34:47.2453+05:30",
+      "kutta",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "",
+      348623,
+      "2026-08-10T07:34:47.510471+05:30",
+      "harami",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "",
+      348623,
+      "2026-08-10T07:34:47.510515+05:30",
+      "bhan k lide",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "",
+      348623,
+      "2026-08-10T07:34:47.595662+05:30",
+      "lund",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9310843412",
+      155404,
+      "2026-08-10T08:01:40.989769+05:30",
+      "karni h",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "seekHelp"
+     ],
+     [
+      "9540740973",
+      351624,
+      "2026-08-10T08:14:08.848958+05:30",
+      "अभी राउटर नहीं लगा है",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "internetIssue"
+     ],
+     [
+      "9716500907",
+      348425,
+      "2026-08-10T08:18:25.203983+05:30",
+      "kab lagega bhai net",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7011479697",
+      352229,
+      "2026-08-10T08:22:28.897465+05:30",
+      "total amount",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "7011479697",
+      352229,
+      "2026-08-10T08:23:03.22764+05:30",
+      "total kharcha",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8700583660",
+      211568,
+      "2026-08-10T08:28:53.528113+05:30",
+      "वाईफाई नहीं आ रहा है",
+      "2026-08-10T12:03:08.39211+05:30",
+      "ticket_type_3_or_4_resolved",
+      "274878006703",
+      12855,
+      null,
+      null
+     ],
+     [
+      "9220918615",
+      350867,
+      "2026-08-10T08:39:46.901034+05:30",
+      "Mera Pura cost kitna hoga Recharge sab lekar",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9220918615",
+      350867,
+      "2026-08-10T08:40:12.140111+05:30",
+      "Mera Pura cost kitna hoga 14 Din ka   Recharge sab lekar",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "274878025320",
+      25061,
+      "2026-08-10T09:26:27.769326+05:30",
+      "Recharge manually",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8929669198",
+      351821,
+      "2026-08-10T09:34:54.342329+05:30",
+      "kya charge lagega",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8929669198",
+      351821,
+      "2026-08-10T09:35:34.492308+05:30",
+      "चार्ज कितना लगेगा और कितने चार्ज लगोगे लोग आप लगाने के नेता के मुझे कृपया चार्ज के पैसे बता दीजिए",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8929669198",
+      351821,
+      "2026-08-10T09:35:57.047857+05:30",
+      "कितने पैसे लगेंगे",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8920786484",
+      153760,
+      "2026-08-10T09:51:42.551604+05:30",
+      "wifi nhi chl rha hnra",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "9013406842",
+      41771,
+      "2026-08-10T09:55:43.726981+05:30",
+      "net nhi chal raha",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9205820932",
+      291621,
+      "2026-08-10T10:04:47.793772+05:30",
+      "pasword reset Krna h",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "changePassword"
+     ],
+     [
+      "8130727678",
+      351197,
+      "2026-08-10T10:05:00.264378+05:30",
+      "please give me the",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "9205820932",
+      291621,
+      "2026-08-10T10:05:11.941688+05:30",
+      "btaiye",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "seekHelp"
+     ],
+     [
+      "9205820932",
+      291621,
+      "2026-08-10T10:05:59.797906+05:30",
+      "मुझे मदद चाहिए",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "seekHelp"
+     ],
+     [
+      "281749854752132",
+      171892,
+      "2026-08-10T10:08:21.783937+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9958699270",
+      351957,
+      "2026-08-10T10:13:53.989214+05:30",
+      "which time reach for home Engineer",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8630928346",
+      352094,
+      "2026-08-10T11:21:01.274489+05:30",
+      "20-30 min se jyada ho gaye",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "internetIssue"
+     ],
+     [
+      "8094461488",
+      269438,
+      "2026-08-10T11:31:10.000781+05:30",
+      "booking cancel karni h",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "cancelBooking"
+     ],
+     [
+      "281749854802761",
+      94604,
+      "2026-08-10T11:37:17.536602+05:30",
+      "खुद से रिचार्ज करें",
+      "2026-08-10T12:31:55.021968+05:30",
+      "renewal_payment_success",
+      "281749854802761",
+      3278,
+      null,
+      null
+     ],
+     [
+      "7011554125",
+      352092,
+      "2026-08-10T11:57:46.480846+05:30",
+      "pese kiyne dene hai",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8368713735",
+      346238,
+      "2026-08-10T12:01:31.519957+05:30",
+      "otp",
+      "2026-08-10T12:13:47.648599+05:30",
+      "happy_code_submitted",
+      "8368713735",
+      736,
+      null,
+      null
+     ],
+     [
+      "9631708457",
+      28,
+      "2026-08-10T12:08:34.927965+05:30",
+      "down hai net",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "8287782692",
+      37012,
+      "2026-08-10T12:08:46.02485+05:30",
+      "one day",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9599056805",
+      347562,
+      "2026-08-10T12:11:24.826479+05:30",
+      "लियोन कितने पैसे में लगेगा",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9760436552",
+      349684,
+      "2026-08-10T12:19:51.395033+05:30",
+      "mont",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "FallbackIntent"
+     ],
+     [
+      "9760436552",
+      349684,
+      "2026-08-10T12:19:54.754543+05:30",
+      "recharge",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "recharge"
+     ],
+     [
+      "9874311068",
+      350010,
+      "2026-08-10T12:53:03.291059+05:30",
+      "check my status",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "8700799475",
+      338288,
+      "2026-08-10T13:02:55.580016+05:30",
+      "mujhe kitne paise dene padenge",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9818925654",
+      63883,
+      "2026-08-10T13:20:28.869221+05:30",
+      "number to yahi hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "changeMobileNumber"
+     ],
+     [
+      "8178680626",
+      349231,
+      "2026-08-10T13:26:28.741337+05:30",
+      "ab koi aaiga lagane new set wiom का",
+      "2026-08-10T13:43:18.839349+05:30",
+      "help_requested",
+      "8178680626",
+      1010,
+      "ACTIVE",
+      "seekHelp"
+     ],
+     [
+      "8630928346",
+      352094,
+      "2026-08-10T13:29:41.057927+05:30",
+      "happy code nhi a raha",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "seekHelp"
+     ],
+     [
+      "8929605860",
+      250156,
+      "2026-08-10T13:36:57.51684+05:30",
+      "यह आपके इंजीनियर फोन काट रहे हैं फोन रिसीव नहीं कर रहा है कैसे ठीक होगा हमारे घर का नेट",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8882765986",
+      351691,
+      "2026-08-10T13:43:35.559511+05:30",
+      "1 month ke liye kitna dena ho ga all charges",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "281749854735733",
+      148398,
+      "2026-08-10T13:52:02.463872+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "281749854735733",
+      148398,
+      "2026-08-10T13:52:02.531678+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "281749855026130",
+      154063,
+      "2026-08-10T13:52:26.118246+05:30",
+      "Recharge manually",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9205812504",
+      349710,
+      "2026-08-10T13:52:56.33168+05:30",
+      "रिचार्ज के प्लान देखें",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9999942429",
+      128645,
+      "2026-08-10T13:55:09.998709+05:30",
+      "kab  aayega hamara net",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkStatus"
+     ],
+     [
+      "9639284869",
+      351642,
+      "2026-08-10T13:57:34.290742+05:30",
+      "kab tak ayega box",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "274878026763",
+      40445,
+      "2026-08-10T14:02:11.106063+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "281749854877195",
+      54094,
+      "2026-08-10T14:08:19.422033+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9310689098",
+      352462,
+      "2026-08-10T14:12:33.980048+05:30",
+      "! hame 1 month ka reachage karana hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "recharge"
+     ],
+     [
+      "274877964990",
+      185327,
+      "2026-08-10T14:14:03.963035+05:30",
+      "खुद से रिचार्ज करें",
+      "2026-08-10T14:18:50.194788+05:30",
+      "renewal_payment_success",
+      "274877964990",
+      287,
+      null,
+      null
+     ],
+     [
+      "8630928346",
+      352094,
+      "2026-08-10T14:15:02.673558+05:30",
+      "550",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "ticketRating"
+     ],
+     [
+      "8178711859",
+      349618,
+      "2026-08-10T14:16:48.24316+05:30",
+      "lagana nhi kya",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "help_requested_frustrated"
+     ],
+     [
+      "8954603512",
+      350429,
+      "2026-08-10T14:24:39.890317+05:30",
+      "yeh toh bol re h ki 500 rupe ma lagayega or 1 moth ka net free",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "",
+      349100,
+      "2026-08-10T14:40:43.709566+05:30",
+      "kitne ka lagega वाई-फाई",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9454216862",
+      352499,
+      "2026-08-10T14:46:12.594487+05:30",
+      "payment kitna lgega",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8287208035",
+      351503,
+      "2026-08-10T14:49:40.740323+05:30",
+      "OTP",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "FallbackIntent"
+     ],
+     [
+      "8595969694",
+      351731,
+      "2026-08-10T15:05:00.671962+05:30",
+      "abhi chalu nahin hua Hai kuchh lagana hai abhi",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "internetIssue"
+     ],
+     [
+      "274878028806",
+      147988,
+      "2026-08-10T15:20:31.289997+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "274878028806",
+      147988,
+      "2026-08-10T15:20:31.337168+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "274878028806",
+      147988,
+      "2026-08-10T15:20:31.337841+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "274878028806",
+      147988,
+      "2026-08-10T15:20:31.697197+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "274878060916",
+      15538,
+      "2026-08-10T15:32:10.10277+05:30",
+      "खुद से रिचार्ज करें",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9131924078",
+      352531,
+      "2026-08-10T15:41:06.970434+05:30",
+      "रिचार्ज के प्लान देखें",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7051641307",
+      347531,
+      "2026-08-10T15:52:15.068811+05:30",
+      "no internet",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7258977582",
+      61688,
+      "2026-08-10T16:02:30.503691+05:30",
+      "start",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "fallbackIntent"
+     ],
+     [
+      "7258977582",
+      61688,
+      "2026-08-10T16:03:00.491852+05:30",
+      "start kaise hoga",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "processPostBooking"
+     ],
+     [
+      "9541539735",
+      352359,
+      "2026-08-10T16:05:30.767358+05:30",
+      "Check my status",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "281749854836898",
+      29711,
+      "2026-08-10T16:15:50.272522+05:30",
+      "Recharge manually",
+      "2026-08-10T16:18:24.085476+05:30",
+      "renewal_payment_success",
+      "281749854836898",
+      154,
+      null,
+      null
+     ],
+     [
+      "7827102108",
+      351985,
+      "2026-08-10T16:30:19.087515+05:30",
+      "क्या इसमें कोई इंस्टालेशन फीस भी लगती है",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "7027421713",
+      66433,
+      "2026-08-10T16:32:22.220538+05:30",
+      "how many data used in this month",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
+     ],
+     [
+      "9958282487",
+      346553,
+      "2026-08-10T16:38:19.988213+05:30",
+      "how much money I give you",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9958282487",
+      346553,
+      "2026-08-10T16:38:48.051811+05:30",
+      "how much money",
+      "2026-08-10T17:58:01.143795+05:30",
+      "technician_arrived",
+      "9958282487",
+      4753,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "274877915172",
+      200991,
+      "2026-08-10T16:39:24.573649+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7217679947",
+      332061,
+      "2026-08-10T16:49:34.161859+05:30",
+      "hello",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "greetings"
+     ],
+     [
+      "8630928346",
+      352094,
+      "2026-08-10T16:49:53.136991+05:30",
+      "status",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "checkStatus"
+     ],
+     [
+      "8595969694",
+      351731,
+      "2026-08-10T16:50:24.209509+05:30",
+      "happy quote",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "ticketRating"
+     ],
+     [
+      "9268633375",
+      288345,
+      "2026-08-10T16:58:24.252419+05:30",
+      "12 ghante ho chuke hai",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8882296294",
+      112036,
+      "2026-08-10T17:00:06.218764+05:30",
+      "richard data dekhna hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
+     ],
+     [
+      "8882296294",
+      112036,
+      "2026-08-10T17:00:36.028733+05:30",
+      "richard data dekhna hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
+     ],
+     [
+      "9131924078",
+      352531,
+      "2026-08-10T17:01:06.280488+05:30",
+      "ok",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8920938992",
+      16684,
+      "2026-08-10T17:07:37.710461+05:30",
+      "are you made",
+      "2026-08-10T17:08:49.565575+05:30",
+      "inactive_unknown_requetsed_fallback",
+      "8920938992",
+      72,
+      "INACTIVE_POST_EXPIRY",
+      "FallbackIntent"
+     ],
+     [
+      "274878046303",
+      177146,
+      "2026-08-10T17:12:42.80823+05:30",
+      "Recharge manually",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9354688725",
+      78188,
+      "2026-08-10T17:19:19.503762+05:30",
+      "resolve ho gya",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8595737582",
+      343989,
+      "2026-08-10T17:36:43.08661+05:30",
+      "abhi tak koi nahi aya",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "seekHelp"
+     ],
+     [
+      "8595737582",
+      343989,
+      "2026-08-10T17:37:05.936204+05:30",
+      "hello",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "greetings"
+     ],
+     [
+      "9717992847",
+      352616,
+      "2026-08-10T17:37:16.439139+05:30",
+      "mere ko kitne rupaye dene padenge",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8076617632",
+      147501,
+      "2026-08-10T17:46:27.408675+05:30",
+      "I have recharged",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8796527550",
+      351677,
+      "2026-08-10T17:46:59.872897+05:30",
+      "status",
+      "2026-08-10T18:05:18.218962+05:30",
+      "happy_code_submitted",
+      "8796527550",
+      1099,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "",
+      352639,
+      "2026-08-10T17:49:55.761256+05:30",
+      "कुल कितना खर्चा आएगा?",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7230000499",
+      352635,
+      "2026-08-10T17:51:58.266819+05:30",
+      "recharge kitne ka hoga",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8076566534",
+      351805,
+      "2026-08-10T17:53:53.832907+05:30",
+      "hii",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8287208035",
+      351503,
+      "2026-08-10T18:01:40.890718+05:30",
+      "मेरा स्टेटस बताओ",
+      "2026-08-10T18:19:19.813764+05:30",
+      "happy_code_submitted",
+      "8287208035",
+      1059,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "9910328496",
+      159397,
+      "2026-08-10T18:07:15.687133+05:30",
+      "No, it’s OFF",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9891886841",
+      144949,
+      "2026-08-10T18:08:44.136694+05:30",
+      "net slow kyu hai",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9540646678",
+      350601,
+      "2026-08-10T18:19:06.351044+05:30",
+      "abhi router nahi laga hai",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "internetIssue"
+     ],
+     [
+      "8923887002",
+      351449,
+      "2026-08-10T18:25:51.367741+05:30",
+      "sahil",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "FallbackIntent"
+     ],
+     [
+      "8923887002",
+      351449,
+      "2026-08-10T18:27:17.167414+05:30",
+      "sahil",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "FallbackIntent"
+     ],
+     [
+      "9354242706",
+      351919,
+      "2026-08-10T18:29:05.379291+05:30",
+      "package price",
+      "2026-08-10T21:16:40.267708+05:30",
+      "delay_slot_breached_rohit_assigned_but_rohit_not_arrived",
+      "9354242706",
+      10055,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8923887002",
+      351449,
+      "2026-08-10T18:38:17.562947+05:30",
+      "ahad jain",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "FallbackIntent"
+     ],
+     [
+      "8923887002",
+      351449,
+      "2026-08-10T18:40:23.36087+05:30",
+      "sahil1111",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "FallbackIntent"
+     ],
+     [
+      "8923887002",
+      351449,
+      "2026-08-10T18:40:58.658445+05:30",
+      "sahil12588",
+      "2026-08-10T18:46:50.578847+05:30",
+      "netbox_naming_reminder_i",
+      "8923887002",
+      352,
+      "ACTIVE",
+      "updateSsid"
+     ],
+     [
+      "8376999452",
+      350329,
+      "2026-08-10T18:52:40.186129+05:30",
+      "नेट चल नहीं रहा है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9717082774",
+      225028,
+      "2026-08-10T19:01:45.671225+05:30",
+      "मुझे मदद चाहिए",
+      "2026-08-10T19:14:29.259357+05:30",
+      "call_technician_card",
+      "281749855024776",
+      764,
+      null,
+      null
+     ],
+     [
+      "281749854837159",
+      192106,
+      "2026-08-10T19:10:22.957998+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9717695494",
+      352131,
+      "2026-08-10T19:15:15.770962+05:30",
+      "happy cold",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "ticketRating"
+     ],
+     [
+      "9643592085",
+      75953,
+      "2026-08-10T19:16:41.008305+05:30",
+      "no data",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
+     ],
+     [
+      "7817911269",
+      328497,
+      "2026-08-10T19:24:44.191664+05:30",
+      "Wi-Fi Mein recharge",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7817911269",
+      328497,
+      "2026-08-10T19:27:53.629599+05:30",
+      "वाई-फाई में रिचार्ज",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7817911269",
+      328497,
+      "2026-08-10T19:28:22.318221+05:30",
+      "वाई-फाई में रिचार्ज",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7817911269",
+      328497,
+      "2026-08-10T19:28:45.678303+05:30",
+      "Wi-Fi Mein recharge kaise karen",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9122123645",
+      67017,
+      "2026-08-10T19:34:22.037427+05:30",
+      "want to know who connected at a time",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "checkDataUsage"
+     ],
+     [
+      "7835969801",
+      352712,
+      "2026-08-10T19:35:49.042171+05:30",
+      "or koi fees nahi lagegi",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8356892252",
+      11601,
+      "2026-08-10T19:37:18.583008+05:30",
+      "मेरा स्टेटस बताओ",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "8810307505",
+      178184,
+      "2026-08-10T19:40:26.788728+05:30",
+      "मेरा प्लान कब खत्म होगा?",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9213937433",
+      351460,
+      "2026-08-10T19:46:21.081288+05:30",
+      "मेरा स्टेटस बताओ",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "8630928346",
+      352094,
+      "2026-08-10T19:51:37.999899+05:30",
+      "recharge Kaise kare",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "recharge"
+     ],
+     [
+      "8595428741",
+      189301,
+      "2026-08-10T19:51:40.455861+05:30",
+      "wifi is not working properly",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "8356892252",
+      11601,
+      "2026-08-10T19:52:05.781765+05:30",
+      "मेरा स्टेटस बताओ",
+      "2026-08-10T21:14:16.184564+05:30",
+      "netbox_ready_connect_j2",
+      "8356892252",
+      4931,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "8630928346",
+      352094,
+      "2026-08-10T19:52:28.148326+05:30",
+      "recharge nhi ho raha",
+      null,
+      null,
+      null,
+      null,
+      "RATING",
+      "internetIssue"
+     ],
+     [
+      "8630928346",
+      352094,
+      "2026-08-10T19:53:20.814188+05:30",
+      "रिचार्ज कैसे करें सेटअप बॉक्स का",
+      "2026-08-11T05:42:08.159923+05:30",
+      "renewal_r0_expired",
+      "281749855174994",
+      35328,
+      "RATING",
+      "paymentHelp"
+     ],
+     [
+      "9310512101",
+      63060,
+      "2026-08-10T19:54:33.87917+05:30",
+      "Mera net nhi chal rha hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "9310512101",
+      63060,
+      "2026-08-10T19:55:29.003941+05:30",
+      "sab karke dekh liya hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "8303143901",
+      352002,
+      "2026-08-10T19:56:03.650115+05:30",
+      "kya status hai",
+      "2026-08-10T21:12:20.986706+05:30",
+      "delay_slot_breached_rohit_assigned_but_rohit_not_arrived",
+      "8303143901",
+      4577,
+      null,
+      null
+     ],
+     [
+      "9213937433",
+      351460,
+      "2026-08-10T20:04:57.520258+05:30",
+      "Happy Code",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "9213937433",
+      351460,
+      "2026-08-10T20:11:31.546217+05:30",
+      "Check my status",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "9310538652",
+      321800,
+      "2026-08-10T20:13:09.46747+05:30",
+      "recharge karna hai",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9310538652",
+      321800,
+      "2026-08-10T20:17:24.934448+05:30",
+      "2din recharge plan karna hai qr jenrate",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9213937433",
+      351460,
+      "2026-08-10T20:19:36.55462+05:30",
+      "मेरा स्टेटस बताओ",
+      "2026-08-10T20:48:45.991685+05:30",
+      "rating_submitted",
+      "9213937433",
+      1749,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "8130425549",
+      175197,
+      "2026-08-10T20:19:50.385932+05:30",
+      "net  sahi  hai I'm a switch",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9560655718",
+      179267,
+      "2026-08-10T20:24:39.790146+05:30",
+      "ok",
+      "2026-08-11T00:24:05.124438+05:30",
+      "ticket_type_3_or_4_tat_breached",
+      "281749854832001",
+      14366,
+      null,
+      null
+     ],
+     [
+      "7428274148",
+      297073,
+      "2026-08-10T20:31:34.747628+05:30",
+      "net nhi. chal rha",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "7838864547",
+      350885,
+      "2026-08-10T20:32:11.70586+05:30",
+      "shahzebsiddiqi1122",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "changeMobileNumber"
+     ],
+     [
+      "8527532554",
+      334554,
+      "2026-08-10T20:32:12.187511+05:30",
+      "Change language to English",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7838864547",
+      350885,
+      "2026-08-10T20:32:42.971068+05:30",
+      "ab connection kab lagega",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "8527532554",
+      334554,
+      "2026-08-10T20:34:07.222136+05:30",
+      "change",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "changeLanguage"
+     ],
+     [
+      "8527532554",
+      334554,
+      "2026-08-10T20:34:53.016911+05:30",
+      "arjun",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "callRohit"
+     ],
+     [
+      "8527532554",
+      334554,
+      "2026-08-10T20:34:58.376877+05:30",
+      "not coming",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "seekHelp"
+     ],
+     [
+      "281749855011476",
+      221501,
+      "2026-08-10T20:37:33.135781+05:30",
+      "अभी भी दिक्कत आ रही है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "7838864547",
+      350885,
+      "2026-08-10T20:42:58.46037+05:30",
+      "mera status btao",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "281749854703825",
+      218912,
+      "2026-08-10T20:43:08.036451+05:30",
+      "खुद से रिचार्ज करें",
+      "2026-08-10T20:46:13.178262+05:30",
+      "renewal_payment_success",
+      "281749854703825",
+      185,
+      null,
+      null
+     ],
+     [
+      "7838864547",
+      350885,
+      "2026-08-10T20:45:28.21947+05:30",
+      "मेरा स्टेटस बताओ",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "7838864547",
+      350885,
+      "2026-08-10T20:46:46.414354+05:30",
+      "मेरा स्टेटस बताओ",
+      "2026-08-10T20:52:36.26086+05:30",
+      "netbox_naming_reminder_i",
+      "7838864547",
+      350,
+      "ACTIVE",
+      "checkStatus"
+     ],
+     [
+      "8510849056",
+      345463,
+      "2026-08-10T20:50:31.670484+05:30",
+      "lgane ka kitna pesa lge ga",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8810659683",
+      338108,
+      "2026-08-10T20:55:37.990797+05:30",
+      "ho",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8860254215",
+      352346,
+      "2026-08-10T20:56:16.217131+05:30",
+      "Aliya Hasan",
+      "2026-08-10T20:58:38.329839+05:30",
+      "netbox_configuring_wait_i",
+      "8860254215",
+      142,
+      "ACTIVE",
+      "callRohit"
+     ],
+     [
+      "9760173240",
+      192225,
+      "2026-08-10T21:00:34.860016+05:30",
+      "2-3baar switch on off bhi kar liya",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9760173240",
+      192225,
+      "2026-08-10T21:00:47.335386+05:30",
+      "net nahi aa raha",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9760173240",
+      192225,
+      "2026-08-10T21:00:58.922654+05:30",
+      "2-3 baje se net kaam nahi kar raha",
+      "2026-08-10T21:02:17.384586+05:30",
+      "ticket_type_3_or_4_created",
+      "281749854815915",
+      79,
+      null,
+      null
+     ],
+     [
+      "9667939451",
+      324857,
+      "2026-08-10T21:16:41.338743+05:30",
+      "password",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "changePassword"
+     ],
+     [
+      "8356892252",
+      11601,
+      "2026-08-10T21:17:08.875555+05:30",
+      "HAPPY cod not recive",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "internetIssue"
+     ],
+     [
+      "9667939451",
+      324857,
+      "2026-08-10T21:17:22.716404+05:30",
+      "Check my status",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "8356892252",
+      11601,
+      "2026-08-10T21:21:56.57482+05:30",
+      "मेरा स्टेटस बताओ",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "9999563784",
+      74539,
+      "2026-08-10T21:24:29.567572+05:30",
+      "recharge",
+      null,
+      null,
+      null,
+      null,
+      "INACTIVE_POST_EXPIRY",
+      "recharge"
+     ],
+     [
+      "9354762501",
+      33919,
+      "2026-08-10T21:24:45.54613+05:30",
+      "हाँ, चालू है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9667939451",
+      324857,
+      "2026-08-10T21:32:11.801837+05:30",
+      "मेरा स्टेटस बता",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "9667939451",
+      324857,
+      "2026-08-10T21:32:59.179791+05:30",
+      "मेरा स्टेटस बताओ",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "9667939451",
+      324857,
+      "2026-08-10T21:34:28.094988+05:30",
+      "मेरा स्टेटस बताओ",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "7835880337",
+      352737,
+      "2026-08-10T21:39:07.829849+05:30",
+      "total payment money",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8505970873",
+      345780,
+      "2026-08-10T21:39:12.157363+05:30",
+      "मुझे बुकिंग कैंसिल करनी है",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9667939451",
+      324857,
+      "2026-08-10T21:39:22.514961+05:30",
+      "मेरा स्टेटस बताओ",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "9602635242",
+      346162,
+      "2026-08-10T21:48:20.142347+05:30",
+      "call bhi kr rha hu",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "seekHelp"
+     ],
+     [
+      "9717695494",
+      352131,
+      "2026-08-10T21:56:59.370947+05:30",
+      "status",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8860041786",
+      337179,
+      "2026-08-10T22:19:39.40159+05:30",
+      "lekin Mere laptop Mein Jab connect karta hun no internet connection likhkar aata hai connect",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "8882768889",
+      172567,
+      "2026-08-10T22:30:54.731348+05:30",
+      "मुझे मदद चाहिए",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "seekHelp"
+     ],
+     [
+      "8447827761",
+      207750,
+      "2026-08-10T22:33:36.517602+05:30",
+      "पेमेंट हिस्ट्री देखनी है",
+      null,
+      null,
+      null,
+      null,
+      "UNKNOWN",
+      "checkPaymentHistory"
+     ],
+     [
+      "8210776852",
+      305559,
+      "2026-08-10T22:34:14.388826+05:30",
+      "network not working",
+      "2026-08-11T05:50:25.485628+05:30",
+      "renewal_r0_expired",
+      "281749855086142",
+      26171,
+      "UNKNOWN",
+      "internetIssue"
+     ],
+     [
+      "8799746817",
+      85658,
+      "2026-08-10T22:34:41.483111+05:30",
+      "call not pick",
+      null,
+      null,
+      null,
+      null,
+      "UNKNOWN",
+      "seekHelp"
+     ],
+     [
+      "8799746817",
+      85658,
+      "2026-08-10T22:35:47.346791+05:30",
+      "कॉल नॉट फेक योर टीम",
+      null,
+      null,
+      null,
+      null,
+      "UNKNOWN",
+      "seekHelp"
+     ],
+     [
+      "7905082172",
+      122275,
+      "2026-08-10T22:38:07.085657+05:30",
+      "internet issue",
+      null,
+      null,
+      null,
+      null,
+      "UNKNOWN",
+      "internetIssue"
+     ],
+     [
+      "7982693444",
+      102372,
+      "2026-08-10T22:38:10.855849+05:30",
+      "net nhi chal rha hai",
+      null,
+      null,
+      null,
+      null,
+      "UNKNOWN",
+      "internetIssue"
+     ],
+     [
+      "8826876376",
+      125258,
+      "2026-08-10T22:38:51.190375+05:30",
+      "sir mai apna no chenge kiya hi recharge bhi ho gaya hai lekin net nahi chal raha hai",
+      null,
+      null,
+      null,
+      null,
+      "UNKNOWN",
+      "internetIssue"
+     ],
+     [
+      "7982693444",
+      102372,
+      "2026-08-10T22:38:56.306781+05:30",
+      "set off Box me light nhi aa rhi hai",
+      null,
+      null,
+      null,
+      null,
+      "UNKNOWN",
+      "internetIssue"
+     ],
+     [
+      "7905082172",
+      122275,
+      "2026-08-10T22:39:28.584452+05:30",
+      "internet not working",
+      null,
+      null,
+      null,
+      null,
+      "UNKNOWN",
+      "internetIssue"
+     ],
+     [
+      "7982693444",
+      102372,
+      "2026-08-10T22:39:34.776987+05:30",
+      "complain karna hai",
+      "2026-08-10T22:45:10.613803+05:30",
+      "ticket_type_3_or_4_reopen_not_allowed",
+      "281749854681525",
+      336,
+      "UNKNOWN",
+      "seekHelp"
+     ],
+     [
+      "7428274148",
+      297073,
+      "2026-08-10T22:41:02.362448+05:30",
+      "hlo",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "greetings"
+     ],
+     [
+      "8700244432",
+      124319,
+      "2026-08-10T22:43:30.675099+05:30",
+      "मुझे मदद चाहिए",
+      "2026-08-11T02:41:49.530316+05:30",
+      "ticket_type_3_or_4_tat_breached",
+      "281749854779460",
+      14299,
+      "ACTIVE_PRE_EXPIRY",
+      "seekHelp"
+     ],
+     [
+      "8882768889",
+      172567,
+      "2026-08-10T22:45:33.516165+05:30",
+      "kya dikat hai",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9999259624",
+      336570,
+      "2026-08-10T22:47:29.655396+05:30",
+      "net ruk ruk kar chal raha hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "8882419699",
+      352846,
+      "2026-08-10T22:48:58.915093+05:30",
+      "how much",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8882370165",
+      152820,
+      "2026-08-10T22:52:49.21546+05:30",
+      "hlo sir",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "greetings"
+     ],
+     [
+      "9891172797",
+      76454,
+      "2026-08-10T22:53:59.452935+05:30",
+      "hhh",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "FallbackIntent"
+     ],
+     [
+      "9999259624",
+      336570,
+      "2026-08-10T22:54:05.636768+05:30",
+      "मुझे मदद चाहिए",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "seekHelp"
+     ],
+     [
+      "8882370165",
+      152820,
+      "2026-08-10T22:54:13.500265+05:30",
+      "नेट नहीं चल रहा",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "9899489217",
+      20645,
+      "2026-08-10T22:55:08.301851+05:30",
+      "vyom net Kam nahin kar raha hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "9211290671",
+      109579,
+      "2026-08-10T22:57:20.026897+05:30",
+      "net nhi chal Raha",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "8368857140",
+      181143,
+      "2026-08-10T23:06:43.123334+05:30",
+      "मेरे घर का नेट नहीं चल रहा",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "8368857140",
+      181143,
+      "2026-08-10T23:06:44.807793+05:30",
+      "मेरे घर का नेट नहीं चल रहा",
+      "2026-08-10T23:07:55.421317+05:30",
+      "complaint_wiom_connected",
+      "8368857140",
+      71,
+      "ACTIVE_PRE_EXPIRY",
+      "internetIssue"
+     ],
+     [
+      "9899622013",
+      352857,
+      "2026-08-10T23:09:11.041863+05:30",
+      "कितने तक का वाई-फाई का प्लान है यह कितने तक का लग जाएगा",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9899622013",
+      352857,
+      "2026-08-10T23:13:30.392891+05:30",
+      "वाई-फाई लगाने का क्या चार्ज है और कितने",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "8077818052",
+      30697,
+      "2026-08-10T23:16:32.705095+05:30",
+      "abhi tak internet nhi chala",
+      "2026-08-11T00:42:53.291641+05:30",
+      "ticket_type_3_or_4_resolved",
+      "281749854755968",
+      5181,
+      null,
+      null
+     ],
+     [
+      "9899622013",
+      352857,
+      "2026-08-10T23:18:21.40382+05:30",
+      "वाई-फाई लगाने के चार्ज क्या है कितने रुपए का है वाई-फाई लगाने के",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9504639947",
+      38596,
+      "2026-08-10T23:18:43.752589+05:30",
+      "मुझे मदद चाहिए",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE_PRE_EXPIRY",
+      "seekHelp"
+     ],
+     [
+      "9899622013",
+      352857,
+      "2026-08-10T23:20:39.132316+05:30",
+      "लगाने के चार्ज कितना है मशीन के पैसे चार्ज",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9899622013",
+      352857,
+      "2026-08-10T23:21:07.013385+05:30",
+      "वाई-फाई लगाने के कितने चार्ज लेते हैं यह",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "totalCost"
+     ],
+     [
+      "9958855647",
+      31758,
+      "2026-08-10T23:44:56.404951+05:30",
+      "my wifi is not working please check and confirm otherwise next option I changed this network parmantally this network day by day facing issue",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "8356892252",
+      11601,
+      "2026-08-10T23:48:44.13719+05:30",
+      "recharge",
+      null,
+      null,
+      null,
+      null,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "8356892252",
+      11601,
+      "2026-08-10T23:51:00.397882+05:30",
+      "मेरा स्टेटस बताओ",
+      "2026-08-11T05:53:24.919587+05:30",
+      "renewal_r0_expired",
+      "281749855174184",
+      21744,
+      "HAPPY_CODE",
+      "checkStatus"
+     ],
+     [
+      "9211602048",
+      346973,
+      "2026-08-10T23:57:49.174777+05:30",
+      "hamara bhi Tak aaya nahin Hai",
+      null,
+      null,
+      null,
+      null,
+      "ACTIVE",
+      "seekHelp"
+     ]
+    ],
+    "error": null
+   }
+  },
+  {
+   "id": 20,
+   "journey": "Chat",
+   "name": "New ticket via chat -> created in ticket system within 5min",
+   "description": "When the chat bot tells a customer a new complaint ticket has been created (complaint_ticket_type_3_or_4_created), does that ticket actually exist in the correct backend within 5 minutes? Routed by the customer's own partner's migration status at the time of the ticket: migrated partners are checked against the new CSP complaints system, not-yet-migrated partners against the old STM system.",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    100.0,
+    100.0,
+    100.0,
+    99.9661,
+    99.8756,
+    99.8378,
+    99.8388,
+    99.0814,
+    null
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Ticket ID",
+      "type": "id"
+     },
+     {
+      "label": "Chat message at",
+      "type": "ts"
+     },
+     {
+      "label": "Found in ticket system at",
+      "type": "ts"
+     },
+     {
+      "label": "Gap (min)",
+      "type": "int"
+     }
+    ],
+    "null_label": "not found in ticket system",
+    "rows": [],
+    "error": null
+   }
+  },
+  {
+   "id": 21,
+   "journey": "Chat",
+   "name": "Reopened ticket via chat -> reopened in ticket system within 5min",
+   "description": "When the chat bot tells a customer their ticket has been reopened (complaint_resolved_ticket_reopened workflow), what share actually show as reopened in the ticket system within 5 minutes of that message?",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    100.0,
+    99.5475,
+    94.1176,
+    null
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Ticket ID",
+      "type": "id"
+     },
+     {
+      "label": "Chat message at",
+      "type": "ts"
+     },
+     {
+      "label": "Reopened in ticket system at",
+      "type": "ts"
+     },
+     {
+      "label": "Gap (min)",
+      "type": "int"
+     }
+    ],
+    "null_label": "not found reopened in ticket system",
+    "rows": [],
+    "error": null
+   }
+  },
+  {
+   "id": 22,
+   "journey": "B2I",
+   "name": "Booking not-installed-14D -> auto-cancelled-by-16D",
+   "description": "Of bookings still not installed 14 days after the booking fee was paid, what share got automatically cancelled (and refunded) by day 16? Checks whether the auto-cancel sweep job is actually firing on stale bookings.",
+   "tbd": false,
+   "unit": null,
+   "values": [
+    0.848,
+    0.9,
+    0.741,
+    0.972,
+    0.975,
+    0.964,
+    0.996,
+    0.991,
+    0.98
+   ],
+   "error": null,
+   "drilldown": {
+    "window": "D-1 (16-day cohort)",
+    "columns": [
+     {
+      "label": "Mobile",
+      "type": "mobile"
+     },
+     {
+      "label": "Fee-paid time",
+      "type": "ts"
+     },
+     {
+      "label": "Days since fee",
+      "type": "int"
+     },
+     {
+      "label": "Cancelled at",
+      "type": "ts"
+     },
+     {
+      "label": "Cancel type",
+      "type": "text"
+     }
+    ],
+    "null_label": "—",
+    "rows": [
+     [
+      "7042211691",
+      "2026-07-26T08:18:10.701+05:30",
+      16,
+      null,
+      "not cancelled"
+     ],
+     [
+      "7042211691",
+      "2026-07-26T08:20:11.939+05:30",
+      16,
+      null,
+      "not cancelled"
+     ],
+     [
+      "8929463520",
+      "2026-07-26T09:06:40.528+05:30",
+      16,
+      "2026-08-09T15:02:03.303+05:30",
+      "manual / other reason"
+     ],
+     [
+      "9971394075",
+      "2026-07-26T12:27:08.207+05:30",
+      16,
+      null,
+      "not cancelled"
+     ],
+     [
+      "9716349684",
+      "2026-07-26T19:11:10.546+05:30",
+      16,
+      null,
+      "not cancelled"
+     ]
+    ],
+    "error": null
+   }
+  }
+ ]
 }
