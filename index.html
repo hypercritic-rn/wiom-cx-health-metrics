@@ -56,7 +56,8 @@
   .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 60px; }
   h1 { font-size: 22px; font-weight: 700; margin: 0 0 4px; }
   .subtitle { color: var(--text-secondary); font-size: 14px; margin: 0 0 24px; }
-  .refreshed { color: var(--text-muted); font-size: 12px; margin-bottom: 24px; }
+  .refreshed { color: var(--text-muted); font-size: 12px; margin-bottom: 6px; }
+  .click-hint { color: var(--text-secondary); font-size: 12px; margin: 0 0 24px; }
   .refreshed a { color: var(--accent); text-decoration: none; }
   .refreshed a:hover { text-decoration: underline; }
 
@@ -201,6 +202,7 @@
     <h1>Product Health &mdash; CX Metrics</h1>
     <p class="subtitle">L0 health metrics across the B2I, Recharge-to-Exit, and Closure journeys. Refreshed daily.</p>
     <p class="refreshed">Last refreshed: <span id="refreshed-at">2026-08-14T04:16:33.363828+00:00</span> &middot; <a href="https://docs.google.com/spreadsheets/d/1f__2VgFVqZOZ8oRfdteettr4Ngjipzbk9SBjVP_y4rk/edit?gid=10226281#gid=10226281" target="_blank" rel="noopener">Full metric definitions</a></p>
+    <p class="click-hint">Click an underlined <strong>D-1</strong> value to open its defaulter list. B2I metrics show the last 3 days together, labelled D-1 / D-2 / D-3; Closure and Chat show D-1 only. R2E metrics do not have defaulter lists yet.</p>
 
     <div class="tabs" role="tablist">
       <button class="tab" id="tab-B2I" role="tab" aria-selected="true" aria-controls="panel-B2I" data-journey="B2I">B2I (Booking to Install)</button><button class="tab" id="tab-R2E" role="tab" aria-selected="false" aria-controls="panel-R2E" data-journey="R2E">R2E (Recharge to Exit)</button><button class="tab" id="tab-Closure" role="tab" aria-selected="false" aria-controls="panel-Closure" data-journey="Closure">Closure</button><button class="tab" id="tab-Chat" role="tab" aria-selected="false" aria-controls="panel-Chat" data-journey="Chat">Chat</button>
