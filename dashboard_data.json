@@ -48,20 +48,20 @@
   {
    "id": 11,
    "journey": "B2I",
-   "name": "Address Submitted -> Booking Confirmed (24h) %",
-   "description": "Of customers who submitted an address (address_updated event) -- counting only their first submission, or their first since a prior booking was cancelled (cancelled event) -- what share had their booking confirmed (booking_confirmed event) within 24 hours? D-1 only counts address submissions that have themselves completed a full 24 hours, so it never shows a partial, still-maturing day.",
+   "name": "Address Submitted -> Booking Confirmed (10min) %",
+   "description": "Of customers who submitted an address (address_updated event) -- counting only their first submission, or their first since a prior booking was cancelled (cancelled event) -- what share had their booking confirmed (booking_confirmed event) within 10 minutes AFTER it? Address to confirm is a synchronous step (median 0 minutes, 95-99% inside 1 minute), so the window is tight and forward-only. A submission is counted once it has itself completed 10 minutes.",
    "tbd": false,
    "unit": null,
    "values": [
-    0.979,
+    0.976,
     0.988,
-    0.979,
-    0.967,
-    0.81,
-    0.725,
-    0.884,
-    0.993,
-    0.977
+    0.972,
+    0.963,
+    0.802,
+    0.708,
+    0.876,
+    0.99,
+    0.962
    ],
    "error": null,
    "drilldown": {
@@ -72,12 +72,20 @@
       "type": "mobile"
      },
      {
-      "label": "Address submitted at",
+      "label": "Address updated at",
       "type": "ts"
      },
      {
-      "label": "Confirmed at",
+      "label": "First booking confirmed at",
       "type": "ts"
+     },
+     {
+      "label": "Mins to confirm",
+      "type": "text"
+     },
+     {
+      "label": "Failure type",
+      "type": "text"
      }
     ],
     "null_label": "never confirmed",
@@ -85,7 +93,51 @@
      [
       "8448153096",
       "2026-08-13T08:21:28.39+05:30",
-      null
+      null,
+      null,
+      "NEVER confirmed"
+     ],
+     [
+      "8006968236",
+      "2026-08-13T11:14:28.944+05:30",
+      null,
+      null,
+      "NEVER confirmed"
+     ],
+     [
+      "9911595699",
+      "2026-08-13T14:08:15.247+05:30",
+      null,
+      null,
+      "NEVER confirmed"
+     ],
+     [
+      "8826887250",
+      "2026-08-13T14:27:20.272+05:30",
+      null,
+      null,
+      "NEVER confirmed"
+     ],
+     [
+      "9897036338",
+      "2026-08-13T15:07:59.496+05:30",
+      null,
+      null,
+      "NEVER confirmed"
+     ],
+     [
+      "9560345010",
+      "2026-08-13T19:02:11.544+05:30",
+      null,
+      null,
+      "NEVER confirmed"
+     ],
+     [
+      "7217657511",
+      "2026-08-13T19:38:51.494+05:30",
+      null,
+      null,
+      "NEVER confirmed"
      ]
     ],
     "error": null
@@ -3393,20 +3445,20 @@
   {
    "id": 22,
    "journey": "B2I",
-   "name": "Booking not-installed-14D -> auto-cancelled-by-16D",
-   "description": "Of bookings still not installed 14 days after the booking fee was paid, what share got automatically cancelled (and refunded) by day 16? Checks whether the auto-cancel sweep job is actually firing on stale bookings.",
+   "name": "Booking not-installed-14D -> resolved-by-16D",
+   "description": "Of bookings still unresolved at day 14 (neither installed nor cancelled), what share reached closure by day 16 by any means, cancellation or install? Sourced from booking_logs event history. Only bookings that have had a full 16 days elapse are scored.",
    "tbd": false,
    "unit": null,
    "values": [
-    0.929,
-    0.857,
-    0.895,
-    0.882,
-    0.972,
-    0.975,
-    0.996,
-    0.991,
-    0.98
+    0.923,
+    1.0,
+    0.964,
+    0.961,
+    0.981,
+    0.988,
+    0.999,
+    0.998,
+    0.986
    ],
    "error": null,
    "drilldown": {
@@ -3429,18 +3481,23 @@
       "type": "ts"
      },
      {
-      "label": "Cancel type",
+      "label": "Installed at",
+      "type": "ts"
+     },
+     {
+      "label": "Outcome",
       "type": "text"
      }
     ],
-    "null_label": "—",
+    "null_label": "none",
     "rows": [
      [
-      "9149242860",
-      "2026-07-29T19:35:51.515+05:30",
+      "9582589908",
+      "2026-07-27T00:04:13.405+05:30",
       16,
       null,
-      "not cancelled"
+      null,
+      "no cancel, no install"
      ]
     ],
     "error": null
