@@ -334,7 +334,50 @@
     "description": "For every hour a customer had already paid for (excluding their first 30 days post-install), does a recharge ticket's [created_at, obligation_window_end) window span that hour? Measures ticket creation and system-tracked obligation coverage only, not partner claim speed or resolution time. Only D-1..D-3 are computed; W-1..M-3 are not available for this metric.",
     "tbd": false,
     "query": "WITH params AS (SELECT DATE(CONVERT_TIMEZONE('UTC','Asia/Kolkata',CURRENT_TIMESTAMP())) AS today),\ntest_partner_mobiles AS (\n  SELECT DISTINCT MOBILE AS mobile FROM PROD_DB.PUBLIC.T_ROUTER_USER_MAPPING\n  WHERE CREATED_BY IN (SELECT LCO_ACCOUNT_ID FROM PROD_DB.PUBLIC.TEST_LCO_ACCOUNT_ID)\n  UNION\n  SELECT DISTINCT w.mobile FROM PROD_DB.PUBLIC.T_WG_CUSTOMER w\n  JOIN PROD_DB.CSP_CONNECTION_LIFECYCLE_SERVICE_CSP_CONNECTION_LIFECYCLE_SERVICE.CONNECTIONS c\n  ON c.customer_id=w.account_id AND c._FIVETRAN_ACTIVE\n  WHERE LOWER(c.CSP_ID) IN ('a0a0b1','a0a6w1')\n),\nexcluded_pnm AS (\n  SELECT DISTINCT nasid FROM PROD_DB.PUBLIC.T_DEVICE WHERE device_id ILIKE 'pnm%' AND nasid IS NOT NULL\n),\nhome AS (\n  SELECT DISTINCT c.connection_id, w.nasid, w.mobile\n  FROM PROD_DB.PUBLIC.T_ROUTER_USER_MAPPING t JOIN PROD_DB.PUBLIC.T_WG_CUSTOMER w ON t.router_nas_id=w.nasid\n  JOIN PROD_DB.CSP_CONNECTION_LIFECYCLE_SERVICE_CSP_CONNECTION_LIFECYCLE_SERVICE.CONNECTIONS c\n  ON c.customer_id=w.account_id AND c._FIVETRAN_ACTIVE\n  LEFT JOIN test_partner_mobiles tp ON tp.mobile=w.mobile\n  WHERE t.otp='DONE' AND t.device_limit=10 AND t.store_group_id=0 AND t.mobile>'5999999999'\n  AND t.router_nas_id NOT IN (SELECT nasid FROM excluded_pnm)\n  AND tp.mobile IS NULL\n),\ninstall_dates AS (\n  SELECT router_nas_id AS nasid, MIN(DATEADD(minute,330, otp_issued_time)::timestamp_ntz) AS install_ts\n  FROM PROD_DB.PUBLIC.T_ROUTER_USER_MAPPING\n  WHERE otp='DONE' AND device_limit=10 AND store_group_id=0 AND mobile>'5999999999'\n  GROUP BY router_nas_id\n),\ntrum_segments AS (\n  SELECT t.router_nas_id AS nasid,\n    DATEADD(minute,330, t.otp_issued_time)::timestamp_ntz ps_ts,\n    DATEADD(minute,330, t.otp_expiry_time)::timestamp_ntz pe_ts\n  FROM PROD_DB.PUBLIC.T_ROUTER_USER_MAPPING t\n  WHERE t.otp='DONE' AND t.device_limit=10 AND t.store_group_id=0 AND t.mobile>'5999999999'\n    AND DATEADD(minute,330, t.otp_issued_time)::timestamp_ntz < (SELECT today FROM params)::timestamp_ntz\n    AND DATEADD(minute,330, t.otp_expiry_time)::timestamp_ntz > DATEADD(day,-3,(SELECT today FROM params))::timestamp_ntz\n),\nhours AS (\n  SELECT DATEADD(hour, seq, DATEADD(day,-3,(SELECT today FROM params))::timestamp_ntz) hstart\n  FROM (SELECT ROW_NUMBER() OVER (ORDER BY SEQ4())-1 seq FROM TABLE(GENERATOR(ROWCOUNT=>72)))\n),\npaid_hours AS (\n  SELECT DISTINCT h.hstart, hm.connection_id\n  FROM trum_segments s\n  JOIN home hm ON hm.nasid = s.nasid\n  JOIN install_dates idt ON idt.nasid = s.nasid\n  JOIN hours h ON s.ps_ts <= h.hstart AND s.pe_ts > h.hstart\n  WHERE h.hstart >= DATEADD(day,30, idt.install_ts)\n),\ntickets AS (\n  SELECT t.connection_id,\n    CONVERT_TIMEZONE('Asia/Kolkata', t.created_at)::timestamp_ntz created_ts,\n    CONVERT_TIMEZONE('Asia/Kolkata', t.obligation_window_end)::timestamp_ntz obligation_end_ts\n  FROM PROD_DB.CSP_TAS_SERVICE_CSP_TAS_SERVICE.RECHARGE_EXECUTION_CANDIDATES t\n  WHERE t._FIVETRAN_ACTIVE AND t.obligation_window_end IS NOT NULL\n),\nticket_hours AS (\n  SELECT DISTINCT h.hstart, tk.connection_id\n  FROM tickets tk JOIN hours h ON tk.created_ts <= h.hstart AND tk.obligation_end_ts > h.hstart\n),\nbase AS (\n  SELECT DATE(ph.hstart) d, 1 den,\n    CASE WHEN th.connection_id IS NOT NULL THEN 1 ELSE 0 END num\n  FROM paid_hours ph LEFT JOIN ticket_hours th ON th.connection_id=ph.connection_id AND th.hstart=ph.hstart\n)\nSELECT 'Recharge Ticket Creation Rate (System Health)' AS kpi,\n 1.0*SUM(CASE WHEN d = p.today-1 THEN num END)/NULLIF(SUM(CASE WHEN d = p.today-1 THEN den END),0)*100 AS \"D-1\",\n 1.0*SUM(CASE WHEN d = p.today-2 THEN num END)/NULLIF(SUM(CASE WHEN d = p.today-2 THEN den END),0)*100 AS \"D-2\",\n 1.0*SUM(CASE WHEN d = p.today-3 THEN num END)/NULLIF(SUM(CASE WHEN d = p.today-3 THEN den END),0)*100 AS \"D-3\"\nFROM base CROSS JOIN params p;\n",
-    "owner": "Saurabh"
+    "owner": "Saurabh",
+    "drilldown": {
+      "window": "D-1 (one row per connection)",
+      "null_label": "none",
+      "columns": [
+        {
+          "label": "NAS ID",
+          "type": "id"
+        },
+        {
+          "label": "Device ID",
+          "type": "text"
+        },
+        {
+          "label": "Mobile",
+          "type": "mobile"
+        },
+        {
+          "label": "Uncovered hours",
+          "type": "int"
+        },
+        {
+          "label": "Paid hours",
+          "type": "int"
+        },
+        {
+          "label": "Coverage %",
+          "type": "text"
+        },
+        {
+          "label": "First uncovered hour",
+          "type": "ts"
+        },
+        {
+          "label": "Last uncovered hour",
+          "type": "ts"
+        },
+        {
+          "label": "Outcome",
+          "type": "text"
+        }
+      ],
+      "query": "-- D-1 defaulters for \"Recharge Ticket Creation Rate (System Health)\".\n-- The metric's own grain is connection-HOUR: on D-1 there were 1.84M paid hours and\n-- 10,866 uncovered ones. Listing raw hours is unusable and blows past the 2,000-row API\n-- cap, so this rolls up to ONE ROW PER CONNECTION with any uncovered paid hour (471 on\n-- D-1), worst first. Hours-uncovered vs hours-paid shows whether a connection had no\n-- coverage all day or only a short gap.\n-- Denominator logic below is copied verbatim from the deployed metric.\nWITH params AS (SELECT DATE(CONVERT_TIMEZONE('UTC','Asia/Kolkata',CURRENT_TIMESTAMP())) AS today),\ntest_partner_mobiles AS (\n  SELECT DISTINCT MOBILE AS mobile FROM PROD_DB.PUBLIC.T_ROUTER_USER_MAPPING\n  WHERE CREATED_BY IN (SELECT LCO_ACCOUNT_ID FROM PROD_DB.PUBLIC.TEST_LCO_ACCOUNT_ID)\n  UNION\n  SELECT DISTINCT w.mobile FROM PROD_DB.PUBLIC.T_WG_CUSTOMER w\n  JOIN PROD_DB.CSP_CONNECTION_LIFECYCLE_SERVICE_CSP_CONNECTION_LIFECYCLE_SERVICE.CONNECTIONS c\n  ON c.customer_id=w.account_id AND c._FIVETRAN_ACTIVE\n  WHERE LOWER(c.CSP_ID) IN ('a0a0b1','a0a6w1')\n),\nexcluded_pnm AS (\n  SELECT DISTINCT nasid FROM PROD_DB.PUBLIC.T_DEVICE WHERE device_id ILIKE 'pnm%' AND nasid IS NOT NULL\n),\nhome AS (\n  SELECT DISTINCT c.connection_id, w.nasid, w.mobile\n  FROM PROD_DB.PUBLIC.T_ROUTER_USER_MAPPING t JOIN PROD_DB.PUBLIC.T_WG_CUSTOMER w ON t.router_nas_id=w.nasid\n  JOIN PROD_DB.CSP_CONNECTION_LIFECYCLE_SERVICE_CSP_CONNECTION_LIFECYCLE_SERVICE.CONNECTIONS c\n  ON c.customer_id=w.account_id AND c._FIVETRAN_ACTIVE\n  LEFT JOIN test_partner_mobiles tp ON tp.mobile=w.mobile\n  WHERE t.otp='DONE' AND t.device_limit=10 AND t.store_group_id=0 AND t.mobile>'5999999999'\n  AND t.router_nas_id NOT IN (SELECT nasid FROM excluded_pnm)\n  AND tp.mobile IS NULL\n),\ninstall_dates AS (\n  SELECT router_nas_id AS nasid, MIN(DATEADD(minute,330, otp_issued_time)::timestamp_ntz) AS install_ts\n  FROM PROD_DB.PUBLIC.T_ROUTER_USER_MAPPING\n  WHERE otp='DONE' AND device_limit=10 AND store_group_id=0 AND mobile>'5999999999'\n  GROUP BY router_nas_id\n),\ntrum_segments AS (\n  SELECT t.router_nas_id AS nasid,\n    DATEADD(minute,330, t.otp_issued_time)::timestamp_ntz ps_ts,\n    DATEADD(minute,330, t.otp_expiry_time)::timestamp_ntz pe_ts\n  FROM PROD_DB.PUBLIC.T_ROUTER_USER_MAPPING t\n  WHERE t.otp='DONE' AND t.device_limit=10 AND t.store_group_id=0 AND t.mobile>'5999999999'\n    AND DATEADD(minute,330, t.otp_issued_time)::timestamp_ntz < (SELECT today FROM params)::timestamp_ntz\n    AND DATEADD(minute,330, t.otp_expiry_time)::timestamp_ntz > DATEADD(day,-3,(SELECT today FROM params))::timestamp_ntz\n),\nhours AS (\n  SELECT DATEADD(hour, seq, DATEADD(day,-3,(SELECT today FROM params))::timestamp_ntz) hstart\n  FROM (SELECT ROW_NUMBER() OVER (ORDER BY SEQ4())-1 seq FROM TABLE(GENERATOR(ROWCOUNT=>72)))\n),\npaid_hours AS (\n  SELECT DISTINCT h.hstart, hm.connection_id\n  FROM trum_segments s\n  JOIN home hm ON hm.nasid = s.nasid\n  JOIN install_dates idt ON idt.nasid = s.nasid\n  JOIN hours h ON s.ps_ts <= h.hstart AND s.pe_ts > h.hstart\n  WHERE h.hstart >= DATEADD(day,30, idt.install_ts)\n),\ntickets AS (\n  SELECT t.connection_id,\n    CONVERT_TIMEZONE('Asia/Kolkata', t.created_at)::timestamp_ntz created_ts,\n    CONVERT_TIMEZONE('Asia/Kolkata', t.obligation_window_end)::timestamp_ntz obligation_end_ts\n  FROM PROD_DB.CSP_TAS_SERVICE_CSP_TAS_SERVICE.RECHARGE_EXECUTION_CANDIDATES t\n  WHERE t._FIVETRAN_ACTIVE AND t.obligation_window_end IS NOT NULL\n),\nticket_hours AS (\n  SELECT DISTINCT h.hstart, tk.connection_id\n  FROM tickets tk JOIN hours h ON tk.created_ts <= h.hstart AND tk.obligation_end_ts > h.hstart\n),\nd1 AS (\n  SELECT ph.connection_id, ph.hstart,\n    CASE WHEN th.connection_id IS NOT NULL THEN 1 ELSE 0 END AS covered\n  FROM paid_hours ph\n  LEFT JOIN ticket_hours th ON th.connection_id=ph.connection_id AND th.hstart=ph.hstart\n  CROSS JOIN params p\n  WHERE DATE(ph.hstart) = p.today - 1\n),\nrolled AS (\n  SELECT connection_id,\n    COUNT(*) AS paid_hours_d1,\n    SUM(1-covered) AS uncovered_hours_d1,\n    MIN(IFF(covered=0, hstart, NULL)) AS first_uncovered_hour,\n    MAX(IFF(covered=0, hstart, NULL)) AS last_uncovered_hour\n  FROM d1\n  GROUP BY connection_id\n  HAVING SUM(1-covered) > 0\n),\ndev AS (\n  SELECT nasid, MAX(device_id) AS device_id FROM PROD_DB.PUBLIC.T_WG_CUSTOMER GROUP BY nasid\n)\nSELECT hm.nasid AS nas_id,\n  dev.device_id,\n  hm.mobile,\n  r.uncovered_hours_d1,\n  r.paid_hours_d1,\n  ROUND(100.0*(r.paid_hours_d1 - r.uncovered_hours_d1)/r.paid_hours_d1, 1) AS coverage_pct,\n  r.first_uncovered_hour,\n  r.last_uncovered_hour,\n  CASE WHEN r.uncovered_hours_d1 = r.paid_hours_d1 THEN 'no ticket coverage all day'\n       ELSE 'partial gap' END AS outcome\nFROM rolled r\nJOIN home hm ON hm.connection_id = r.connection_id\nLEFT JOIN dev ON dev.nasid = hm.nasid\nORDER BY r.uncovered_hours_d1 DESC, hm.nasid\nLIMIT 1000;"
+    }
   },
   {
     "id": 16,
