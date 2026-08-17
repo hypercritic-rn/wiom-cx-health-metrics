@@ -26,7 +26,7 @@ STATUS = {
 TIERS = ["L0", "L1"]
 TIER_LABELS = {
     "L0": "System health &mdash; should sit at or near 100%",
-    "L1": "Conversion &amp; efficiency &mdash; business rates, judged against trend not a fixed target",
+    "L1": "Conversion &amp; efficiency",
 }
 # a conversion metric is only final once every booking-day in the window has had its
 # full horizon, so recent columns are still accruing and must be marked as such
@@ -301,6 +301,7 @@ def build_journey_table(journey, metrics):
     show_sections = sum(1 for t in TIERS if by_tier[t]) > 1
 
     parts = []
+    rendered = 0
     for t in TIERS:
         tier_metrics = by_tier[t]
         if not tier_metrics:
@@ -319,7 +320,16 @@ def build_journey_table(journey, metrics):
                 f'<tr class="section-row"><td colspan="{len(WINDOW_LABELS) + 1}">'
                 f'{TIER_LABELS[t]}{note_html}</td></tr>'
             )
+            # the first section sits directly under the table head, so its column
+            # labels are still on screen; later sections need them repeated
+            if rendered:
+                parts.append(
+                    '<tr class="repeat-header"><th></th>'
+                    + "".join(f"<th>{w}</th>" for w in WINDOW_LABELS)
+                    + "</tr>"
+                )
         parts.extend(build_metric_row(m) for m in tier_metrics)
+        rendered += 1
     rows = "".join(parts)
     header_cells = "".join(f"<th>{w}</th>" for w in WINDOW_LABELS)
     return f"""

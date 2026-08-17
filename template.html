@@ -104,6 +104,8 @@
   .metric-name-header { text-align: left !important; min-width: 260px; }
   .section-row td {
     text-align: left !important;
+    /* the base th/td rule sets nowrap, which would make the note run off the table */
+    white-space: normal !important;
     padding: 16px 12px 7px !important;
     font-size: 11px;
     font-weight: 700;
@@ -113,6 +115,17 @@
     background: var(--surface-alt, rgba(127,127,127,0.06));
     border-bottom: 1px solid var(--gridline);
   }
+  /* column labels repeated inside a section that sits away from the table head */
+  .repeat-header th {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 4px 12px 6px;
+    border-bottom: 1px solid var(--gridline);
+  }
+  .repeat-header th:first-child { text-align: left !important; }
   .section-note {
     margin-top: 5px;
     font-size: 11px;

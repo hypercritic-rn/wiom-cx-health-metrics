@@ -104,6 +104,8 @@
   .metric-name-header { text-align: left !important; min-width: 260px; }
   .section-row td {
     text-align: left !important;
+    /* the base th/td rule sets nowrap, which would make the note run off the table */
+    white-space: normal !important;
     padding: 16px 12px 7px !important;
     font-size: 11px;
     font-weight: 700;
@@ -113,6 +115,17 @@
     background: var(--surface-alt, rgba(127,127,127,0.06));
     border-bottom: 1px solid var(--gridline);
   }
+  /* column labels repeated inside a section that sits away from the table head */
+  .repeat-header th {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 4px 12px 6px;
+    border-bottom: 1px solid var(--gridline);
+  }
+  .repeat-header th:first-child { text-align: left !important; }
   .section-note {
     margin-top: 5px;
     font-size: 11px;
@@ -357,7 +370,7 @@
               <script type="application/json" class="drill-raw-data">{"columns": ["Period", "Mobile", "Fee-paid time", "Days since fee", "Cancelled at", "Installed at", "Outcome"], "rows": [["D-1", "9654490350", "Aug 1, 8:11 AM", "16", "none", "none", "no cancel, no install"]]}</script>
             </div>
           </td>
-        </tr><tr class="section-row"><td colspan="10">Conversion &amp; efficiency &mdash; business rates, judged against trend not a fixed target<div class="section-note">Cohort = bookings that paid the fee in that window; cancelled, refunded and still-open bookings stay in the denominator. Steps measured over 14 days. Values marked <span class="mat-mark">*</span> are still counting &mdash; hover for the date they become final and which way they can still move.</div></td></tr>
+        </tr><tr class="section-row"><td colspan="10">Conversion &amp; efficiency<div class="section-note">Cohort = bookings that paid the fee in that window; cancelled, refunded and still-open bookings stay in the denominator. Steps measured over 14 days. Values marked <span class="mat-mark">*</span> are still counting &mdash; hover for the date they become final and which way they can still move.</div></td></tr><tr class="repeat-header"><th></th><th>D-1</th><th>D-2</th><th>D-3</th><th>W-1</th><th>W-2</th><th>W-3</th><th>M-1</th><th>M-2</th><th>M-3</th></tr>
         <tr class="metric-row">
           <td class="metric-name">BFP -&gt; Installed within 7 days<div class="metric-desc">Fee paid → installed within 7 days. Goal metric.</div></td>
           <td class="metric-cell maturing" title="Still counting &mdash; this window stays open until 24 Aug (7 more days). The value can only rise."><span class="dot" style="background:#898781"></span>15.2%<span class="mat-mark">*</span><span class="cell-counts">49/323</span></td><td class="metric-cell maturing" title="Still counting &mdash; this window stays open until 23 Aug (6 more days). The value can only rise."><span class="dot" style="background:#898781"></span>27.3%<span class="mat-mark">*</span><span class="cell-counts">89/326</span></td><td class="metric-cell maturing" title="Still counting &mdash; this window stays open until 22 Aug (5 more days). The value can only rise."><span class="dot" style="background:#898781"></span>29.7%<span class="mat-mark">*</span><span class="cell-counts">63/212</span></td><td class="metric-cell maturing" title="Still counting &mdash; this window stays open until 24 Aug (7 more days). The value can only rise."><span class="dot" style="background:#898781"></span>30.7%<span class="mat-mark">*</span><span class="cell-counts">604/1,966</span></td><td class="metric-cell"><span class="dot" style="background:#898781"></span>38.3%<span class="cell-counts">727/1,900</span></td><td class="metric-cell"><span class="dot" style="background:#898781"></span>42.0%<span class="cell-counts">744/1,771</span></td><td class="metric-cell"><span class="dot" style="background:#898781"></span>35.4%<span class="cell-counts">1,935/5,466</span></td><td class="metric-cell"><span class="dot" style="background:#898781"></span>27.5%<span class="cell-counts">947/3,443</span></td><td class="metric-cell"><span class="dot" style="background:#898781"></span>34.2%<span class="cell-counts">883/2,581</span></td>
