@@ -96,6 +96,10 @@ def main():
                 # the 10 value columns simply have no maturity row.
                 maturity = row[10:19] if m.get("horizon_days") and len(row) > 10 else []
                 entry["maturity"] = (maturity + [None] * 9)[:9] if maturity else None
+                # columns 20-28 carry the raw "numerator/denominator" per window,
+                # shown as small print under each percentage
+                counts = row[19:28] if m.get("horizon_days") and len(row) > 19 else []
+                entry["counts"] = (counts + [None] * 9)[:9] if counts else None
 
             if m.get("drilldown"):
                 d_rows, d_cols, d_err = run_query(key, m["drilldown"]["query"])

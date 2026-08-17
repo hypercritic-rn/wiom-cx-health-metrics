@@ -52,7 +52,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 11,
@@ -262,7 +263,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 12,
@@ -319,7 +321,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 13,
@@ -606,7 +609,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 15,
@@ -659,7 +663,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 4,
@@ -684,7 +689,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 5,
@@ -3140,7 +3146,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 6,
@@ -3165,7 +3172,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 8,
@@ -3190,7 +3198,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 9,
@@ -3215,7 +3224,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 10,
@@ -11171,7 +11181,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 23,
@@ -13551,7 +13562,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 16,
@@ -13787,7 +13799,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 17,
@@ -13873,7 +13886,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 18,
@@ -14097,7 +14111,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 19,
@@ -16086,7 +16101,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 20,
@@ -16148,7 +16164,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 21,
@@ -16201,7 +16218,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 22,
@@ -16272,7 +16290,8 @@
    "kind": null,
    "horizon_days": null,
    "maturity": null,
-   "maturing_direction": null
+   "maturing_direction": null,
+   "counts": null
   },
   {
    "id": 101,
@@ -16285,9 +16304,9 @@
    "kind": "conversion",
    "values": [
     15.2,
-    27.0,
-    29.2,
-    30.6,
+    27.3,
+    29.7,
+    30.7,
     38.3,
     42.0,
     35.4,
@@ -16307,7 +16326,18 @@
     "matured",
     "matured"
    ],
-   "maturing_direction": "up"
+   "maturing_direction": "up",
+   "counts": [
+    "49/323",
+    "89/326",
+    "63/212",
+    "604/1966",
+    "727/1900",
+    "744/1771",
+    "1935/5466",
+    "947/3443",
+    "883/2581"
+   ]
   },
   {
    "id": 102,
@@ -16320,9 +16350,9 @@
    "kind": "conversion",
    "values": [
     15.2,
-    27.0,
-    29.2,
-    30.6,
+    27.3,
+    29.7,
+    30.7,
     38.9,
     42.6,
     36.5,
@@ -16342,7 +16372,18 @@
     "matured",
     "matured"
    ],
-   "maturing_direction": "up"
+   "maturing_direction": "up",
+   "counts": [
+    "49/323",
+    "89/326",
+    "63/212",
+    "604/1966",
+    "739/1900",
+    "755/1771",
+    "1994/5466",
+    "973/3443",
+    "897/2581"
+   ]
   },
   {
    "id": 103,
@@ -16377,7 +16418,18 @@
     "matured",
     "matured"
    ],
-   "maturing_direction": "up"
+   "maturing_direction": "up",
+   "counts": [
+    "302/323",
+    "312/326",
+    "205/212",
+    "1867/1966",
+    "1788/1900",
+    "1643/1771",
+    "5129/5466",
+    "3255/3443",
+    "2523/2581"
+   ]
   },
   {
    "id": 104,
@@ -16391,8 +16443,8 @@
    "values": [
     57.6,
     62.2,
-    65.4,
-    64.9,
+    65.9,
+    65.0,
     71.7,
     73.7,
     63.7,
@@ -16412,7 +16464,18 @@
     "matured",
     "matured"
    ],
-   "maturing_direction": "either"
+   "maturing_direction": "either",
+   "counts": [
+    "174/302",
+    "194/312",
+    "135/205",
+    "1213/1867",
+    "1282/1788",
+    "1211/1643",
+    "3266/5129",
+    "1983/3255",
+    "1742/2523"
+   ]
   },
   {
    "id": 105,
@@ -16424,10 +16487,10 @@
    "tier": "L1",
    "kind": "conversion",
    "values": [
-    34.5,
+    35.1,
     52.6,
-    52.2,
-    54.7,
+    51.9,
+    54.8,
     62.6,
     66.6,
     65.4,
@@ -16447,7 +16510,18 @@
     "matured",
     "matured"
    ],
-   "maturing_direction": "either"
+   "maturing_direction": "either",
+   "counts": [
+    "61/174",
+    "102/194",
+    "70/135",
+    "665/1213",
+    "802/1282",
+    "806/1211",
+    "2136/3266",
+    "1092/1983",
+    "1010/1742"
+   ]
   },
   {
    "id": 106,
@@ -16459,9 +16533,9 @@
    "tier": "L1",
    "kind": "conversion",
    "values": [
-    81.7,
-    86.3,
-    88.6,
+    80.3,
+    87.3,
+    90.0,
     90.8,
     92.1,
     93.7,
@@ -16482,7 +16556,18 @@
     "matured",
     "matured"
    ],
-   "maturing_direction": "either"
+   "maturing_direction": "either",
+   "counts": [
+    "49/61",
+    "89/102",
+    "63/70",
+    "604/665",
+    "739/802",
+    "755/806",
+    "1994/2136",
+    "973/1092",
+    "897/1010"
+   ]
   }
  ]
 }

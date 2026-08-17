@@ -127,6 +127,17 @@
   /* a still-maturing value is dimmed and flagged, so it is never read as final */
   .metric-cell.maturing { cursor: help; }
   .metric-cell.maturing .dot { opacity: 0.45; }
+  /* raw numerator/denominator, shown as small print under each value */
+  .cell-counts {
+    display: block;
+    margin-top: 2px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
   .mat-mark {
     color: var(--text-muted);
     font-weight: 700;

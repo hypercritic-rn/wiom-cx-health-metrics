@@ -203,6 +203,19 @@ def build_metric_row(m):
     is_count_metric = m.get("unit") == "count"
     maturity = m.get("maturity") or [None] * 9
     horizon = m.get("horizon_days")
+    counts = m.get("counts") or [None] * 9
+
+    def counts_html(idx):
+        """Small print under a value: the raw numerator/denominator behind it."""
+        raw = counts[idx] if idx < len(counts) else None
+        if not raw or "/" not in str(raw):
+            return ""
+        num, _, den = str(raw).partition("/")
+        try:
+            num, den = f"{int(num):,}", f"{int(den):,}"
+        except ValueError:
+            pass
+        return f'<span class="cell-counts">{html.escape(num)}/{html.escape(den)}</span>'
     has_drilldown = bool(m.get("drilldown"))
     drill_id = f"drill-{m['id']}"
 
@@ -242,7 +255,7 @@ def build_metric_row(m):
             status = status_for_count(dv)
             color = STATUS.get(status, "#898781")
             mcls, mark, tip = maturity_bits(idx)
-            inner = f'<span class="dot" style="background:{color}"></span>{int(dv)}{mark}'
+            inner = f'<span class="dot" style="background:{color}"></span>{int(dv)}{mark}' + counts_html(idx)
             cells_html.append(f'<td class="metric-cell{mcls}"{tip}>{wrap_drill(idx, inner)}</td>')
         cells = "".join(cells_html)
         frac_note = ""
@@ -267,7 +280,7 @@ def build_metric_row(m):
                 status = status_for(dv, inverted=is_stuck_metric)
                 color = STATUS.get(status, "#898781")
             mcls, mark, tip = maturity_bits(idx)
-            inner = f'<span class="dot" style="background:{color}"></span>{dv:.1f}%{mark}'
+            inner = f'<span class="dot" style="background:{color}"></span>{dv:.1f}%{mark}' + counts_html(idx)
             cells_html.append(f'<td class="metric-cell{mcls}"{tip}>{wrap_drill(idx, inner)}</td>')
         cells = "".join(cells_html)
         frac_note = ' <span class="frac-note">(normalized from 0-1 fraction)</span>' if is_fraction else ""
