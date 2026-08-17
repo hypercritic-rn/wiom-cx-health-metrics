@@ -28,6 +28,16 @@ TIER_LABELS = {
     "L0": "System health &mdash; should sit at or near 100%",
     "L1": "Conversion &amp; efficiency &mdash; business rates, judged against trend not a fixed target",
 }
+# a conversion metric is only final once every booking-day in the window has had its
+# full horizon, so recent columns are still accruing and must be marked as such
+TIER_NOTES = {
+    "L1": (
+        'A value marked <span class="mat-mark">*</span> is <strong>still maturing</strong>: not every '
+        "booking in that window has had its full horizon yet, so the number can only rise. Unmarked "
+        "values are <strong>matured</strong> &mdash; final and safe to compare. Hover a marked value "
+        "to see how much of the window is complete."
+    ),
+}
 
 
 def status_for(value, inverted=False):
@@ -191,8 +201,23 @@ def build_metric_row(m):
     raw_values = m.get("values") or [None] * 9
     floats = [to_float(v) for v in raw_values]
     is_count_metric = m.get("unit") == "count"
+    maturity = m.get("maturity") or [None] * 9
+    horizon = m.get("horizon_days")
     has_drilldown = bool(m.get("drilldown"))
     drill_id = f"drill-{m['id']}"
+
+    def maturity_bits(idx):
+        """Returns (cell_class_suffix, marker_html, title_attr) for one window."""
+        label = maturity[idx] if idx < len(maturity) else None
+        if not label or label == "matured":
+            return "", "", ""
+        # label is "X/Y": X of Y booking-days in the window have completed the horizon
+        done, _, total = label.partition("/")
+        detail = f"{done} of {total} booking-day(s) in this window have completed"
+        if horizon:
+            detail += f" the full {horizon} days"
+        tip = f"Still maturing &mdash; {detail}. This value can only rise."
+        return " maturing", '<span class="mat-mark">*</span>', f' title="{tip}"'
 
     def wrap_drill(idx, inner):
         # only the D-1 column (index 0) gets the drilldown toggle
@@ -211,8 +236,9 @@ def build_metric_row(m):
                 continue
             status = status_for_count(dv)
             color = STATUS.get(status, "#898781")
-            inner = f'<span class="dot" style="background:{color}"></span>{int(dv)}'
-            cells_html.append(f'<td class="metric-cell">{wrap_drill(idx, inner)}</td>')
+            mcls, mark, tip = maturity_bits(idx)
+            inner = f'<span class="dot" style="background:{color}"></span>{int(dv)}{mark}'
+            cells_html.append(f'<td class="metric-cell{mcls}"{tip}>{wrap_drill(idx, inner)}</td>')
         cells = "".join(cells_html)
         frac_note = ""
     else:
@@ -235,8 +261,9 @@ def build_metric_row(m):
             else:
                 status = status_for(dv, inverted=is_stuck_metric)
                 color = STATUS.get(status, "#898781")
-            inner = f'<span class="dot" style="background:{color}"></span>{dv:.1f}%'
-            cells_html.append(f'<td class="metric-cell">{wrap_drill(idx, inner)}</td>')
+            mcls, mark, tip = maturity_bits(idx)
+            inner = f'<span class="dot" style="background:{color}"></span>{dv:.1f}%{mark}'
+            cells_html.append(f'<td class="metric-cell{mcls}"{tip}>{wrap_drill(idx, inner)}</td>')
         cells = "".join(cells_html)
         frac_note = ' <span class="frac-note">(normalized from 0-1 fraction)</span>' if is_fraction else ""
 
@@ -261,9 +288,18 @@ def build_journey_table(journey, metrics):
         if not tier_metrics:
             continue
         if show_sections:
+            note = TIER_NOTES.get(t)
+            # only show the maturity note if this tier actually has a maturing value
+            if note and not any(
+                lbl and lbl != "matured"
+                for mm in tier_metrics
+                for lbl in (mm.get("maturity") or [])
+            ):
+                note = None
+            note_html = f'<div class="section-note">{note}</div>' if note else ""
             parts.append(
                 f'<tr class="section-row"><td colspan="{len(WINDOW_LABELS) + 1}">'
-                f'{TIER_LABELS[t]}</td></tr>'
+                f'{TIER_LABELS[t]}{note_html}</td></tr>'
             )
         parts.extend(build_metric_row(m) for m in tier_metrics)
     rows = "".join(parts)

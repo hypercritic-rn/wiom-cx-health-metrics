@@ -49,7 +49,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 11,
@@ -256,7 +258,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 12,
@@ -310,7 +314,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 13,
@@ -594,7 +600,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 15,
@@ -644,7 +652,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 4,
@@ -666,7 +676,9 @@
    ],
    "error": null,
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 5,
@@ -3119,7 +3131,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 6,
@@ -3141,7 +3155,9 @@
    ],
    "error": null,
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 8,
@@ -3163,7 +3179,9 @@
    ],
    "error": null,
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 9,
@@ -3185,7 +3203,9 @@
    ],
    "error": null,
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 10,
@@ -11138,7 +11158,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 23,
@@ -13515,7 +13537,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 16,
@@ -13748,7 +13772,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 17,
@@ -13831,7 +13857,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 18,
@@ -14052,7 +14080,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 19,
@@ -16038,7 +16068,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 20,
@@ -16097,7 +16129,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 21,
@@ -16147,7 +16181,9 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 22,
@@ -16215,139 +16251,213 @@
     "error": null
    },
    "tier": "L0",
-   "kind": null
+   "kind": null,
+   "horizon_days": null,
+   "maturity": null
   },
   {
    "id": 101,
    "journey": "B2I",
    "name": "BFP -> Installed within 7 days",
-   "description": "Of bookings whose booking fee was paid, what share were installed within 7 days? This is the B2I goal metric. Bookings still open, cancelled, or refunded all stay in the denominator, so it reads as a true conversion rate. Installs almost never land in the second week, so the 7-day horizon costs about one point versus 14 days and reports a week sooner.",
+   "description": "Of bookings whose booking fee was paid, what share were installed within 7 days? This is the B2I goal metric. Bookings still open, cancelled, or refunded all stay in the denominator, so it reads as a true conversion rate. A 7-day horizon captures 96.8% of all installs that ever land within 14 days, so it costs about one point and reports a week sooner. Windows are on the real calendar, so a recent window is not final yet: a column marked with * is still maturing and can only rise, an unmarked column has had its full 7 days and is final.",
    "tbd": false,
    "unit": null,
    "tier": "L1",
    "kind": "conversion",
    "values": [
-    35.2,
-    42.7,
-    48.5,
-    39.5,
-    29.4,
+    14.6,
+    26.7,
     29.2,
+    30.4,
+    38.3,
+    42.0,
     35.4,
     27.5,
     34.2
    ],
-   "error": null
+   "error": null,
+   "horizon_days": 7,
+   "maturity": [
+    "0/1",
+    "0/1",
+    "0/1",
+    "0/7",
+    "matured",
+    "matured",
+    "matured",
+    "matured",
+    "matured"
+   ]
   },
   {
    "id": 102,
    "journey": "B2I",
    "name": "BFP -> Installed within 14 days",
-   "description": "Same as the 7-day goal metric but with a 14-day horizon, matching the point at which the auto-cancel sweep resolves a stale booking. Typically about one point above the 7-day number.",
+   "description": "Same as the 7-day goal metric but with a 14-day horizon, matching the point at which the auto-cancel sweep resolves a stale booking. Typically about one point above the 7-day number, and it takes a week longer to become final. Windows are on the real calendar, so a recent window is not final yet: a column marked with * is still maturing and can only rise, an unmarked column has had its full 14 days and is final.",
    "tbd": false,
    "unit": null,
    "tier": "L1",
    "kind": "conversion",
    "values": [
-    35.5,
-    43.5,
-    49.8,
-    40.9,
-    30.9,
-    30.0,
+    14.6,
+    26.7,
+    29.2,
+    30.4,
+    38.9,
+    42.6,
     36.5,
     28.3,
     34.8
    ],
-   "error": null
+   "error": null,
+   "horizon_days": 14,
+   "maturity": [
+    "0/1",
+    "0/1",
+    "0/1",
+    "0/7",
+    "0/7",
+    "matured",
+    "matured",
+    "matured",
+    "matured"
+   ]
   },
   {
    "id": 103,
    "journey": "B2I",
    "name": "Step 1: BFP -> address submitted",
-   "description": "Of bookings whose fee was paid, what share submitted an address within 14 days? First step of the B2I funnel and consistently the healthiest.",
+   "description": "Of bookings whose fee was paid, what share submitted an address within 14 days? First step of the funnel and consistently the healthiest. It is also near-instant: 91.6% of addresses arrive on the same day as the fee, so this step barely moves after day 0. Windows are on the real calendar, so a recent window is not final yet: a column marked with * is still maturing and can only rise, an unmarked column has had its full 14 days and is final.",
    "tbd": false,
    "unit": null,
    "tier": "L1",
    "kind": "conversion",
    "values": [
     93.5,
-    90.5,
-    92.5,
-    93.1,
-    94.8,
-    94.5,
+    95.7,
+    96.7,
+    95.0,
+    94.1,
+    92.8,
     93.8,
     94.5,
     97.8
    ],
-   "error": null
+   "error": null,
+   "horizon_days": 14,
+   "maturity": [
+    "0/1",
+    "0/1",
+    "0/1",
+    "0/7",
+    "0/7",
+    "matured",
+    "matured",
+    "matured",
+    "matured"
+   ]
   },
   {
    "id": 104,
    "journey": "B2I",
    "name": "Step 2: address -> technician assigned",
-   "description": "Of bookings that submitted an address, what share had a technician assigned within 14 days? One of the two steps where most of the funnel is lost, and the more volatile of the two.",
+   "description": "Of bookings that submitted an address, what share had a technician assigned within 14 days? One of the two steps where most of the funnel is lost, and the more volatile of the two. Windows are on the real calendar, so a recent window is not final yet: a column marked with * is still maturing and can only rise, an unmarked column has had its full 14 days and is final.",
    "tbd": false,
    "unit": null,
    "tier": "L1",
    "kind": "conversion",
    "values": [
-    73.3,
-    74.3,
-    75.1,
-    69.6,
-    54.9,
-    57.1,
+    57.6,
+    62.2,
+    64.9,
+    64.9,
+    71.7,
+    73.7,
     63.7,
     60.9,
     69.0
    ],
-   "error": null
+   "error": null,
+   "horizon_days": 14,
+   "maturity": [
+    "0/1",
+    "0/1",
+    "0/1",
+    "0/7",
+    "0/7",
+    "matured",
+    "matured",
+    "matured",
+    "matured"
+   ]
   },
   {
    "id": 105,
    "journey": "B2I",
    "name": "Step 3: technician assigned -> arrived",
-   "description": "Of bookings with a technician assigned, what share had the technician actually arrive within 14 days? The single largest leak in the B2I funnel.",
+   "description": "Of bookings with a technician assigned, what share had the technician actually arrive within 14 days? The single largest leak in the B2I funnel. Windows are on the real calendar, so a recent window is not final yet: a column marked with * is still maturing and can only rise, an unmarked column has had its full 14 days and is final.",
    "tbd": false,
    "unit": null,
    "tier": "L1",
    "kind": "conversion",
    "values": [
-    58.6,
-    65.9,
-    75.1,
-    67.2,
-    63.8,
-    59.9,
+    33.9,
+    52.6,
+    50.4,
+    54.4,
+    62.6,
+    66.6,
     65.4,
     55.1,
     58.0
    ],
-   "error": null
+   "error": null,
+   "horizon_days": 14,
+   "maturity": [
+    "0/1",
+    "0/1",
+    "0/1",
+    "0/7",
+    "0/7",
+    "matured",
+    "matured",
+    "matured",
+    "matured"
+   ]
   },
   {
    "id": 106,
    "journey": "B2I",
    "name": "Step 4: technician arrived -> installed",
-   "description": "Of bookings where the technician arrived, what share completed the install within 14 days? Consistently strong, which is why the funnel losses sit upstream of arrival.",
+   "description": "Of bookings where the technician arrived, what share completed the install within 14 days? Consistently strong, which is why the funnel losses sit upstream of arrival. Windows are on the real calendar, so a recent window is not final yet: a column marked with * is still maturing and can only rise, an unmarked column has had its full 14 days and is final.",
    "tbd": false,
    "unit": null,
    "tier": "L1",
    "kind": "conversion",
    "values": [
-    88.4,
-    98.3,
-    95.5,
-    93.8,
-    93.1,
-    92.8,
+    79.7,
+    85.3,
+    92.5,
+    90.7,
+    92.1,
+    93.7,
     93.4,
     89.1,
     88.8
    ],
-   "error": null
+   "error": null,
+   "horizon_days": 14,
+   "maturity": [
+    "0/1",
+    "0/1",
+    "0/1",
+    "0/7",
+    "0/7",
+    "matured",
+    "matured",
+    "matured",
+    "matured"
+   ]
   }
  ]
 }

@@ -113,6 +113,27 @@
     background: var(--surface-alt, rgba(127,127,127,0.06));
     border-bottom: 1px solid var(--gridline);
   }
+  .section-note {
+    margin-top: 5px;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.5;
+    color: var(--text-muted);
+    max-width: 92ch;
+  }
+  .section-note strong { font-weight: 600; color: var(--text-secondary); }
+  /* a still-maturing value is dimmed and flagged, so it is never read as final */
+  .metric-cell.maturing { cursor: help; }
+  .metric-cell.maturing .dot { opacity: 0.45; }
+  .mat-mark {
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-left: 2px;
+    vertical-align: super;
+    font-size: 9px;
+  }
   .metrics-table thead th {
     color: var(--text-muted);
     font-weight: 600;

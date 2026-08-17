@@ -71,6 +71,7 @@ def main():
             # kind drives the colour scale (conversion rates have no 100% target)
             "tier": m.get("tier", "L0"),
             "kind": m.get("kind"),
+            "horizon_days": m.get("horizon_days"),
         }
         if m["tbd"]:
             entry["values"] = None
@@ -88,6 +89,12 @@ def main():
                 values += [None] * (9 - len(values))
                 entry["values"] = values
                 entry["error"] = None
+                # conversion metrics also return a maturity label per window in
+                # columns 10-18 ("matured", or "X/Y" booking-days complete), so the
+                # dashboard can mark which columns are final. Metrics that return only
+                # the 10 value columns simply have no maturity row.
+                maturity = row[10:19] if m.get("horizon_days") and len(row) > 10 else []
+                entry["maturity"] = (maturity + [None] * 9)[:9] if maturity else None
 
             if m.get("drilldown"):
                 d_rows, d_cols, d_err = run_query(key, m["drilldown"]["query"])
