@@ -32,10 +32,10 @@ TIER_LABELS = {
 # full horizon, so recent columns are still accruing and must be marked as such
 TIER_NOTES = {
     "L1": (
-        'A value marked <span class="mat-mark">*</span> is <strong>still maturing</strong>: not every '
-        "booking in that window has had its full horizon yet, so the number can only rise. Unmarked "
-        "values are <strong>matured</strong> &mdash; final and safe to compare. Hover a marked value "
-        "to see how much of the window is complete."
+        "Cohort = bookings that paid the fee in that window; cancelled, refunded and still-open "
+        "bookings stay in the denominator. Steps measured over 14 days. Values marked "
+        '<span class="mat-mark">*</span> are still counting &mdash; hover for the date they become '
+        "final and which way they can still move."
     ),
 }
 
@@ -211,12 +211,17 @@ def build_metric_row(m):
         label = maturity[idx] if idx < len(maturity) else None
         if not label or label == "matured":
             return "", "", ""
-        # label is "X/Y": X of Y booking-days in the window have completed the horizon
-        done, _, total = label.partition("/")
-        detail = f"{done} of {total} booking-day(s) in this window have completed"
-        if horizon:
-            detail += f" the full {horizon} days"
-        tip = f"Still maturing &mdash; {detail}. This value can only rise."
+        # label is "<close date>|<days until close>" -- report when the number
+        # becomes final rather than how much of the window has elapsed
+        close, _, days = label.partition("|")
+        when = f" ({days} more day{'' if days == '1' else 's'})" if days else ""
+        # a rate over a fixed denominator can only rise as events land; a step
+        # conversion has both sides still accruing, so it can fall too
+        if m.get("maturing_direction") == "either":
+            outcome = "Both sides of this ratio are still growing, so it can move either way."
+        else:
+            outcome = "The value can only rise."
+        tip = f"Still counting &mdash; this window stays open until {close}{when}. {outcome}"
         return " maturing", '<span class="mat-mark">*</span>', f' title="{tip}"'
 
     def wrap_drill(idx, inner):

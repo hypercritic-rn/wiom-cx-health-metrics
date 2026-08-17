@@ -72,6 +72,7 @@ def main():
             "tier": m.get("tier", "L0"),
             "kind": m.get("kind"),
             "horizon_days": m.get("horizon_days"),
+            "maturing_direction": m.get("maturing_direction"),
         }
         if m["tbd"]:
             entry["values"] = None
