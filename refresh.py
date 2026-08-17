@@ -67,6 +67,10 @@ def main():
             "description": m["description"],
             "tbd": m["tbd"],
             "unit": m.get("unit"),
+            # tier drives which section of the journey panel the metric renders in;
+            # kind drives the colour scale (conversion rates have no 100% target)
+            "tier": m.get("tier", "L0"),
+            "kind": m.get("kind"),
         }
         if m["tbd"]:
             entry["values"] = None

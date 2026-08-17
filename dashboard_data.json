@@ -47,7 +47,9 @@
     "null_label": "—",
     "rows": [],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 11,
@@ -252,7 +254,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 12,
@@ -304,7 +308,9 @@
     "null_label": "not created",
     "rows": [],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 13,
@@ -586,7 +592,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 15,
@@ -634,7 +642,9 @@
     "null_label": "not sent",
     "rows": [],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 4,
@@ -654,7 +664,9 @@
     99.8862,
     99.7453
    ],
-   "error": null
+   "error": null,
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 5,
@@ -3105,7 +3117,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 6,
@@ -3125,7 +3139,9 @@
     "-",
     "-"
    ],
-   "error": null
+   "error": null,
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 8,
@@ -3145,7 +3161,9 @@
     null,
     null
    ],
-   "error": null
+   "error": null,
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 9,
@@ -3165,7 +3183,9 @@
     null,
     null
    ],
-   "error": null
+   "error": null,
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 10,
@@ -11116,7 +11136,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 23,
@@ -13491,7 +13513,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 16,
@@ -13722,7 +13746,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 17,
@@ -13803,7 +13829,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 18,
@@ -14022,7 +14050,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 19,
@@ -16006,7 +16036,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 20,
@@ -16063,7 +16095,9 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 21,
@@ -16111,7 +16145,9 @@
     "null_label": "not found reopened in ticket system",
     "rows": [],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
   },
   {
    "id": 22,
@@ -16177,7 +16213,141 @@
      ]
     ],
     "error": null
-   }
+   },
+   "tier": "L0",
+   "kind": null
+  },
+  {
+   "id": 101,
+   "journey": "B2I",
+   "name": "BFP -> Installed within 7 days",
+   "description": "Of bookings whose booking fee was paid, what share were installed within 7 days? This is the B2I goal metric. Bookings still open, cancelled, or refunded all stay in the denominator, so it reads as a true conversion rate. Installs almost never land in the second week, so the 7-day horizon costs about one point versus 14 days and reports a week sooner.",
+   "tbd": false,
+   "unit": null,
+   "tier": "L1",
+   "kind": "conversion",
+   "values": [
+    35.2,
+    42.7,
+    48.5,
+    39.5,
+    29.4,
+    29.2,
+    35.4,
+    27.5,
+    34.2
+   ],
+   "error": null
+  },
+  {
+   "id": 102,
+   "journey": "B2I",
+   "name": "BFP -> Installed within 14 days",
+   "description": "Same as the 7-day goal metric but with a 14-day horizon, matching the point at which the auto-cancel sweep resolves a stale booking. Typically about one point above the 7-day number.",
+   "tbd": false,
+   "unit": null,
+   "tier": "L1",
+   "kind": "conversion",
+   "values": [
+    35.5,
+    43.5,
+    49.8,
+    40.9,
+    30.9,
+    30.0,
+    36.5,
+    28.3,
+    34.8
+   ],
+   "error": null
+  },
+  {
+   "id": 103,
+   "journey": "B2I",
+   "name": "Step 1: BFP -> address submitted",
+   "description": "Of bookings whose fee was paid, what share submitted an address within 14 days? First step of the B2I funnel and consistently the healthiest.",
+   "tbd": false,
+   "unit": null,
+   "tier": "L1",
+   "kind": "conversion",
+   "values": [
+    93.5,
+    90.5,
+    92.5,
+    93.1,
+    94.8,
+    94.5,
+    93.8,
+    94.5,
+    97.8
+   ],
+   "error": null
+  },
+  {
+   "id": 104,
+   "journey": "B2I",
+   "name": "Step 2: address -> technician assigned",
+   "description": "Of bookings that submitted an address, what share had a technician assigned within 14 days? One of the two steps where most of the funnel is lost, and the more volatile of the two.",
+   "tbd": false,
+   "unit": null,
+   "tier": "L1",
+   "kind": "conversion",
+   "values": [
+    73.3,
+    74.3,
+    75.1,
+    69.6,
+    54.9,
+    57.1,
+    63.7,
+    60.9,
+    69.0
+   ],
+   "error": null
+  },
+  {
+   "id": 105,
+   "journey": "B2I",
+   "name": "Step 3: technician assigned -> arrived",
+   "description": "Of bookings with a technician assigned, what share had the technician actually arrive within 14 days? The single largest leak in the B2I funnel.",
+   "tbd": false,
+   "unit": null,
+   "tier": "L1",
+   "kind": "conversion",
+   "values": [
+    58.6,
+    65.9,
+    75.1,
+    67.2,
+    63.8,
+    59.9,
+    65.4,
+    55.1,
+    58.0
+   ],
+   "error": null
+  },
+  {
+   "id": 106,
+   "journey": "B2I",
+   "name": "Step 4: technician arrived -> installed",
+   "description": "Of bookings where the technician arrived, what share completed the install within 14 days? Consistently strong, which is why the funnel losses sit upstream of arrival.",
+   "tbd": false,
+   "unit": null,
+   "tier": "L1",
+   "kind": "conversion",
+   "values": [
+    88.4,
+    98.3,
+    95.5,
+    93.8,
+    93.1,
+    92.8,
+    93.4,
+    89.1,
+    88.8
+   ],
+   "error": null
   }
  ]
 }

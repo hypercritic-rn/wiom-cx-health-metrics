@@ -17,6 +17,16 @@ STATUS = {
     "warning": "#fab219",
     "serious": "#ec835a",
     "critical": "#d03b3b",
+    # conversion metrics are business rates with no agreed target yet, so they are
+    # rendered neutral rather than being judged against the L0 100% scale. Once a
+    # target is set per metric we can colour against it.
+    "neutral": "#898781",
+}
+
+TIERS = ["L0", "L1"]
+TIER_LABELS = {
+    "L0": "System health &mdash; should sit at or near 100%",
+    "L1": "Conversion &amp; efficiency &mdash; business rates, judged against trend not a fixed target",
 }
 
 
@@ -211,13 +221,20 @@ def build_metric_row(m):
         is_fraction = bool(non_null) and all(0 <= f <= 1 for f in non_null)
         display_values = [f * 100 if (f is not None and is_fraction) else f for f in floats]
 
+        # conversion metrics get a neutral dot: there is no agreed target, so the
+        # L0 "under 90% is critical" scale would paint a healthy rate red
+        is_conversion = m.get("kind") == "conversion"
+
         cells_html = []
         for idx, dv in enumerate(display_values):
             if dv is None:
                 cells_html.append('<td class="metric-cell empty">&mdash;</td>')
                 continue
-            status = status_for(dv, inverted=is_stuck_metric)
-            color = STATUS.get(status, "#898781")
+            if is_conversion:
+                color = STATUS["neutral"]
+            else:
+                status = status_for(dv, inverted=is_stuck_metric)
+                color = STATUS.get(status, "#898781")
             inner = f'<span class="dot" style="background:{color}"></span>{dv:.1f}%'
             cells_html.append(f'<td class="metric-cell">{wrap_drill(idx, inner)}</td>')
         cells = "".join(cells_html)
@@ -232,7 +249,24 @@ def build_metric_row(m):
 
 
 def build_journey_table(journey, metrics):
-    rows = "".join(build_metric_row(m) for m in metrics if m["journey"] == journey)
+    in_journey = [m for m in metrics if m["journey"] == journey]
+    by_tier = {t: [m for m in in_journey if m.get("tier", "L0") == t] for t in TIERS}
+    # only label the sections when a journey actually has both tiers, so journeys
+    # that are still L0-only render exactly as they did before
+    show_sections = sum(1 for t in TIERS if by_tier[t]) > 1
+
+    parts = []
+    for t in TIERS:
+        tier_metrics = by_tier[t]
+        if not tier_metrics:
+            continue
+        if show_sections:
+            parts.append(
+                f'<tr class="section-row"><td colspan="{len(WINDOW_LABELS) + 1}">'
+                f'{TIER_LABELS[t]}</td></tr>'
+            )
+        parts.extend(build_metric_row(m) for m in tier_metrics)
+    rows = "".join(parts)
     header_cells = "".join(f"<th>{w}</th>" for w in WINDOW_LABELS)
     return f"""
     <div class="journey-panel" id="panel-{journey}" role="tabpanel" aria-labelledby="tab-{journey}">

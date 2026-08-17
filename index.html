@@ -102,6 +102,17 @@
     white-space: nowrap;
   }
   .metric-name-header { text-align: left !important; min-width: 260px; }
+  .section-row td {
+    text-align: left !important;
+    padding: 16px 12px 7px !important;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+    background: var(--surface-alt, rgba(127,127,127,0.06));
+    border-bottom: 1px solid var(--gridline);
+  }
   .metrics-table thead th {
     color: var(--text-muted);
     font-weight: 600;
@@ -218,7 +229,7 @@
           </tr>
         </thead>
         <tbody>
-          
+          <tr class="section-row"><td colspan="10">System health &mdash; should sit at or near 100%</td></tr>
         <tr class="metric-row">
           <td class="metric-name">Booking provisioning (payment -&gt; booking)<div class="metric-desc">Of successful booking-fee payments, what share have a matching booking-fee-captured record against that same transaction?</div></td>
           <td class="metric-cell"><button class="drill-toggle" data-target="drill-2" aria-expanded="false"><span class="dot" style="background:#0ca30c"></span>100.0%<span class="drill-caret">&#9662;</span></button></td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#0ca30c"></span>100.0%</td><td class="metric-cell"><span class="dot" style="background:#7cb342"></span>99.5%</td>
@@ -314,6 +325,30 @@
               <script type="application/json" class="drill-raw-data">{"columns": ["Period", "Mobile", "Fee-paid time", "Days since fee", "Cancelled at", "Installed at", "Outcome"], "rows": [["D-1", "9654490350", "Aug 1, 8:11 AM", "16", "none", "none", "no cancel, no install"]]}</script>
             </div>
           </td>
+        </tr><tr class="section-row"><td colspan="10">Conversion &amp; efficiency &mdash; business rates, judged against trend not a fixed target</td></tr>
+        <tr class="metric-row">
+          <td class="metric-name">BFP -&gt; Installed within 7 days<div class="metric-desc">Of bookings whose booking fee was paid, what share were installed within 7 days? This is the B2I goal metric. Bookings still open, cancelled, or refunded all stay in the denominator, so it reads as a true conversion rate. Installs almost never land in the second week, so the 7-day horizon costs about one point versus 14 days and reports a week sooner.</div></td>
+          <td class="metric-cell"><span class="dot" style="background:#898781"></span>35.2%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>42.7%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>48.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>39.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>29.4%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>29.2%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>35.4%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>27.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>34.2%</td>
+        </tr>
+        <tr class="metric-row">
+          <td class="metric-name">BFP -&gt; Installed within 14 days<div class="metric-desc">Same as the 7-day goal metric but with a 14-day horizon, matching the point at which the auto-cancel sweep resolves a stale booking. Typically about one point above the 7-day number.</div></td>
+          <td class="metric-cell"><span class="dot" style="background:#898781"></span>35.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>43.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>49.8%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>40.9%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>30.9%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>30.0%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>36.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>28.3%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>34.8%</td>
+        </tr>
+        <tr class="metric-row">
+          <td class="metric-name">Step 1: BFP -&gt; address submitted<div class="metric-desc">Of bookings whose fee was paid, what share submitted an address within 14 days? First step of the B2I funnel and consistently the healthiest.</div></td>
+          <td class="metric-cell"><span class="dot" style="background:#898781"></span>93.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>90.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>92.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>93.1%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>94.8%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>94.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>93.8%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>94.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>97.8%</td>
+        </tr>
+        <tr class="metric-row">
+          <td class="metric-name">Step 2: address -&gt; technician assigned<div class="metric-desc">Of bookings that submitted an address, what share had a technician assigned within 14 days? One of the two steps where most of the funnel is lost, and the more volatile of the two.</div></td>
+          <td class="metric-cell"><span class="dot" style="background:#898781"></span>73.3%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>74.3%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>75.1%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>69.6%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>54.9%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>57.1%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>63.7%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>60.9%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>69.0%</td>
+        </tr>
+        <tr class="metric-row">
+          <td class="metric-name">Step 3: technician assigned -&gt; arrived<div class="metric-desc">Of bookings with a technician assigned, what share had the technician actually arrive within 14 days? The single largest leak in the B2I funnel.</div></td>
+          <td class="metric-cell"><span class="dot" style="background:#898781"></span>58.6%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>65.9%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>75.1%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>67.2%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>63.8%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>59.9%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>65.4%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>55.1%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>58.0%</td>
+        </tr>
+        <tr class="metric-row">
+          <td class="metric-name">Step 4: technician arrived -&gt; installed<div class="metric-desc">Of bookings where the technician arrived, what share completed the install within 14 days? Consistently strong, which is why the funnel losses sit upstream of arrival.</div></td>
+          <td class="metric-cell"><span class="dot" style="background:#898781"></span>88.4%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>98.3%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>95.5%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>93.8%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>93.1%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>92.8%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>93.4%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>89.1%</td><td class="metric-cell"><span class="dot" style="background:#898781"></span>88.8%</td>
         </tr>
         </tbody>
       </table>
