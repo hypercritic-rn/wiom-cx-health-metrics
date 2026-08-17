@@ -115,6 +115,25 @@
     background: var(--surface-alt, rgba(127,127,127,0.06));
     border-bottom: 1px solid var(--gridline);
   }
+  /* standalone grid table rendered below a journey's metric table */
+  .grid-block { margin-top: 28px; }
+  .grid-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+    padding: 0 2px 5px;
+  }
+  .grid-block .section-note { padding: 0 2px; margin-bottom: 9px; }
+  .grid-block .grid-foot { margin: 9px 0 0; }
+  .grid-table { border: 1px solid var(--border); border-radius: 8px; }
+  .grid-table .grid-rowhead {
+    text-align: left !important;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 110px;
+  }
   /* column labels repeated inside a section that sits away from the table head */
   .repeat-header th {
     color: var(--text-muted);

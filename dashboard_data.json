@@ -16568,6 +16568,220 @@
     "973/1092",
     "897/1010"
    ]
+  },
+  {
+   "id": 200,
+   "journey": "R2E",
+   "type": "table",
+   "name": "Renewal payment funnel (app journey)",
+   "description": "Of plan expiries, how far the customer got in the app renewal journey: opened the app, reached the plans page, completed payment. Each stage is measured from 3 days before expiry to 7 days after, so an early renewal is credited with the visit that produced it. This covers payments made in the app only &mdash; a substantial share of renewals happen through other channels, so payment success here sits below the overall renewal rate.",
+   "note": "A value marked <span class=\"mat-mark\">*</span> sits in a window whose observation period has not fully passed, so it will still rise &mdash; hover it for how much is in. A dash means app telemetry does not cover that window.",
+   "columns": [
+    "Stage",
+    "D-1",
+    "D-2",
+    "D-3",
+    "W-1",
+    "W-2",
+    "W-3",
+    "M-1",
+    "M-2",
+    "M-3"
+   ],
+   "rows": [
+    [
+     "Expiries (base)",
+     "5,482",
+     "5,264",
+     "5,363",
+     "37,859",
+     "40,332",
+     "39,715",
+     "170,945",
+     "159,961",
+     null
+    ],
+    [
+     "Opened the app",
+     "76.1%*~4,170/5,482|Partial: about 45% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "83.7%*~4,406/5,264|Partial: about 55% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "85.2%*~4,568/5,363|Partial: about 64% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "85.0%*~32,198/37,859|Partial: about 73% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "88.3%~35,601/40,332",
+     "88.3%~35,081/39,715",
+     "87.4%~149,406/170,945",
+     "85.0%~135,931/159,961",
+     null
+    ],
+    [
+     "Reached the plans page",
+     "67.4%*~3,694/5,482|Partial: about 45% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "76.6%*~4,030/5,264|Partial: about 55% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "79.5%*~4,263/5,363|Partial: about 64% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "79.1%*~29,931/37,859|Partial: about 73% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "82.5%~33,275/40,332",
+     "82.7%~32,834/39,715",
+     "80.9%~138,270/170,945",
+     "75.9%~121,444/159,961",
+     null
+    ],
+    [
+     "Payment success",
+     "43.1%*~2,362/5,482|Partial: about 45% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "53.7%*~2,829/5,264|Partial: about 55% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "56.0%*~3,003/5,363|Partial: about 64% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "55.3%*~20,946/37,859|Partial: about 73% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "60.1%~24,234/40,332",
+     "59.4%~23,572/39,715",
+     "58.2%~99,473/170,945",
+     "53.4%~85,386/159,961",
+     null
+    ],
+    [
+     "step: app open to plans",
+     "88.6%*~3,694/4,170|Partial: about 45% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "91.5%*~4,030/4,406|Partial: about 55% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "93.3%*~4,263/4,568|Partial: about 64% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "93.0%*~29,931/32,198|Partial: about 73% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "93.5%~33,275/35,601",
+     "93.6%~32,834/35,081",
+     "92.5%~138,270/149,406",
+     "89.3%~121,444/135,931",
+     null
+    ],
+    [
+     "step: plans to payment",
+     "63.9%*~2,362/3,694|Partial: about 45% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "70.2%*~2,829/4,030|Partial: about 55% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "70.4%*~3,003/4,263|Partial: about 64% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "70.0%*~20,946/29,931|Partial: about 73% of the observation window (3 days before expiry to 7 days after) has passed for this cohort, so this figure will still rise.",
+     "72.8%~24,234/33,275",
+     "71.8%~23,572/32,834",
+     "71.9%~99,473/138,270",
+     "70.3%~85,386/121,444",
+     null
+    ]
+   ],
+   "error": null
+  },
+  {
+   "id": 201,
+   "journey": "R2E",
+   "type": "table",
+   "name": "Renewal curve (R0 - R15)",
+   "description": "Of plan expiries, the share whose next plan had started by day N after expiry. R0 means on or before the expiry moment itself. Each R counts only expiries that have actually had N days, so a figure appears only once it can be measured.",
+   "note": "A value marked <span class=\"mat-mark\">*</span> covers only the earlier part of that window, because expiries later in it have not yet had N days &mdash; hover it for how much is included. A dash means no expiry in that window has had N days yet.",
+   "columns": [
+    "Renewed by",
+    "D-1",
+    "D-2",
+    "D-3",
+    "W-1",
+    "W-2",
+    "W-3",
+    "M-1",
+    "M-2",
+    "M-3"
+   ],
+   "rows": [
+    [
+     "R0",
+     "31.8%",
+     "33.9%",
+     "34.1%",
+     "33.2%",
+     "31.7%",
+     "31.2%",
+     "32.0%",
+     "32.6%",
+     "30.5%"
+    ],
+    [
+     "R1",
+     "73.2%*|Partial: based on 4456 of 5482 expiries in this window. The rest have not yet had 1 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "76.0%",
+     "77.5%",
+     "75.4%*|Partial: based on 36833 of 37859 expiries in this window. The rest have not yet had 1 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "72.4%",
+     "72.4%",
+     "72.2%",
+     "68.3%",
+     "67.0%"
+    ],
+    [
+     "R2",
+     null,
+     "81.6%*|Partial: based on 4219 of 5264 expiries in this window. The rest have not yet had 2 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "83.5%",
+     "82.9%*|Partial: based on 31332 of 37859 expiries in this window. The rest have not yet had 2 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "80.3%",
+     "80.1%",
+     "79.8%",
+     "75.9%",
+     "75.0%"
+    ],
+    [
+     "R3",
+     null,
+     null,
+     "85.6%*|Partial: based on 4371 of 5363 expiries in this window. The rest have not yet had 3 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "86.2%*|Partial: based on 26121 of 37859 expiries in this window. The rest have not yet had 3 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "84.2%",
+     "83.9%",
+     "83.3%",
+     "79.7%",
+     "78.9%"
+    ],
+    [
+     "R5",
+     null,
+     null,
+     null,
+     "89.5%*|Partial: based on 15388 of 37859 expiries in this window. The rest have not yet had 5 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "88.0%",
+     "88.0%",
+     "86.9%",
+     "83.7%",
+     "83.0%"
+    ],
+    [
+     "R7",
+     null,
+     null,
+     null,
+     "89.7%*|Partial: based on 4583 of 37859 expiries in this window. The rest have not yet had 7 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "90.1%",
+     "89.9%",
+     "88.8%",
+     "86.0%",
+     "85.1%"
+    ],
+    [
+     "R10",
+     null,
+     null,
+     null,
+     null,
+     "91.5%*|Partial: based on 28149 of 40332 expiries in this window. The rest have not yet had 10 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "91.5%",
+     "90.2%",
+     "87.7%",
+     "87.0%"
+    ],
+    [
+     "R15",
+     null,
+     null,
+     null,
+     null,
+     null,
+     "93.1%*|Partial: based on 38661 of 39715 expiries in this window. The rest have not yet had 15 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "91.8%",
+     "89.6%",
+     "88.8%"
+    ]
+   ],
+   "error": null
   }
  ]
 }

@@ -293,8 +293,55 @@ def build_metric_row(m):
     return row_html + build_drilldown_panel(m)
 
 
+def grid_cell(v):
+    """Grid cell encoding: "value", optionally "~num/den" for the small print, optionally
+    "|tooltip" when the figure is still partial. Returns (inner_html, title_attr)."""
+    if v is None or v == "":
+        return "&mdash;", ""
+    body, _, tip = str(v).partition("|")
+    val, _, counts = body.partition("~")
+    mark = ""
+    if val.endswith("*"):
+        val, mark = val[:-1], '<span class="mat-mark">*</span>'
+    inner = html.escape(val) + mark
+    if counts:
+        inner += f'<span class="cell-counts">{html.escape(counts)}</span>'
+    return inner, (f' title="{html.escape(tip)}"' if tip else "")
+
+
+def build_grid_block(t):
+    """A standalone table rendered under a journey's metric table."""
+    if t.get("error"):
+        body = f'<p class="drill-note">Could not load: {html.escape(t["error"])}</p>'
+    elif not t.get("rows"):
+        body = '<p class="drill-note">No data.</p>'
+    else:
+        head = "".join(f"<th>{html.escape(str(c))}</th>" for c in (t.get("columns") or []))
+        trs = []
+        for r in t["rows"]:
+            tds = []
+            for i, v in enumerate(r):
+                if i == 0:
+                    tds.append(f'<td class="grid-rowhead">{fmt_text(v)}</td>')
+                else:
+                    inner, title = grid_cell(v)
+                    cls = "metric-cell maturing" if "mat-mark" in inner else "metric-cell"
+                    tds.append(f'<td class="{cls}"{title}>{inner}</td>')
+            trs.append("<tr>" + "".join(tds) + "</tr>")
+        body = (
+            '<table class="metrics-table grid-table"><thead><tr>'
+            f'{head}</tr></thead><tbody>{"".join(trs)}</tbody></table>'
+        )
+    desc = f'<div class="section-note">{t["description"]}</div>' if t.get("description") else ""
+    note = f'<div class="section-note grid-foot">{t["note"]}</div>' if t.get("note") else ""
+    return (
+        f'<div class="grid-block"><div class="grid-title">{html.escape(t["name"])}</div>'
+        f"{desc}{body}{note}</div>"
+    )
+
+
 def build_journey_table(journey, metrics):
-    in_journey = [m for m in metrics if m["journey"] == journey]
+    in_journey = [m for m in metrics if m["journey"] == journey and m.get("type") != "table"]
     by_tier = {t: [m for m in in_journey if m.get("tier", "L0") == t] for t in TIERS}
     # only label the sections when a journey actually has both tiers, so journeys
     # that are still L0-only render exactly as they did before
@@ -332,6 +379,11 @@ def build_journey_table(journey, metrics):
         rendered += 1
     rows = "".join(parts)
     header_cells = "".join(f"<th>{w}</th>" for w in WINDOW_LABELS)
+    grids = "".join(
+        build_grid_block(t)
+        for t in metrics
+        if t["journey"] == journey and t.get("type") == "table"
+    )
     return f"""
     <div class="journey-panel" id="panel-{journey}" role="tabpanel" aria-labelledby="tab-{journey}">
       <table class="metrics-table">
@@ -344,7 +396,7 @@ def build_journey_table(journey, metrics):
         <tbody>
           {rows}
         </tbody>
-      </table>
+      </table>{grids}
     </div>"""
 
 

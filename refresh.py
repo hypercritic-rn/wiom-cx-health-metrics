@@ -60,6 +60,23 @@ def main():
     key = get_key()
     results = []
     for m in metrics:
+        # a "table" entry is a standalone grid rendered below the journey's metric table,
+        # not a single-rate metric row -- store the whole result set rather than one row
+        if m.get("type") == "table":
+            rows, cols, err = run_query(key, m["query"])
+            results.append({
+                "id": m["id"],
+                "journey": m["journey"],
+                "type": "table",
+                "name": m["name"],
+                "description": m["description"],
+                "note": m.get("note"),
+                "columns": cols,
+                "rows": rows,
+                "error": err[:500] if err else None,
+            })
+            print(f"  [{'ok' if not err else 'ERR'}] (table) {m['name']}")
+            continue
         entry = {
             "id": m["id"],
             "journey": m["journey"],
