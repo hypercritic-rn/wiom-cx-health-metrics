@@ -157,14 +157,21 @@ def build_drilldown_panel(m):
         row_html = []
         full_rows = []
         for r in dd["rows"]:
+            # tag each cell with its column type so free-text columns can wrap while
+            # timestamps and ids stay on one line
             cells = "".join(
-                f"<td>{format_cell(c['type'], v, c.get('null_label', null_label))}</td>" for c, v in zip(col_defs, r)
+                f"<td class=\"cell-{html.escape(str(c['type']))}\">"
+                f"{format_cell(c['type'], v, c.get('null_label', null_label))}</td>"
+                for c, v in zip(col_defs, r)
             )
             row_html.append(f"<tr>{cells}</tr>")
             full_rows.append(
                 [format_cell(c["type"], v, c.get("null_label", null_label), unmask=True) for c, v in zip(col_defs, r)]
             )
-        body = f"""<table class="drill-table"><thead><tr>{header_cells}</tr></thead><tbody>{"".join(row_html)}</tbody></table>"""
+        body = (
+            '<div class="drill-scroll"><table class="drill-table"><thead><tr>'
+            f'{header_cells}</tr></thead><tbody>{"".join(row_html)}</tbody></table></div>'
+        )
         # unmasked mobiles for CSV export only -- the visible table and "open in new tab" stay masked
         raw_json = json.dumps(
             {"columns": [c["label"] for c in col_defs], "rows": full_rows}, ensure_ascii=False

@@ -252,12 +252,24 @@
   }
   .drill-action:hover { background: var(--surface-1); }
   .drill-note { font-size: 12px; color: var(--text-muted); margin: 0; }
+  /* the panel must scroll on its own: the page body is overflow-x:hidden, so without
+     this a wide row is clipped and its right-hand columns become unreachable */
+  .drill-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .drill-table { width: 100%; border-collapse: collapse; font-size: 12px; }
   .drill-table th, .drill-table td {
     padding: 6px 10px;
     text-align: left;
     white-space: nowrap;
     border-bottom: 1px solid var(--gridline);
+    vertical-align: top;
+  }
+  /* free-text columns hold whole customer messages -- let them wrap instead of
+     stretching the table to the width of the longest message */
+  .drill-table td.cell-text {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    min-width: 220px;
+    max-width: 420px;
   }
   .drill-table th { color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 10px; letter-spacing: 0.03em; }
 
@@ -347,7 +359,10 @@
             ? (data => [data.columns, ...data.rows])(JSON.parse(rawEl.textContent))
             : tableToRows(table);
           const csv = toCsv(rows);
-          const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+          // Excel on Windows reads a BOM-less .csv in the system ANSI codepage, which
+          // mangles Hindi. The MIME charset is ignored for downloaded files, so the
+          // UTF-8 BOM is what actually makes Devanagari open correctly.
+          const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
@@ -361,7 +376,9 @@
           const doc = '<!doctype html><html><head><meta charset="utf-8"><title>' + title + '</title>'
             + '<style>body{font-family:system-ui,sans-serif;padding:24px;color:#0b0b0b}'
             + 'table{border-collapse:collapse;width:100%;font-size:13px}'
-            + 'th,td{padding:6px 12px;text-align:left;border-bottom:1px solid #ddd;white-space:nowrap}'
+            + 'th{padding:6px 12px;text-align:left;border-bottom:1px solid #ddd;white-space:nowrap}'
+            + 'td{padding:6px 12px;text-align:left;border-bottom:1px solid #ddd;'
+            + 'vertical-align:top;white-space:pre-wrap;overflow-wrap:anywhere;max-width:460px}'
             + 'th{text-transform:uppercase;font-size:11px;color:#666}h1{font-size:16px}</style></head>'
             + '<body><h1>' + title + '</h1>' + table.outerHTML + '</body></html>';
           const blob = new Blob([doc], { type: 'text/html' });
