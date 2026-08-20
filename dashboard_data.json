@@ -572,32 +572,6 @@
    }
   },
   {
-   "id": 4,
-   "journey": "R2E",
-   "name": "Renewal Reminder - R0 (sent within 24h before expiry)",
-   "description": "Of plan expiries where the customer hadn't already recharged early (or renewed with zero gap), what share had the R0 renewal reminder sent within 24 hours before expiry?",
-   "tbd": false,
-   "unit": null,
-   "tier": "L0",
-   "kind": null,
-   "horizon_days": null,
-   "maturing_direction": null,
-   "values": [
-    0.6875,
-    5.8941,
-    99.8595,
-    99.9055,
-    99.9214,
-    99.9052,
-    99.8848,
-    99.8862,
-    99.7453
-   ],
-   "error": null,
-   "maturity": null,
-   "counts": null
-  },
-  {
    "id": 5,
    "journey": "R2E",
    "name": "Recharge to device live within 2h (non-queued only)",
@@ -11702,6 +11676,32 @@
    }
   },
   {
+   "id": 4,
+   "journey": "R2E",
+   "name": "Renewal Reminder - R0 (sent within 24h before expiry)",
+   "description": "Of plan expiries where the customer hadn't already recharged early (or renewed with zero gap), what share had the R0 renewal reminder sent within 24 hours before expiry?",
+   "tbd": false,
+   "unit": null,
+   "tier": "L0",
+   "kind": null,
+   "horizon_days": null,
+   "maturing_direction": null,
+   "values": [
+    0.6875,
+    5.8941,
+    99.8595,
+    99.9055,
+    99.9214,
+    99.9052,
+    99.8848,
+    99.8862,
+    99.7453
+   ],
+   "error": null,
+   "maturity": null,
+   "counts": null
+  },
+  {
    "id": 16,
    "journey": "Closure",
    "name": "% Refund Requested (PAYG)",
@@ -15784,8 +15784,8 @@
    "journey": "R2E",
    "type": "table",
    "name": "Renewal payment funnel (in-app, 5-minute chain)",
-   "description": "Of recharge-CTA clicks, how far the customer got in one continuous sitting. Each step must follow the previous one within 5 minutes, so this tracks a single attempt rather than anything that happened at some point that day. An attempt is a CTA click more than 30 minutes after that customer's previous one. Renewal traffic only.",
-   "note": "Three of these events only exist from 17 Aug 2026, so windows starting before that are blank. Payment summary and checkout sit at 100% by construction &mdash; those pages always load after their click, so read them as system checks, not conversion steps.",
+   "description": "Of recharge-CTA clicks, how far the customer got in one sitting. Each step must follow the previous within 5 minutes. An attempt is a CTA click more than 30 minutes after that customer's previous one.",
+   "note": "Three of these events start 17 Aug 2026, so earlier windows are blank. Payment summary and checkout read 100% by construction — those pages always load after their click.",
    "columns": [
     "Step",
     "D-1",
@@ -15915,8 +15915,8 @@
    "journey": "R2E",
    "type": "table",
    "name": "Renewal curve (R0 - R15)",
-   "description": "Of plan expiries, the share whose next plan had started by day N after expiry. R0 means on or before the expiry moment itself. Each R counts only expiries that have actually had N days, so a figure appears only once it can be measured.",
-   "note": "A value marked <span class=\"mat-mark\">*</span> covers only the earlier part of that window, because expiries later in it have not yet had N days &mdash; hover it for how much is included. A dash means no expiry in that window has had N days yet.",
+   "description": "Of plan expiries, the share whose next plan had started by day N after expiry. R0 means on or before the expiry moment.",
+   "note": "A value marked <span class=\"mat-mark\">*</span> covers only the earlier part of the window; the rest have not had N days yet. A dash means no expiry has had N days.",
    "columns": [
     "Renewed by",
     "D-1",
@@ -16310,8 +16310,8 @@
    "journey": "R2E",
    "type": "table",
    "name": "Reach around expiry — app opens and recharge intent",
-   "description": "Of plan expiries, the share of customers who opened the app (<code>chat_screen_loaded</code>) or revealed a plan price (<code>plan_reveal_price_clicked</code>, renewal flow) within the stated window either side of expiry. Each event is attributed to its nearest expiry and counted once per expiry, so repeat activity cannot inflate a row — customers average 3 to 5 events per window.",
-   "note": "A cell appears only once its window is fully matured: each width needs width + 1 days past the window's last expiry day, because an expiry at 23:59 still needs its full span. So ±24h fills every column, ±72h starts at D-4 and ±7d at W-2. A dash means not yet measurable, not zero.",
+   "description": "Of plan expiries, the share who opened the app or revealed a plan price within the stated window either side of expiry. Counted once per expiry.",
+   "note": "A cell appears once its window is matured (width + 1 days): ±24h fills every column, ±72h from D-4, ±7d from W-2. A dash means not yet measurable.",
    "columns": [
     "Metric",
     "D-2",
