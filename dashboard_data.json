@@ -16304,6 +16304,101 @@
     "917/3443",
     "865/2581"
    ]
+  },
+  {
+   "id": 202,
+   "journey": "R2E",
+   "type": "table",
+   "name": "Reach around expiry — app opens and recharge intent",
+   "description": "Of plan expiries, the share of customers who opened the app (<code>chat_screen_loaded</code>) or revealed a plan price (<code>plan_reveal_price_clicked</code>, renewal flow) within the stated window either side of expiry. Each event is attributed to its nearest expiry and counted once per expiry, so repeat activity cannot inflate a row — customers average 3 to 5 events per window.",
+   "note": "A cell appears only once its window is fully matured: each width needs width + 1 days past the window's last expiry day, because an expiry at 23:59 still needs its full span. So ±24h fills every column, ±72h starts at D-4 and ±7d at W-2. A dash means not yet measurable, not zero.",
+   "columns": [
+    "Metric",
+    "D-2",
+    "D-3",
+    "D-4",
+    "W-1",
+    "W-2",
+    "W-3",
+    "M-1",
+    "M-2",
+    "M-3"
+   ],
+   "rows": [
+    [
+     "App open (chat_screen_loaded) ±24h",
+     "72.3%~3,701/5,118",
+     "70.1%~3,715/5,299",
+     "71.2%~3,901/5,482",
+     "71.2%~26,964/37,859",
+     "69.7%~28,104/40,332",
+     "69.8%~27,733/39,715",
+     "68.7%~117,394/170,945",
+     "63.0%~100,698/159,961",
+     "63.4%~97,812/154,397"
+    ],
+    [
+     "App open (chat_screen_loaded) ±72h",
+     null,
+     null,
+     "82.3%~4,510/5,482",
+     "81.8%~30,974/37,859",
+     "80.8%~32,574/40,332",
+     "80.6%~32,006/39,715",
+     "79.3%~135,514/170,945",
+     "74.7%~119,428/159,961",
+     "76.5%~118,088/154,397"
+    ],
+    [
+     "App open (chat_screen_loaded) ±7d",
+     null,
+     null,
+     null,
+     null,
+     "85.4%~34,444/40,332",
+     "85.4%~33,902/39,715",
+     "83.9%~143,475/170,945",
+     "80.9%~129,369/159,961",
+     "82.6%~127,561/154,397"
+    ],
+    [
+     "Recharge intent (plan_reveal_price_clicked) ±24h",
+     "63.8%~3,266/5,118",
+     "62.1%~3,293/5,299",
+     "62.4%~3,423/5,482",
+     "63.1%~23,894/37,859",
+     "60.9%~24,566/40,332",
+     "61.1%~24,280/39,715",
+     "60.3%~103,138/170,945",
+     "53.3%~85,311/159,961",
+     "53.5%~82,664/154,397"
+    ],
+    [
+     "Recharge intent (plan_reveal_price_clicked) ±72h",
+     null,
+     null,
+     "75.4%~4,136/5,482",
+     "74.9%~28,369/37,859",
+     "73.3%~29,581/40,332",
+     "73.1%~29,034/39,715",
+     "71.7%~122,652/170,945",
+     "64.8%~103,723/159,961",
+     "65.6%~101,268/154,397"
+    ],
+    [
+     "Recharge intent (plan_reveal_price_clicked) ±7d",
+     null,
+     null,
+     null,
+     null,
+     "77.1%~31,112/40,332",
+     "77.0%~30,573/39,715",
+     "75.0%~128,271/170,945",
+     "69.1%~110,464/159,961",
+     "70.1%~108,172/154,397"
+    ]
+   ],
+   "error": null
   }
  ]
 }
