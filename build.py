@@ -33,9 +33,11 @@ TIER_LABELS = {
 TIER_NOTES = {
     "L1": (
         "Cohort = bookings that paid the fee in that window; cancelled, refunded and still-open "
-        "bookings stay in the denominator. Steps measured over 14 days. Values marked "
-        '<span class="mat-mark">*</span> are still counting &mdash; hover for the date they become '
-        "final and which way they can still move."
+        "bookings stay in the denominator. The four funnel steps are measured over 3 days and "
+        "multiply back exactly to the 3-day goal above them; the 5-day goal at the foot is the same "
+        "cohort given two more days. <strong>Only fully matured cohorts are shown</strong>, so this "
+        "section's clock runs 6 days behind the rows above: D-1 here is the newest booking day that "
+        "has completed its full horizon, not yesterday. Hover any value for the dates it covers."
     ),
 }
 
@@ -227,10 +229,15 @@ def build_metric_row(m):
     drill_id = f"drill-{m['id']}"
 
     def maturity_bits(idx):
-        """Returns (cell_class_suffix, marker_html, title_attr) for one window."""
+        """Returns (cell_class_suffix, marker_html, title_attr) for one window.
+        A label of "matured" (optionally "matured|<note>") is final: no marker, but any
+        note becomes a hover, which is how a shifted-clock cell states its real dates."""
         label = maturity[idx] if idx < len(maturity) else None
-        if not label or label == "matured":
+        if not label:
             return "", "", ""
+        if label == "matured" or label.startswith("matured|"):
+            _, _, note = label.partition("|")
+            return "", "", (f' title="{html.escape(note)}"' if note else "")
         # label is "<close date>|<days until close>" -- report when the number
         # becomes final rather than how much of the window has elapsed
         close, _, days = label.partition("|")
@@ -361,14 +368,9 @@ def build_journey_table(journey, metrics):
         if not tier_metrics:
             continue
         if show_sections:
+            # the note explains the cohort, the horizon and why recent columns are blank,
+            # so it is always relevant to a tier that has one
             note = TIER_NOTES.get(t)
-            # only show the maturity note if this tier actually has a maturing value
-            if note and not any(
-                lbl and lbl != "matured"
-                for mm in tier_metrics
-                for lbl in (mm.get("maturity") or [])
-            ):
-                note = None
             note_html = f'<div class="section-note">{note}</div>' if note else ""
             parts.append(
                 f'<tr class="section-row"><td colspan="{len(WINDOW_LABELS) + 1}">'
