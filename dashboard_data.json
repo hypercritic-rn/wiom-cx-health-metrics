@@ -15780,6 +15780,137 @@
    }
   },
   {
+   "id": 200,
+   "journey": "R2E",
+   "type": "table",
+   "name": "Renewal payment funnel (in-app, 5-minute chain)",
+   "description": "Of recharge-CTA clicks, how far the customer got in one continuous sitting. Each step must follow the previous one within 5 minutes, so this tracks a single attempt rather than anything that happened at some point that day. An attempt is a CTA click more than 30 minutes after that customer's previous one. Renewal traffic only.",
+   "note": "Three of these events only exist from 17 Aug 2026, so windows starting before that are blank. Payment summary and checkout sit at 100% by construction &mdash; those pages always load after their click, so read them as system checks, not conversion steps.",
+   "columns": [
+    "Step",
+    "D-1",
+    "D-2",
+    "D-3",
+    "W-1",
+    "W-2",
+    "W-3",
+    "M-1",
+    "M-2",
+    "M-3"
+   ],
+   "rows": [
+    [
+     "Recharge CTA clicked (base)",
+     "4,691",
+     "4,834",
+     "4,796",
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     "-> Plans page loaded",
+     "98.5%~4,619/4,691",
+     "98.3%~4,753/4,834",
+     "98.5%~4,722/4,796",
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     "-> Price revealed",
+     "90.8%~4,195/4,619",
+     "90.2%~4,287/4,753",
+     "91.8%~4,336/4,722",
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     "-> Plan selected",
+     "95.0%~3,986/4,195",
+     "93.6%~4,014/4,287",
+     "95.1%~4,124/4,336",
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     "-> Payment summary",
+     "100.0%~3,986/3,986",
+     "100.0%~4,014/4,014",
+     "100.0%~4,124/4,124",
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     "-> Pay now clicked",
+     "96.7%~3,854/3,986",
+     "96.3%~3,864/4,014",
+     "96.8%~3,990/4,124",
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     "-> Checkout page",
+     "100.0%~3,854/3,854",
+     "100.0%~3,864/3,864",
+     "100.0%~3,990/3,990",
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     "-> Payment success",
+     "75.4%~2,907/3,854",
+     "74.9%~2,893/3,864",
+     "76.2%~3,039/3,990",
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     "End to end (CTA -> success)",
+     "62.0%~2,907/4,691",
+     "59.8%~2,893/4,834",
+     "63.4%~3,039/4,796",
+     null,
+     null,
+     null,
+     null,
+     null,
+     null
+    ]
+   ],
+   "error": null
+  },
+  {
    "id": 201,
    "journey": "R2E",
    "type": "table",
