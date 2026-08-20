@@ -33,11 +33,9 @@ TIER_LABELS = {
 TIER_NOTES = {
     "L1": (
         "Cohort = bookings that paid the fee in that window; cancelled, refunded and still-open "
-        "bookings stay in the denominator. The four funnel steps are measured over 3 days and "
-        "multiply back exactly to the 3-day goal above them; the 5-day goal at the foot is the same "
-        "cohort given two more days. <strong>Only fully matured cohorts are shown</strong>, so this "
-        "section's clock runs 6 days behind the rows above: D-1 here is the newest booking day that "
-        "has completed its full horizon, not yesterday. Hover any value for the dates it covers."
+        "bookings stay in the denominator. <strong>Only matured cohorts are shown</strong>, so D-1 is "
+        "the newest booking day past that metric's horizon, not yesterday. Hover a value for the "
+        "dates it covers."
     ),
 }
 
