@@ -15911,125 +15911,6 @@
    "error": null
   },
   {
-   "id": 201,
-   "journey": "R2E",
-   "type": "table",
-   "name": "Renewal curve (R0 - R15)",
-   "description": "Of plan expiries, the share whose next plan had started by day N after expiry. R0 means on or before the expiry moment.",
-   "note": "A value marked <span class=\"mat-mark\">*</span> covers only the earlier part of the window; the rest have not had N days yet. A dash means no expiry has had N days.",
-   "columns": [
-    "Renewed by",
-    "D-1",
-    "D-2",
-    "D-3",
-    "W-1",
-    "W-2",
-    "W-3",
-    "M-1",
-    "M-2",
-    "M-3"
-   ],
-   "rows": [
-    [
-     "R0",
-     "35.4%",
-     "31.7%",
-     "33.6%",
-     "33.2%",
-     "31.7%",
-     "31.2%",
-     "32.0%",
-     "32.6%",
-     "30.5%"
-    ],
-    [
-     "R1",
-     "83.9%*|Partial: based on 397 of 5053 expiries in this window. The rest have not yet had 1 day(s) since expiry, so this figure covers only the earlier part of the window.",
-     "76.1%",
-     "74.1%",
-     "75.5%",
-     "72.4%",
-     "72.4%",
-     "72.2%",
-     "68.3%",
-     "67.0%"
-    ],
-    [
-     "R2",
-     null,
-     "89.3%*|Partial: based on 394 of 5118 expiries in this window. The rest have not yet had 2 day(s) since expiry, so this figure covers only the earlier part of the window.",
-     "81.1%",
-     "82.9%",
-     "80.3%",
-     "80.1%",
-     "79.8%",
-     "75.9%",
-     "75.0%"
-    ],
-    [
-     "R3",
-     null,
-     null,
-     "87.1%*|Partial: based on 427 of 5299 expiries in this window. The rest have not yet had 3 day(s) since expiry, so this figure covers only the earlier part of the window.",
-     "86.1%",
-     "84.2%",
-     "83.9%",
-     "83.3%",
-     "79.7%",
-     "78.9%"
-    ],
-    [
-     "R5",
-     null,
-     null,
-     null,
-     "89.8%*|Partial: based on 27512 of 37859 expiries in this window. The rest have not yet had 5 day(s) since expiry, so this figure covers only the earlier part of the window.",
-     "88.0%",
-     "88.0%",
-     "86.9%",
-     "83.7%",
-     "83.0%"
-    ],
-    [
-     "R7",
-     null,
-     null,
-     null,
-     "91.3%*|Partial: based on 16709 of 37859 expiries in this window. The rest have not yet had 7 day(s) since expiry, so this figure covers only the earlier part of the window.",
-     "90.1%",
-     "89.9%",
-     "88.8%",
-     "86.0%",
-     "85.1%"
-    ],
-    [
-     "R10",
-     null,
-     null,
-     null,
-     "94.9%*|Partial: based on 375 of 37859 expiries in this window. The rest have not yet had 10 day(s) since expiry, so this figure covers only the earlier part of the window.",
-     "91.7%",
-     "91.5%",
-     "90.2%",
-     "87.7%",
-     "87.0%"
-    ],
-    [
-     "R15",
-     null,
-     null,
-     null,
-     null,
-     "93.2%*|Partial: based on 12109 of 40332 expiries in this window. The rest have not yet had 15 day(s) since expiry, so this figure covers only the earlier part of the window.",
-     "93.2%",
-     "91.8%",
-     "89.6%",
-     "88.8%"
-    ]
-   ],
-   "error": null
-  },
-  {
    "id": 101,
    "journey": "B2I",
    "name": "BFP -> Installed within 3 days",
@@ -16396,6 +16277,125 @@
      "75.0%~128,271/170,945",
      "69.1%~110,464/159,961",
      "70.1%~108,172/154,397"
+    ]
+   ],
+   "error": null
+  },
+  {
+   "id": 201,
+   "journey": "R2E",
+   "type": "table",
+   "name": "Renewal curve (R0 - R15)",
+   "description": "Of plan expiries, the share whose next plan had started by day N after expiry. R0 means on or before the expiry moment.",
+   "note": "A value marked <span class=\"mat-mark\">*</span> covers only the earlier part of the window; the rest have not had N days yet. A dash means no expiry has had N days.",
+   "columns": [
+    "Renewed by",
+    "D-1",
+    "D-2",
+    "D-3",
+    "W-1",
+    "W-2",
+    "W-3",
+    "M-1",
+    "M-2",
+    "M-3"
+   ],
+   "rows": [
+    [
+     "R0",
+     "35.4%",
+     "31.7%",
+     "33.6%",
+     "33.2%",
+     "31.7%",
+     "31.2%",
+     "32.0%",
+     "32.6%",
+     "30.5%"
+    ],
+    [
+     "R1",
+     "83.9%*|Partial: based on 397 of 5053 expiries in this window. The rest have not yet had 1 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "76.1%",
+     "74.1%",
+     "75.5%",
+     "72.4%",
+     "72.4%",
+     "72.2%",
+     "68.3%",
+     "67.0%"
+    ],
+    [
+     "R2",
+     null,
+     "89.3%*|Partial: based on 394 of 5118 expiries in this window. The rest have not yet had 2 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "81.1%",
+     "82.9%",
+     "80.3%",
+     "80.1%",
+     "79.8%",
+     "75.9%",
+     "75.0%"
+    ],
+    [
+     "R3",
+     null,
+     null,
+     "87.1%*|Partial: based on 427 of 5299 expiries in this window. The rest have not yet had 3 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "86.1%",
+     "84.2%",
+     "83.9%",
+     "83.3%",
+     "79.7%",
+     "78.9%"
+    ],
+    [
+     "R5",
+     null,
+     null,
+     null,
+     "89.8%*|Partial: based on 27512 of 37859 expiries in this window. The rest have not yet had 5 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "88.0%",
+     "88.0%",
+     "86.9%",
+     "83.7%",
+     "83.0%"
+    ],
+    [
+     "R7",
+     null,
+     null,
+     null,
+     "91.3%*|Partial: based on 16709 of 37859 expiries in this window. The rest have not yet had 7 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "90.1%",
+     "89.9%",
+     "88.8%",
+     "86.0%",
+     "85.1%"
+    ],
+    [
+     "R10",
+     null,
+     null,
+     null,
+     "94.9%*|Partial: based on 375 of 37859 expiries in this window. The rest have not yet had 10 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "91.7%",
+     "91.5%",
+     "90.2%",
+     "87.7%",
+     "87.0%"
+    ],
+    [
+     "R15",
+     null,
+     null,
+     null,
+     null,
+     "93.2%*|Partial: based on 12109 of 40332 expiries in this window. The rest have not yet had 15 day(s) since expiry, so this figure covers only the earlier part of the window.",
+     "93.2%",
+     "91.8%",
+     "89.6%",
+     "88.8%"
     ]
    ],
    "error": null
