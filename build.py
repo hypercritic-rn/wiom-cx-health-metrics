@@ -272,10 +272,9 @@ def build_metric_row(m):
         cells = "".join(cells_html)
         frac_note = ""
     else:
-        # detect 0-1 fraction metrics (e.g. Address->Confirm) and normalize to percentage for display
-        non_null = [f for f in floats if f is not None]
-        is_fraction = bool(non_null) and all(0 <= f <= 1 for f in non_null)
-        display_values = [f * 100 if (f is not None and is_fraction) else f for f in floats]
+        # all percentage metrics arrive on a 0-100 scale straight from their queries;
+        # never rescale here -- a genuinely collapsed metric (e.g. 0.4%) must show 0.4%
+        display_values = floats
 
         # conversion metrics get a neutral dot: there is no agreed target, so the
         # L0 "under 90% is critical" scale would paint a healthy rate red
