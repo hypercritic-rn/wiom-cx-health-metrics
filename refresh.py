@@ -54,6 +54,8 @@ def run_query(key, sql, retries=3, timeout=280):
 
 def _to_num(v):
     if isinstance(v, str):
+        if v.strip() in ("", "-"):
+            return None
         try:
             return float(v)
         except ValueError:
