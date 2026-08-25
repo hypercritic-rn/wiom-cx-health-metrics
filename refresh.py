@@ -52,6 +52,15 @@ def run_query(key, sql, retries=3, timeout=280):
     return None, None, last_err
 
 
+def _to_num(v):
+    if isinstance(v, str):
+        try:
+            return float(v)
+        except ValueError:
+            return v
+    return v
+
+
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     with open(os.path.join(base_dir, "metrics_config.json"), encoding="utf-8") as f:
@@ -105,6 +114,9 @@ def main():
                 row = rows[0] if rows else []
                 values = (row[1:] if len(row) > 1 else [])[:9]
                 values += [None] * (9 - len(values))
+                # Metabase serializes some DECIMAL columns as strings -- coerce the
+                # value columns to float so consumers never see a numeric string
+                values = [_to_num(v) for v in values]
                 entry["values"] = values
                 entry["error"] = None
                 # conversion metrics also return a maturity label per window in
