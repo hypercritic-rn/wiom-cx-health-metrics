@@ -294,7 +294,7 @@ def build_metric_row(m):
             inner = f'<span class="dot" style="background:{color}"></span>{dv:.1f}%{mark}' + counts_html(idx)
             cells_html.append(f'<td class="metric-cell{mcls}"{tip}>{wrap_drill(idx, inner)}</td>')
         cells = "".join(cells_html)
-        frac_note = ' <span class="frac-note">(normalized from 0-1 fraction)</span>' if is_fraction else ""
+        frac_note = ""
 
     row_html = f"""
         <tr class="metric-row">
