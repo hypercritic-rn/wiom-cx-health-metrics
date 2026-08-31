@@ -2,9 +2,21 @@ name: Daily metrics refresh
 
 on:
   schedule:
-    # 02:00 UTC = 07:30 IST
-    - cron: '0 2 * * *'
+    # Three attempts before the 04:31 UTC Slack routines, on odd minutes --
+    # GitHub delays on-the-hour scheduled runs by hours under load (observed
+    # 6-12h drift on the single '0 2 * * *' cron, 27-31 Aug 2026), so give the
+    # refresh several chances to land fresh data in time. The job is
+    # idempotent: a repeat run just recommits the latest numbers.
+    - cron: '23 0 * * *'   # 05:53 IST
+    - cron: '23 2 * * *'   # 07:53 IST
+    - cron: '23 3 * * *'   # 08:53 IST (last chance before 10:01 IST routines)
   workflow_dispatch: {}
+
+# never run two refreshes at once -- a delayed cron catching up while another
+# attempt is mid-push would race on the commit
+concurrency:
+  group: daily-refresh
+  cancel-in-progress: false
 
 permissions:
   contents: write
