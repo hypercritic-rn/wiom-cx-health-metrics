@@ -45,4 +45,9 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add dashboard_data.json index.html
           git diff --staged --quiet || git commit -m "Daily metrics refresh"
+          # master may move during the 10-15 min run (config/code pushes) --
+          # replay the data commit on top of it; on any conflict keep OUR
+          # freshly generated files (-X theirs = the replayed commit in rebase)
+          git fetch origin
+          git rebase -X theirs origin/master
           git push
