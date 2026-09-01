@@ -2,13 +2,17 @@ name: Daily metrics refresh
 
 on:
   schedule:
-    # Three attempts before the 04:31 UTC Slack routines, on odd minutes --
-    # GitHub delays on-the-hour scheduled runs by hours under load (observed
-    # 6-12h drift on the single '0 2 * * *' cron, 27-31 Aug 2026), so give the
-    # refresh several chances to land fresh data in time. The job is
-    # idempotent: a repeat run just recommits the latest numbers.
-    - cron: '23 0 * * *'   # 05:53 IST
-    - cron: '23 2 * * *'   # 07:53 IST
+    # The Slack routines fire at 04:30-04:31 UTC and need data <12h old.
+    # GitHub delays this repo's scheduled runs by 2-6+ hours (observed
+    # 27 Aug - 1 Sep 2026; the tight 00:23/02:23/03:23 spread all missed the
+    # window on 1 Sep). Key fact: every metric is D-1 (IST), and yesterday-IST
+    # is complete at 18:30 UTC -- so refreshing from the previous EVENING
+    # already captures the full D-1. Spread attempts across the night so even
+    # a 6h delay lands fresh data before 04:31 UTC. The job is idempotent:
+    # a repeat run just recommits the latest numbers.
+    - cron: '23 19 * * *'  # 00:53 IST -- first full-D-1 slot
+    - cron: '23 21 * * *'  # 02:53 IST
+    - cron: '23 1 * * *'   # 06:53 IST
     - cron: '23 3 * * *'   # 08:53 IST (last chance before 10:01 IST routines)
   workflow_dispatch: {}
 
