@@ -1,5 +1,5 @@
 {
- "generated_at_utc": "2026-10-22T14:14:12.179697+00:00",
+ "generated_at_utc": "2026-10-22T22:40:30.694501+00:00",
  "metrics": [
   {
    "id": 2,
@@ -13,7 +13,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1 to D-3",
     "columns": [
@@ -40,7 +40,7 @@
     ],
     "null_label": "—",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -55,7 +55,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1 to D-3",
     "columns": [
@@ -86,7 +86,7 @@
     ],
     "null_label": "never confirmed",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -101,7 +101,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1 to D-3",
     "columns": [
@@ -132,7 +132,7 @@
     ],
     "null_label": "not created",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -147,7 +147,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1 to D-3",
     "columns": [
@@ -182,7 +182,7 @@
     ],
     "null_label": "no ping",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -197,7 +197,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1 to D-3",
     "columns": [
@@ -224,7 +224,7 @@
     ],
     "null_label": "not sent",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -239,7 +239,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1",
     "columns": [
@@ -278,7 +278,7 @@
     ],
     "null_label": "none",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -293,7 +293,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 8,
@@ -307,7 +307,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 9,
@@ -321,7 +321,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 10,
@@ -335,7 +335,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1",
     "columns": [
@@ -378,7 +378,7 @@
     ],
     "null_label": "none",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -393,7 +393,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1 (one row per connection)",
     "columns": [
@@ -436,7 +436,7 @@
     ],
     "null_label": "none",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -451,7 +451,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 16,
@@ -465,7 +465,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1",
     "columns": [
@@ -496,7 +496,7 @@
     ],
     "null_label": "none",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -511,7 +511,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1",
     "columns": [
@@ -542,7 +542,7 @@
     ],
     "null_label": "none",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -557,7 +557,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1",
     "columns": [
@@ -580,7 +580,7 @@
     ],
     "null_label": "—",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -595,7 +595,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1",
     "columns": [
@@ -618,7 +618,7 @@
     ],
     "null_label": "—",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -633,7 +633,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1",
     "columns": [
@@ -687,7 +687,7 @@
     ],
     "null_label": "—",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -702,7 +702,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1",
     "columns": [
@@ -729,7 +729,7 @@
     ],
     "null_label": "not found in ticket system",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -744,7 +744,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1",
     "columns": [
@@ -771,7 +771,7 @@
     ],
     "null_label": "not found reopened in ticket system",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -786,7 +786,7 @@
    "horizon_days": null,
    "maturing_direction": null,
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>",
+   "error": "HTTP Error 401: Unauthorized",
    "drilldown": {
     "window": "D-1 to D-3",
     "columns": [
@@ -821,7 +821,7 @@
     ],
     "null_label": "none",
     "rows": null,
-    "error": "<urlopen error [Errno 110] Connection timed out>"
+    "error": "HTTP Error 401: Unauthorized"
    }
   },
   {
@@ -833,7 +833,7 @@
    "note": "Three of these events start 17 Aug 2026, so earlier windows are blank. Payment summary and checkout read 100% by construction — those pages always load after their click.",
    "columns": null,
    "rows": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 101,
@@ -847,7 +847,7 @@
    "horizon_days": 3,
    "maturing_direction": "up",
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 103,
@@ -861,7 +861,7 @@
    "horizon_days": 3,
    "maturing_direction": "up",
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 104,
@@ -875,7 +875,7 @@
    "horizon_days": 3,
    "maturing_direction": "either",
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 105,
@@ -889,7 +889,7 @@
    "horizon_days": 3,
    "maturing_direction": "either",
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 106,
@@ -903,7 +903,7 @@
    "horizon_days": 3,
    "maturing_direction": "either",
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 102,
@@ -917,7 +917,7 @@
    "horizon_days": 5,
    "maturing_direction": "up",
    "values": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 202,
@@ -928,7 +928,7 @@
    "note": "A cell appears once its window is matured (width + 1 days): ±24h fills every column, ±72h from D-4, ±7d from W-2. A dash means not yet measurable.",
    "columns": null,
    "rows": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   },
   {
    "id": 201,
@@ -939,7 +939,7 @@
    "note": "A value marked <span class=\"mat-mark\">*</span> covers only the earlier part of the window; the rest have not had N days yet. A dash means no expiry has had N days.",
    "columns": null,
    "rows": null,
-   "error": "<urlopen error [Errno 110] Connection timed out>"
+   "error": "HTTP Error 401: Unauthorized"
   }
  ]
 }
